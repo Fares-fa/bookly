@@ -9,6 +9,7 @@ class DeviceInfoService {
 
   final DeviceInfoPlugin _deviceInfo = DeviceInfoPlugin();
 
+
   /// Retrieve full device information as a Map.
   FutureEither<Map<String, dynamic>> getFullDeviceInfo() async {
     return runTask(() async {
