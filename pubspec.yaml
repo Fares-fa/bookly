@@ -37,6 +37,9 @@ dependencies:
   cached_network_image: ^3.4.1
   flutter_svg: ^2.2.4
 
+  # Animations - Lottie
+  lottie: ^3.3.2
+
   # Icons
 
   # Shimmer / Skeleton
@@ -92,6 +95,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/icons/
+    - assets/lottie/
     - assets/fonts/
     - .env
 
