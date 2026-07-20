@@ -11,3 +11,4 @@ export 'common_image.dart';
 export 'toast/imports.dart';
 export 'app_cached_image.dart';
 export 'app_reserved_typing_text.dart';
+export 'app_segmented_progress_bar.dart';

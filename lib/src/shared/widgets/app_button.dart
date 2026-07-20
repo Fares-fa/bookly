@@ -26,6 +26,7 @@ class AppButton extends StatelessWidget {
     this.isFullWidth = false,
     this.prefixIcon,
     this.suffixIcon,
+    this.borderRadius,
   });
 
   final String label;
@@ -39,6 +40,7 @@ class AppButton extends StatelessWidget {
   final bool isFullWidth;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
+  final BorderRadius? borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -129,12 +131,10 @@ class AppButton extends StatelessWidget {
             backgroundColor: bg,
             foregroundColor: fg,
             padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            shape: border != null
-                ? RoundedRectangleBorder(
-                    borderRadius: AppBorders.button,
-                    side: border,
-                  )
-                : const RoundedRectangleBorder(borderRadius: AppBorders.button),
+            shape: RoundedRectangleBorder(
+              borderRadius: borderRadius ?? AppBorders.button,
+              side: border ?? BorderSide.none,
+            ),
           ),
           child: child,
         ),

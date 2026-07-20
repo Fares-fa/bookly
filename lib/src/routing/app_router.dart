@@ -9,7 +9,7 @@ import 'package:bookly/src/features/auth/presentation/screens/forgot_password_sc
 import 'package:bookly/src/features/auth/presentation/providers/session_provider.dart';
 
 import 'package:bookly/src/features/home/presentation/screens/home_page.dart';
-import 'package:bookly/src/features/onboarding/presentation/screens/onboarding_page.dart';
+import 'package:bookly/src/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:bookly/src/features/splash/presentation/screens/splash_screen.dart';
 
 
@@ -36,7 +36,11 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.onboarding,
       name: 'onboarding',
-      builder: (context, state) => const OnboardingPage(),
+      builder: (context, state) => OnboardingScreen(
+        // TODO: Persist an "onboarding seen" flag here once that exists.
+        onFinished: () => rootContext?.go(AppRoutes.login),
+        onGuest: () => rootContext?.go(AppRoutes.home),
+      ),
     ),
     GoRoute(
       path: AppRoutes.login,
