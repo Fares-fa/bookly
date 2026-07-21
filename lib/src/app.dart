@@ -14,7 +14,7 @@ class App extends StatelessWidget {
       title: 'bookly',
       debugShowCheckedModeBanner: false,
       theme: buildLightTheme(primaryColorHex: '#0042D3'),
-      darkTheme: buildDarkTheme(primaryColorHex: '#0042D3'),
+      // darkTheme: buildDarkTheme(primaryColorHex: '#0042D3'),
       themeMode: ThemeMode.system,
       routerConfig: appRouter,
       builder: (context, child) {

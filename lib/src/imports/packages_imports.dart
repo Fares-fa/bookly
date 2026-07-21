@@ -23,5 +23,7 @@ export 'package:permission_handler/permission_handler.dart';
 export 'package:geolocator/geolocator.dart' hide ServiceStatus;
 export 'package:device_info_plus/device_info_plus.dart';
 export 'package:app_version_update/app_version_update.dart';
+export 'package:country_code_picker/country_code_picker.dart';
+export 'package:pinput/pinput.dart';
 
 
