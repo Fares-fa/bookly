@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:bookly/src/shared/app_assets.dart';
 import 'package:bookly/src/theme/app_colors.dart';
 import 'package:bookly/src/theme/app_text_style.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// White gallery strip of square thumbnails resting on the hero image.
 /// The last thumbnail shows a "+N" overlay for the remaining photos.
