@@ -33,18 +33,16 @@ class GenderOption extends StatelessWidget {
           ),
           color: selected ? cs.primary.withValues(alpha: 0.08) : null,
         ),
-        child: Expanded(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            spacing: 4,
-            children: [
-              Icon(icon, color: selected ? cs.primary : cs.onSurfaceVariant),
-              Text(label,
-                  style: tt.bodyMedium?.copyWith(
-                      color: selected ? cs.primary : cs.onSurfaceVariant,
-                      fontWeight: FontWeight.w400)),
-            ],
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          spacing: 4,
+          children: [
+            Icon(icon, color: selected ? cs.primary : cs.onSurfaceVariant),
+            Text(label,
+                style: tt.bodyMedium?.copyWith(
+                    color: selected ? cs.primary : cs.onSurfaceVariant,
+                    fontWeight: FontWeight.w400)),
+          ],
         ),
       ),
     );
