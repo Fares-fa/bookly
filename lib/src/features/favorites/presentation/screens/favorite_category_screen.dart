@@ -1,10 +1,11 @@
 import 'package:bookly/src/imports/imports.dart';
 
+import 'package:bookly/src/features/favorites/presentation/favorite_category.dart';
 import 'package:bookly/src/features/favorites/presentation/widgets/hotel_card.dart';
 
 // TODO: Replace with real data from a favorites repository/provider once one
-// exists. Every image slot below points at the same placeholder asset until
-// real hotel photos/logos are available.
+// exists, keyed by category. Every image slot below points at the same
+// placeholder asset until real photos/logos are available.
 const _placeholderHotels = <HotelCardData>[
   HotelCardData(
     logoAsset: AppAssets.favouritesHotel,
@@ -36,10 +37,13 @@ const _placeholderHotels = <HotelCardData>[
   ),
 ];
 
-/// Favorite hotels list. Self-contained — the caller decides how/when to
-/// navigate here (no route is registered by this file).
-class FavoriteHotelsScreen extends StatelessWidget {
-  const FavoriteHotelsScreen({super.key});
+/// Favorites list for a single [FavoriteCategory] — its title reflects
+/// whichever category the user picked on [MyFavoritesScreen]. Self-contained;
+/// the caller decides how/when to navigate here.
+class FavoriteCategoryScreen extends StatelessWidget {
+  const FavoriteCategoryScreen({super.key, required this.category});
+
+  final FavoriteCategory category;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +52,7 @@ class FavoriteHotelsScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            const _Header(),
+            _FavoriteCategoryHeader(title: category.screenTitle),
             Expanded(
               child: ListView.separated(
                 padding: EdgeInsets.all(AppSpacing.md.w),
@@ -66,8 +70,10 @@ class FavoriteHotelsScreen extends StatelessWidget {
   }
 }
 
-class _Header extends StatelessWidget {
-  const _Header();
+class _FavoriteCategoryHeader extends StatelessWidget {
+  const _FavoriteCategoryHeader({required this.title});
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +87,7 @@ class _Header extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Text(
-              'Favorite Hotels',
+              title,
               style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600, color: cs.onSurface),
             ),
             Align(
