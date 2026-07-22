@@ -27,13 +27,13 @@ class ReviewsSection extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         const _Review(
-          name: 'Mohamed el barawy',
+          name: 'Fares Abd Elrazek',
           rating: '9.5',
           comment: 'Amazing the best in sharm el Shiekh',
         ),
         const Divider(height: 1, thickness: 1, color: AppColors.divider),
         const _Review(
-          name: 'Ibrahim Fayek',
+          name: 'Mohamed el barawy',
           rating: '9.5',
           comment: 'Amazing the best in sharm el Shiekh',
         ),
