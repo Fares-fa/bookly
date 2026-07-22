@@ -12,7 +12,6 @@ class CategoryGridTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tt = context.theme.textTheme;
-    final cs = context.theme.colorScheme;
 
     void handleTap() {
       if (data.comingSoon) return;
@@ -40,7 +39,7 @@ class CategoryGridTile extends StatelessWidget {
                   data.label,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: tt.bodyMedium?.copyWith(color: cs.onSurface, fontWeight: FontWeight.w600),
+                  style: const TextStyle(fontSize: 13,fontWeight: FontWeight.w400,color: Colors.black),
                 ),
                 SizedBox(height: AppSpacing.sm),
                 Image.asset(data.icon, width: 44, height: 44),
@@ -53,7 +52,7 @@ class CategoryGridTile extends StatelessWidget {
               padding:  EdgeInsets.symmetric(horizontal: AppSpacing.pagePadding,),
               child: Container(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(vertical: AppSpacing.xs),
+                padding: EdgeInsets.symmetric(vertical: AppSpacing.xxs),
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(colors: [Color(0xFFF57C1F), Color(0xFF0042D3)]),
                   borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
