@@ -12,6 +12,7 @@ import 'package:bookly/src/features/auth/presentation/providers/session_provider
 import 'package:bookly/src/features/home/presentation/screens/home_page.dart';
 import 'package:bookly/src/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:bookly/src/features/splash/presentation/screens/splash_screen.dart';
+import 'package:bookly/src/features/favorites/presentation/screens/favorite_hotels_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   navigatorKey: rootNavigatorKey,
@@ -69,6 +70,11 @@ final GoRouter appRouter = GoRouter(
       path: AppRoutes.completeInfo,
       name: 'complete-info',
       builder: (context, state) => const CompleteInfo(),
+    ),
+    GoRoute(
+      path: AppRoutes.favoriteHotels,
+      name: 'favorite-hotels',
+      builder: (context, state) => const FavoriteHotelsScreen(),
     ),
   ],
 );

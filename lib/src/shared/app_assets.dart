@@ -17,6 +17,7 @@ class AppAssets {
   static const String middleBooklyIcon = '$_imagesPath/middle_bookly_icon.svg';
   static const String smallBooklyIconTop =
       '$_imagesPath/small_bookly_icon_top.svg';
+  static const String favouritesHotel = '$_imagesPath/favourites_hotel.jpg';
   static const String booklyLogo = '$_svgsPath/bookly_logo.svg';
 
   static const String smallBooklyIconBlue =
