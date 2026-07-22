@@ -9,7 +9,7 @@ import 'package:bookly/src/features/auth/presentation/screens/signup_screen.dart
 import 'package:bookly/src/features/auth/presentation/screens/forgot_password_screen.dart';
 import 'package:bookly/src/features/auth/presentation/providers/session_provider.dart';
 
-import 'package:bookly/src/features/home/presentation/screens/home_page.dart';
+import 'package:bookly/src/features/restaurant/presentation/screens/restaurant_screen.dart';
 import 'package:bookly/src/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:bookly/src/features/splash/presentation/screens/splash_screen.dart';
 import 'package:bookly/src/features/notifications/presentation/screens/notifications_screen.dart';
@@ -65,9 +65,9 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => const ForgotPasswordScreen(),
     ),
     GoRoute(
-      path: AppRoutes.home,
-      name: 'home',
-      builder: (context, state) => const HomePage(),
+      path: AppRoutes.restaurant,
+      name: 'restaurant',
+      builder: (context, state) => const RestaurantScreen(),
     ),
     GoRoute(
       path: AppRoutes.completeInfo,
