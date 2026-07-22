@@ -22,11 +22,10 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   FutureEither<AppUser> login({
-    required String email, 
-    required String password,
+    required String phoneNumber,
   }) async {
-    final result = await _authService.login(email: email, password: password);
-    
+    final result = await _authService.login(phoneNumber: phoneNumber);
+
     return result.flatMap((userData) {
       if (userData == null) {
         return left(const ServerFailure('Login failed: User record not found'));
@@ -34,11 +33,11 @@ class AuthRepositoryImpl implements AuthRepository {
 
       final data = userData['user'] ?? userData;
       final user = AppUser(
-        id: data['id'].toString(), 
-        email: data['email'] ?? email, 
+        id: data['id'].toString(),
+        email: data['email'] ?? '',
         name: data['name'],
       );
-      
+
       return right(user);
     });
   }

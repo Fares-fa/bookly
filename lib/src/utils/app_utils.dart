@@ -24,7 +24,7 @@ class AppUtils {
   /// Checks if string is phone number.
   static bool isPhoneNumber(String s) {
     if (s.length > 16 || s.length < 9) return false;
-    return hasMatch(s, r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$');
+    return hasMatch(s, r'^(?:0?1[0125]\d{8})$');
   }
 
   static bool hasMatch(String? value, String pattern) {

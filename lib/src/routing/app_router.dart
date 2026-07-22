@@ -1,3 +1,4 @@
+import 'package:bookly/src/features/complete_info/presentation/completeInfo.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:bookly/src/routing/global_navigator.dart';
@@ -12,10 +13,10 @@ import 'package:bookly/src/features/home/presentation/screens/home_page.dart';
 import 'package:bookly/src/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:bookly/src/features/splash/presentation/screens/splash_screen.dart';
 
-
 final GoRouter appRouter = GoRouter(
   navigatorKey: rootNavigatorKey,
   initialLocation: AppRoutes.splash,
+  debugLogDiagnostics: true,
   routes: <RouteBase>[
     GoRoute(
       path: AppRoutes.splash,
@@ -27,7 +28,9 @@ final GoRouter appRouter = GoRouter(
             // exists, to distinguish first-run onboarding from login.
             final status = ref.read(sessionProvider).status;
             rootContext?.go(
-              status == SessionStatus.authenticated ? AppRoutes.home : AppRoutes.onboarding,
+              status == SessionStatus.authenticated
+                  ? AppRoutes.home
+                  : AppRoutes.onboarding,
             );
           },
         ),
@@ -61,6 +64,11 @@ final GoRouter appRouter = GoRouter(
       path: AppRoutes.home,
       name: 'home',
       builder: (context, state) => const HomePage(),
+    ),
+    GoRoute(
+      path: AppRoutes.completeInfo,
+      name: 'complete-info',
+      builder: (context, state) => const CompleteInfo(),
     ),
   ],
 );
