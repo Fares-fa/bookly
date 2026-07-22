@@ -15,9 +15,25 @@ class AppAssets {
   static const String firstOnboardingImage =
       '$_imagesPath/first_onboarding_image.svg';
   static const String middleBooklyIcon = '$_imagesPath/middle_bookly_icon.svg';
+
   static const String smallBooklyIconTop =
       '$_imagesPath/small_bookly_icon_top.svg';
+
+// restaurant
+  static const String cover = '$_imagesPath/cover.png';
+  static const String rest1 = '$_imagesPath/1.png';
+  static const String rest2 = '$_imagesPath/2.png';
+  static const String rest3 = '$_imagesPath/3.png';
+  static const String map = '$_imagesPath/map.png';
+
+  static const String back = '$_svgsPath/back.svg';
+  static const String heart = '$_svgsPath/heart.svg';
+  static const String location = '$_svgsPath/location.svg';
+
+
+//
   static const String booklyLogo = '$_svgsPath/bookly_logo.svg';
+
 
   static const String smallBooklyIconBlue =
       '$_svgsPath/bookly_small_logo_blue.svg';
