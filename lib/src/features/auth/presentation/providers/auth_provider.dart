@@ -22,10 +22,10 @@ class AuthController extends StateNotifier<bool> {
   })  : _repository = repository,
         super(false); // loading state is false
 
-  void login({required BuildContext context, required String email, required String password}) async {
+  void login({required BuildContext context, required String phoneNumber}) async {
     state = true;
-    
-    final result = await _repository.login(email: email, password: password);
+
+    final result = await _repository.login(phoneNumber: phoneNumber);
     
     state = false;
     result.fold(

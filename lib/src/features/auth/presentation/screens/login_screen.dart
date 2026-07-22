@@ -2,6 +2,10 @@ import 'package:bookly/src/imports/core_imports.dart';
 import 'package:bookly/src/imports/packages_imports.dart';
 
 import 'package:bookly/src/features/auth/presentation/providers/auth_provider.dart';
+import 'package:bookly/src/features/auth/presentation/widgets/login_header.dart';
+import 'package:bookly/src/features/auth/presentation/widgets/login_phone_form.dart';
+import 'package:bookly/src/features/auth/presentation/widgets/otp_bottom_sheet.dart';
+import 'package:bookly/src/shared/widgets/primary_button.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
@@ -12,45 +16,38 @@ class LoginScreen extends ConsumerStatefulWidget {
 
 class _LoginScreenState extends ConsumerState<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  bool _obscurePassword = true;
+  final _phoneController = TextEditingController();
+  String _countryCode = '+20';
 
   @override
   void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
+    _phoneController.dispose();
     super.dispose();
+  }
+
+  Future<void> _handleContinue() async {
+    if (!(_formKey.currentState?.validate() ?? false)) return;
+
+    final code = await showOtpBottomSheet(
+      context,
+      phoneNumber: '$_countryCode${_phoneController.text}',
+    );
+
+    if (code == null || !mounted) return;
+
+    context.push(AppRoutes.completeInfo);
   }
 
   @override
   Widget build(BuildContext context) {
     final isLoading = ref.watch(authControllerProvider);
 
-    final cs = context.theme.colorScheme;
-    final tt = context.theme.textTheme;
-
-    Future<void> handleLogin() async {
-      if (!(_formKey.currentState?.validate() ?? false)) return;
-      
-
-      ref.read(authControllerProvider.notifier).login(
-        context: context, 
-        email: _emailController.text, 
-        password: _passwordController.text,
-      );
-    }
-
     return _LoginView(
       formKey: _formKey,
-      emailController: _emailController,
-      passwordController: _passwordController,
-      obscurePassword: _obscurePassword,
+      phoneController: _phoneController,
       isLoading: isLoading,
-      onToggleObscure: () => setState(() => _obscurePassword = !_obscurePassword),
-      onLogin: handleLogin,
-      cs: cs,
-      tt: tt,
+      onCountryChanged: (code) => _countryCode = code,
+      onContinue: _handleContinue,
     );
   }
 }
@@ -58,216 +55,113 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 class _LoginView extends StatelessWidget {
   const _LoginView({
     required this.formKey,
-    required this.emailController,
-    required this.passwordController,
-    required this.obscurePassword,
+    required this.phoneController,
     required this.isLoading,
-    required this.onToggleObscure,
-    required this.onLogin,
-    required this.cs,
-    required this.tt,
+    required this.onCountryChanged,
+    required this.onContinue,
   });
 
   final GlobalKey<FormState> formKey;
-  final TextEditingController emailController;
-  final TextEditingController passwordController;
-  final bool obscurePassword;
+  final TextEditingController phoneController;
   final bool isLoading;
-  final VoidCallback onToggleObscure;
-  final VoidCallback onLogin;
-  final ColorScheme cs;
-  final TextTheme tt;
+  final ValueChanged<String> onCountryChanged;
+  final VoidCallback onContinue;
 
   @override
   Widget build(BuildContext context) {
+    final cs = context.theme.colorScheme;
+    final tt = context.theme.textTheme;
+
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: AppSpacing.lg.w),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(height: AppSpacing.xl.h),
-                Text(
-                  'Welcome Back',
-                  style: tt.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
+      backgroundColor: Colors.white,
+      body: Center(
+        child: SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
+          child: Stack(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.white,
+                      Colors.white,
+                      Color(0xFF0042D3),
+                      Color(0xFF0042D3)
+                    ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ),
                 ),
-                SizedBox(height: AppSpacing.sm.h),
-                Text(
-                  'Log in to continue your journey',
-                  textAlign: TextAlign.center,
-                  style: tt.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.35,
+                  width: MediaQuery.of(context).size.width,
                 ),
-                SizedBox(height: AppSpacing.xxxl.h),
-                // Form Card
-                Form(
-                  key: formKey,
-                  child: Column(
-                    children: [
-                      AppTextField(
-                        controller: emailController,
-                        enabled: !isLoading,
-                        label: 'Email',
-                        prefixIcon: const Icon(Icons.email_outlined),
-                        validator: (v) {
-                          if (AppUtils.isBlank(v)) {
-                            return 'Email is required';
-                          }
-                          if (!AppUtils.isValidEmail(v!)) {
-                            return 'Enter a valid email';
-                          }
-                          return null;
-                        },
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  LoginHeader(onJoinAsGuest: () {}),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.75,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: AppSpacing.md.w,
+                      vertical: AppSpacing.lg.h,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(32.r),
                       ),
-                      SizedBox(height: AppSpacing.md.h),
-                      AppTextField(
-                        controller: passwordController,
-                        enabled: !isLoading,
-                        label: 'Password',
-                        obscureText: obscurePassword,
-                        prefixIcon: const Icon(Icons.lock_outline),
-                        suffixIcon: IconButton(
-                          icon: Icon(obscurePassword ? Icons.visibility_off : Icons.visibility),
-                          onPressed: onToggleObscure,
-                        ),
-                         validator: (v) {
-                          if (AppUtils.isBlank(v)) {
-                            return 'Password is required';
-                          }
-                          if (v!.length < 6) {
-                            return 'Password must be at least 6 characters';
-                          }
-                          return null;
-                        },
-                      ),
-                      SizedBox(height: AppSpacing.sm.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            spacing: 5.w,
-                            children: [
-                              SizedBox(
-                                width: 20.w,
-                                height: 20.h,
-                                child: Checkbox(
-                                  value: true,
-                                  onChanged: (value) {},
-                                ),
+                    ),
+                    child: Column(
+                      spacing: AppSpacing.md.h,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Enter your phone number',
+                              style: tt.bodyLarge?.copyWith(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
                               ),
-                              Text(
-                                'Remember Me',
-                                style: tt.bodySmall?.copyWith(color: cs.onSurfaceVariant),
-                              ),
-                            ],
-                          ),
-                          TextButton(
-                            style: TextButton.styleFrom(
-                              padding: EdgeInsets.zero,
                             ),
-                            onPressed: () {
-                              context.push(AppRoutes.forgotPassword);
-                            },
-                            child: Text(
-                              'Forgot Password?',
-                              style: tt.bodySmall?.copyWith(
+                            SizedBox(height: AppSpacing.sm.h),
+                            Text(
+                              'A OTP will be sent to your phone number for verification.',
+                              style: tt.bodyMedium?.copyWith(
                                 color: cs.onSurfaceVariant,
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: AppSpacing.lg.h),
-                      AppButton(
-                        label: 'Sign In',
-                        isLoading: isLoading,
-                        onPressed: isLoading ? null : onLogin,
-                        width: ButtonSize.large,
-                        isFullWidth: false,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: AppSpacing.xxxl.h),
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      spacing: 20.w,
-                      children: [
-                        SizedBox(
-                          width: 50.w,
-                          height: 50.w,
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              backgroundColor: const Color(0xFFEA4335).withValues(alpha: 0.8),
-                              padding: EdgeInsets.symmetric(horizontal: 10.w),
-                              shape: const RoundedRectangleBorder(
-                                borderRadius: AppBorders.button,
-                              ),
-                            ),
-                            child: SvgPicture.asset(AppAssets.googleIcon),
-                          ),
+                          ],
                         ),
-                        SizedBox(
-                          width: 50.w,
-                          height: 50.w,
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              backgroundColor: const Color(0xFF4285F4),
-                              padding: EdgeInsets.symmetric(horizontal: 10.w),
-                              shape: const RoundedRectangleBorder(
-                                borderRadius: AppBorders.button,
-                              ),
-                            ),
-                            child: SvgPicture.asset(AppAssets.facebookIcon),
-                          ),
+                        LoginPhoneForm(
+                          formKey: formKey,
+                          phoneController: phoneController,
+                          onCountryChanged: onCountryChanged,
                         ),
-                        SizedBox(
-                          width: 50.w,
-                          height: 50.w,
-                          child: TextButton(
-                            onPressed: () {},
-                            style: TextButton.styleFrom(
-                              backgroundColor: const Color(0xFF000000),
-                              padding: EdgeInsets.symmetric(horizontal: 10.w),
-                              shape: const RoundedRectangleBorder(
-                                borderRadius: AppBorders.button,
-                              ),
-                            ),
-                            child: SvgPicture.asset(AppAssets.appleIcon),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: AppSpacing.xl.h),
-                  ],
-                ),
-                InkWell(
-                  onTap: () {
-                    context.push(AppRoutes.signup);
-                  },
-                  child: RichText(
-                    text: TextSpan(
-                      text: 'Don\'t have an account? ',
-                      style: tt.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
-                      children: [
-                        TextSpan(
-                          text: 'Sign Up',
-                          style: TextStyle(
-                            color: cs.primary,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        SizedBox(height: AppSpacing.xxxl.h),
                       ],
                     ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          color: Colors.white,
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSpacing.lg.w,
+            vertical: AppSpacing.md.h,
+          ),
+          child: PrimaryButton(
+            label: 'Continue',
+            isLoading: isLoading,
+            onPressed: onContinue,
+            isFullWidth: true,
           ),
         ),
       ),

@@ -76,6 +76,11 @@ dependencies:
 
   flutter_native_splash: ^2.4.7
 
+  pinput: ^6.0.2
+
+  # Phone input
+  country_code_picker: ^3.0.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -97,6 +102,7 @@ flutter:
     - assets/icons/
     - assets/lottie/
     - assets/fonts/
+    - assets/svgs/
     - .env
 
   fonts:
