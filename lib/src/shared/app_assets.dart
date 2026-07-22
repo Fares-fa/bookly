@@ -18,6 +18,7 @@ class AppAssets {
   static const String smallBooklyIconTop =
       '$_imagesPath/small_bookly_icon_top.svg';
   static const String booklyLogo = '$_svgsPath/bookly_logo.svg';
+  static const String notificationIcon = '$_iconsPath/notification_icon.svg';
 
   static const String smallBooklyIconBlue =
       '$_svgsPath/bookly_small_logo_blue.svg';
