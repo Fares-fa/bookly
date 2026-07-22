@@ -74,7 +74,7 @@ dependencies:
 
   # Localization
 
-  flutter_native_splash: ^2.4.7
+  
 
   pinput: ^6.0.2
 
@@ -89,7 +89,7 @@ dev_dependencies:
   # Code Generation
 
   # Native splash + launcher icons
-  flutter_native_splash: ^2.4.8
+  flutter_native_splash: ^2.4.7
   flutter_launcher_icons: ^0.14.4
 
 dependency_overrides:
