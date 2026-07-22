@@ -10,6 +10,7 @@ import 'package:bookly/src/features/auth/presentation/screens/signup_screen.dart
 import 'package:bookly/src/features/auth/presentation/screens/forgot_password_screen.dart';
 import 'package:bookly/src/features/auth/presentation/providers/session_provider.dart';
 
+import 'package:bookly/src/features/restaurant/presentation/screens/restaurant_screen.dart';
 import 'package:bookly/src/features/home/presentation/screens/home_page.dart';
 import 'package:bookly/src/features/home/presentation/screens/categories_screen.dart';
 import 'package:bookly/src/features/booking/presentation/screens/my_booking_page.dart';
@@ -17,6 +18,10 @@ import 'package:bookly/src/features/favorites/presentation/screens/favorites_pag
 import 'package:bookly/src/features/more/presentation/screens/more_page.dart';
 import 'package:bookly/src/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:bookly/src/features/splash/presentation/screens/splash_screen.dart';
+import 'package:bookly/src/features/notifications/presentation/screens/notifications_screen.dart';
+import 'package:bookly/src/features/favorites/presentation/favorite_category.dart';
+import 'package:bookly/src/features/favorites/presentation/screens/favorite_category_screen.dart';
+import 'package:bookly/src/features/favorites/presentation/screens/my_favorites_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   navigatorKey: rootNavigatorKey,
@@ -64,6 +69,11 @@ final GoRouter appRouter = GoRouter(
       path: AppRoutes.forgotPassword,
       name: 'forgotPassword',
       builder: (context, state) => const ForgotPasswordScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.restaurant,
+      name: 'restaurant',
+      builder: (context, state) => const RestaurantScreen(),
     ),
     GoRoute(
       path: AppRoutes.categories,
@@ -115,6 +125,23 @@ final GoRouter appRouter = GoRouter(
       path: AppRoutes.completeInfo,
       name: 'complete-info',
       builder: (context, state) => const CompleteInfo(),
+    ),
+    GoRoute(
+      path: AppRoutes.notifications,
+      name: 'notifications',
+      builder: (context, state) => const NotificationsScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.favoriteCategory,
+      name: 'favorite-category',
+      builder: (context, state) => FavoriteCategoryScreen(
+        category: (state.extra as FavoriteCategory?) ?? FavoriteCategory.hotels,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.myFavorites,
+      name: 'my-favorites',
+      builder: (context, state) => const MyFavoritesScreen(),
     ),
   ],
 );
