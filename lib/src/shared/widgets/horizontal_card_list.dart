@@ -1,7 +1,7 @@
-import 'package:bookly/src/imports/imports.dart';
+import '../../imports/imports.dart';
 
-/// Fixed-extent horizontal list used by both the Nearby Places and Live
-/// Screenings sections.
+/// Fixed-extent horizontal list used by card sections such as Nearby Places
+/// and Live Screenings.
 ///
 /// Passing an explicit [itemExtent] lets [ListView.builder] skip per-item
 /// layout measurement (its fixed-extent fast path), which keeps horizontal

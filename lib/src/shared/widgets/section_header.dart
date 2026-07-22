@@ -1,4 +1,4 @@
-import 'package:bookly/src/imports/imports.dart';
+import '../../imports/imports.dart';
 
 /// A section title with an optional trailing widget (e.g. a filter chip).
 class SectionHeader extends StatelessWidget {

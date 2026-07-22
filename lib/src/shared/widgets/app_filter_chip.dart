@@ -1,8 +1,8 @@
-import 'package:bookly/src/imports/imports.dart';
+import '../../imports/imports.dart';
 
-/// A small pill control, e.g. the "All" filter next to "Nearby Places".
-class HomeFilterChip extends StatelessWidget {
-  const HomeFilterChip({super.key, required this.label, this.onTap});
+/// A small pill control, e.g. an "All" filter next to a section title.
+class AppFilterChip extends StatelessWidget {
+  const AppFilterChip({super.key, required this.label, this.onTap});
 
   final String label;
   final VoidCallback? onTap;

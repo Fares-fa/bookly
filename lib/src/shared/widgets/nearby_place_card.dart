@@ -1,8 +1,7 @@
-import 'package:bookly/src/imports/imports.dart';
+import '../../imports/imports.dart';
 
 import 'package:bookly/src/features/home/domain/entities/nearby_place.dart';
 import 'package:bookly/src/features/home/presentation/providers/home_providers.dart';
-import 'package:bookly/src/features/home/presentation/widgets/media_card_shell.dart';
 
 class NearbyPlaceCard extends ConsumerWidget {
   const NearbyPlaceCard({super.key, required this.place, required this.width});
@@ -16,7 +15,7 @@ class NearbyPlaceCard extends ConsumerWidget {
     final tt = context.theme.textTheme;
 
     // Scoped with `.select` so toggling this heart repaints only this card,
-    // never the rest of the Nearby Places list.
+    // never the rest of the list.
     final isFavorite = ref.watch(favoriteIdsProvider.select((ids) => ids.contains(place.id)));
 
     return MediaCardShell(

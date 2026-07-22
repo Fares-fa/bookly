@@ -2,13 +2,8 @@ import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/home/presentation/widgets/home_header.dart';
 import 'package:bookly/src/features/home/presentation/widgets/ad_section.dart';
-import 'package:bookly/src/features/home/presentation/widgets/nearby_places_section.dart';
-import 'package:bookly/src/features/home/presentation/widgets/live_screenings_section.dart';
 import 'package:bookly/src/features/home/presentation/widgets/home_search_bar.dart';
 import 'package:bookly/src/features/home/presentation/widgets/home_category_row.dart';
-
-import '../widgets/top_rated_section.dart';
-import '../widgets/coming_soon_section.dart';
 
 /// Home tab body. All data-fetching lives in the section widgets
 /// ([AdSection], [NearbyPlacesSection], [LiveScreeningsSection]), each
@@ -37,6 +32,7 @@ class HomePage extends StatelessWidget {
                   const AdSection(),
                   const NearbyPlacesSection(),
                   const LiveScreeningsSection(),
+                  SizedBox(height: AppSpacing.md),
                   const TopRatedSection(),
                   const ComingSoonSection(),
                   SizedBox(height: AppSpacing.xl),

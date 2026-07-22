@@ -1,7 +1,6 @@
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/home/domain/entities/ad_banner.dart';
-import 'package:bookly/src/features/home/presentation/widgets/media_card_shell.dart';
 
 /// A single ad banner: full-bleed background photo, a left-to-right blue
 /// gradient for text legibility, offer copy, and a CTA button.
@@ -20,7 +19,7 @@ class AdBannerCard extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            HomeAssetImage(assetPath: banner.imageAsset),
+            AppAssetImage(assetPath: banner.imageAsset),
             DecoratedBox(
               decoration: BoxDecoration(
                 gradient: LinearGradient(

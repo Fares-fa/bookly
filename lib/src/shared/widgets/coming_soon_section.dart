@@ -1,9 +1,7 @@
-import 'package:bookly/src/imports/imports.dart';
+import '../../imports/imports.dart';
 
-import 'package:bookly/src/features/home/presentation/widgets/horizontal_card_list.dart';
-
-class _ComingSoonItem {
-  const _ComingSoonItem(
+class ComingSoonItem {
+  const ComingSoonItem(
       {required this.title, required this.subtitle, required this.imageAsset});
 
   final String title;
@@ -11,18 +9,18 @@ class _ComingSoonItem {
   final String imageAsset;
 }
 
-const List<_ComingSoonItem> _comingSoonItems = [
-  _ComingSoonItem(
+const List<ComingSoonItem> _defaultComingSoonItems = [
+  ComingSoonItem(
     title: 'Surprise me',
     subtitle: 'Smart picks based on your history',
     imageAsset: AppAssets.soonOne,
   ),
-  _ComingSoonItem(
+  ComingSoonItem(
     title: 'Mood Booking',
     subtitle: 'Recommendations based on your mood',
     imageAsset: AppAssets.soonTwo,
   ),
-  _ComingSoonItem(
+  ComingSoonItem(
     title: 'Voice Booking',
     subtitle: 'Recommendations based on your mood',
     imageAsset: AppAssets.soonThree,
@@ -33,11 +31,18 @@ const double _cardWidth = 175;
 const double _cardImageHeight = 100;
 const double _listHeight = 142;
 
-/// Static teaser strip for upcoming features, shown at the end of the Home
-/// page. Unlike the other sections, this data is fixed UI copy — not fetched
-/// — so it's a plain [StatelessWidget] with no provider.
+/// Static teaser strip for upcoming features. [title] and [items] default to
+/// Home's copy, but both can be overridden so other screens can reuse this
+/// section with their own teaser content.
 class ComingSoonSection extends StatelessWidget {
-  const ComingSoonSection({super.key});
+  const ComingSoonSection({
+    super.key,
+    this.title = 'Coming Soon',
+    this.items = _defaultComingSoonItems,
+  });
+
+  final String title;
+  final List<ComingSoonItem> items;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +53,7 @@ class ComingSoonSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               horizontal: AppSpacing.pagePadding, vertical: AppSpacing.sm),
           child: GradientText(
-            'Coming Soon',
+            title,
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
@@ -62,11 +67,11 @@ class ComingSoonSection extends StatelessWidget {
         ),
         HorizontalCardList(
           height: _listHeight.h,
-          itemCount: _comingSoonItems.length,
+          itemCount: items.length,
           itemExtent: _cardWidth.w + AppSpacing.sm,
           itemBuilder: (context, index) => Padding(
             padding: EdgeInsets.only(right: AppSpacing.sm),
-            child: _ComingSoonCard(item: _comingSoonItems[index]),
+            child: _ComingSoonCard(item: items[index]),
           ),
         ),
       ],
@@ -77,7 +82,7 @@ class ComingSoonSection extends StatelessWidget {
 class _ComingSoonCard extends StatelessWidget {
   const _ComingSoonCard({required this.item});
 
-  final _ComingSoonItem item;
+  final ComingSoonItem item;
 
   @override
   Widget build(BuildContext context) {

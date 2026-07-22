@@ -1,14 +1,15 @@
-import 'package:bookly/src/imports/imports.dart';
+import '../../imports/imports.dart';
 
 /// Displays a local asset image, falling back to a soft placeholder box
 /// with an icon when the asset is missing or fails to decode.
 ///
-/// Nearby Places / Live Screenings images are wired up to asset paths that
-/// don't exist yet — real photos will be dropped in later — so this keeps
-/// the layout looking intentional today and starts rendering real images
-/// the moment those files are added, with no code changes required.
-class HomeAssetImage extends StatelessWidget {
-  const HomeAssetImage({
+/// Several card sections (Nearby Places, Live Screenings, ...) are wired up
+/// to asset paths that don't exist yet — real photos will be dropped in
+/// later — so this keeps the layout looking intentional today and starts
+/// rendering real images the moment those files are added, with no code
+/// changes required.
+class AppAssetImage extends StatelessWidget {
+  const AppAssetImage({
     super.key,
     required this.assetPath,
     this.width,
@@ -53,10 +54,12 @@ class RatingBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: AppSpacing.sm, vertical: AppSpacing.xxs),
+      padding: EdgeInsets.symmetric(
+          horizontal: AppSpacing.sm, vertical: AppSpacing.xxs),
       decoration: BoxDecoration(
         color: Colors.black.withValues(alpha: 0.55),
-        borderRadius: const BorderRadius.only(topLeft: Radius.circular(29),bottomRight: Radius.circular(10)),
+        borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(29), bottomRight: Radius.circular(10)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -65,7 +68,10 @@ class RatingBadge extends StatelessWidget {
           SizedBox(width: 2.w),
           Text(
             rating.toStringAsFixed(1),
-            style: TextStyle(color: Colors.white, fontSize: 12.sp, fontWeight: FontWeight.w400),
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w400),
           ),
         ],
       ),
@@ -75,7 +81,8 @@ class RatingBadge extends StatelessWidget {
 
 /// A small colored pill for a short status label (e.g. "Closed", "8 Seats left").
 class StatusBadge extends StatelessWidget {
-  const StatusBadge({super.key, required this.label, required this.color, this.textColor});
+  const StatusBadge(
+      {super.key, required this.label, required this.color, this.textColor});
 
   final String label;
   final Color color;
@@ -84,11 +91,45 @@ class StatusBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: AppSpacing.sm, vertical: AppSpacing.xxs),
-      decoration: BoxDecoration(color: color, borderRadius: AppBorders.full),
+      padding: EdgeInsets.symmetric(
+          horizontal: AppSpacing.sm, vertical: AppSpacing.xxs),
+      decoration: BoxDecoration(
+          color: color.withValues(alpha: 0.55), borderRadius: AppBorders.full),
       child: Text(
         label,
-        style: TextStyle(color: textColor ?? Colors.white, fontSize: 11.sp, fontWeight: FontWeight.w600),
+        style: TextStyle(
+            color: textColor ?? Colors.white,
+            fontSize: 11.sp,
+            fontWeight: FontWeight.w600),
+      ),
+    );
+  }
+}
+
+class SeatsBadge extends StatelessWidget {
+  const SeatsBadge(
+      {super.key, required this.label, required this.color, this.textColor});
+
+  final String label;
+  final Color color;
+  final Color? textColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(
+          horizontal: AppSpacing.sm, vertical: AppSpacing.xxs),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(10), bottomRight: Radius.circular(29)),
+      ),
+      child: Text(
+        label,
+        style: TextStyle(
+            color: textColor ?? Colors.white,
+            fontSize: 11.sp,
+            fontWeight: FontWeight.w600),
       ),
     );
   }
@@ -120,26 +161,26 @@ class _FavoriteButton extends StatelessWidget {
   }
 }
 
-/// Shared visual chrome for Home's media cards (Nearby Places, Live
-/// Screenings): an image with a top-left status badge and a top-right
-/// favorite button, followed by a caption below.
+/// Shared visual chrome for media cards (Nearby Places, Live Screenings, ...):
+/// an image with optional status/seats badges and a favorite button,
+/// followed by a caption below.
 ///
-/// Kept as a plain [StatelessWidget] with no Riverpod dependency, so
-/// [NearbyPlaceCard]/[LiveScreeningCard] can watch favorite state themselves
-/// (scoped via `.select`) and pass it down — this shell stays trivially
-/// testable with fixture data alone.
+/// Kept as a plain [StatelessWidget] with no Riverpod dependency, so callers
+/// (e.g. [NearbyPlaceCard]/[LiveScreeningCard]) can watch favorite state
+/// themselves (scoped via `.select`) and pass it down — this shell stays
+/// trivially testable with fixture data alone.
 class MediaCardShell extends StatelessWidget {
-  const MediaCardShell({
-    super.key,
-    required this.imageAsset,
-    required this.width,
-    required this.imageHeight,
-    required this.isFavorite,
-    required this.onFavoriteToggle,
-    required this.caption,
-    this.topLeftBadge,
-    this.bottomRightBadge
-  });
+  const MediaCardShell(
+      {super.key,
+      required this.imageAsset,
+      required this.width,
+      required this.imageHeight,
+      required this.isFavorite,
+      required this.onFavoriteToggle,
+      required this.caption,
+      this.topLeftBadge,
+      this.topEdgeBadge,
+      this.bottomRightBadge});
 
   final String imageAsset;
   final double width;
@@ -148,6 +189,7 @@ class MediaCardShell extends StatelessWidget {
   final VoidCallback onFavoriteToggle;
   final Widget caption;
   final Widget? topLeftBadge;
+  final Widget? topEdgeBadge;
   final Widget? bottomRightBadge;
 
   @override
@@ -166,15 +208,23 @@ class MediaCardShell extends StatelessWidget {
                   Positioned.fill(
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: HomeAssetImage(assetPath: imageAsset, width: width, height: imageHeight),
+                      child: AppAssetImage(
+                          assetPath: imageAsset,
+                          width: width,
+                          height: imageHeight),
                     ),
                   ),
-                  if (topLeftBadge != null) Positioned(left: 8.w, top: 8.h, child: topLeftBadge!),
-                  if (bottomRightBadge != null) Positioned(right: 0, bottom: 0, child: bottomRightBadge!),
+                  if (topEdgeBadge != null)
+                    Positioned(left: 0, top: 0, child: topEdgeBadge!),
+                  if (topLeftBadge != null)
+                    Positioned(left: 8.w, top: 8.h, child: topLeftBadge!),
+                  if (bottomRightBadge != null)
+                    Positioned(right: 0, bottom: 0, child: bottomRightBadge!),
                   Positioned(
-                    right: 8.w,
-                    top: 8.h,
-                    child: _FavoriteButton(isFavorite: isFavorite, onTap: onFavoriteToggle),
+                    right: 6.w,
+                    top: 4.h,
+                    child: _FavoriteButton(
+                        isFavorite: isFavorite, onTap: onFavoriteToggle),
                   ),
                 ],
               ),
