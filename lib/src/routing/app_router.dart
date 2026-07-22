@@ -14,7 +14,6 @@ import 'package:bookly/src/features/restaurant/presentation/screens/restaurant_s
 import 'package:bookly/src/features/home/presentation/screens/home_page.dart';
 import 'package:bookly/src/features/home/presentation/screens/categories_screen.dart';
 import 'package:bookly/src/features/booking/presentation/screens/my_booking_page.dart';
-import 'package:bookly/src/features/favorites/presentation/screens/favorites_page.dart';
 import 'package:bookly/src/features/more/presentation/screens/more_page.dart';
 import 'package:bookly/src/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:bookly/src/features/splash/presentation/screens/splash_screen.dart';
@@ -106,7 +105,7 @@ final GoRouter appRouter = GoRouter(
             GoRoute(
               path: AppRoutes.favorites,
               name: 'favorites',
-              builder: (context, state) => const FavoritesPage(),
+              builder: (context, state) => const MyFavoritesScreen(),
             ),
           ],
         ),
