@@ -42,8 +42,8 @@ class LoginHeader extends StatelessWidget {
               ),
             ),
           ),
-          SvgPicture.asset(
-            AppAssets.booklyLogo,
+          VectorGraphic(
+            loader: const AssetBytesLoader(AppAssets.booklyLogo),
             width: 120.w,
             height: 35.w,
           ),

@@ -12,4 +12,10 @@ abstract final class AppRoutes {
   static const String signup = '/signup';
   static const String forgotPassword = '/forgot-password';
   static const String completeInfo = '/complete-info';
+
+  // Bottom-nav shell branches (see `AppShell`).
+  static const String myBooking = '/my-booking';
+  static const String favorites = '/favorites';
+  static const String more = '/more';
+  static const String categories = '/categories';
 }

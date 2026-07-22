@@ -1,60 +1,50 @@
-import 'package:bookly/src/imports/core_imports.dart';
-import 'package:bookly/src/imports/packages_imports.dart';
+import 'package:bookly/src/imports/imports.dart';
 
-import 'package:bookly/src/features/auth/presentation/providers/session_provider.dart';
+import 'package:bookly/src/features/home/presentation/widgets/home_header.dart';
+import 'package:bookly/src/features/home/presentation/widgets/ad_section.dart';
+import 'package:bookly/src/features/home/presentation/widgets/nearby_places_section.dart';
+import 'package:bookly/src/features/home/presentation/widgets/live_screenings_section.dart';
+import 'package:bookly/src/features/home/presentation/widgets/home_search_bar.dart';
+import 'package:bookly/src/features/home/presentation/widgets/home_category_row.dart';
 
+import '../widgets/top_rated_section.dart';
+import '../widgets/coming_soon_section.dart';
 
-class HomePage extends ConsumerWidget {
+/// Home tab body. All data-fetching lives in the section widgets
+/// ([AdSection], [NearbyPlacesSection], [LiveScreeningsSection]), each
+/// watching its own provider — this screen is just the scroll shell.
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final theme = context.theme;
-    final colorScheme = theme.colorScheme;
-    final textTheme = theme.textTheme;
-
-    final session = ref.watch(sessionProvider);
-    final user = session.user;
+  Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: colorScheme.surface,
-      appBar: AppTopBar(
-        title: 'Home',
-      ),
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(AppSpacing.xl.w),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              AppIcon(
-                icon: Icons.home_rounded,
-                size: 60.sp,
-                color: colorScheme.primary,
+      backgroundColor:const Color(0xFF0042D3),
+      body: CustomScrollView(
+        slivers: [
+          const SliverToBoxAdapter(child: HomeHeader()),
+          SliverToBoxAdapter(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: const Color(0xFFF0F8FF),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(28.r)),
               ),
-              SizedBox(height: AppSpacing.lg.h),
-              Text(
-                user?.name ?? user?.email ?? ('Welcome Home!'),
-                textAlign: TextAlign.center,
-                style: textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.w900,
-                  color: colorScheme.onSurface,
-                  fontSize: 28.sp,
-                ),
+              child: Column(
+                children: [
+                  const HomeSearchBar(),
+                  const HomeCategoryRow(),
+                  const AdSection(),
+                  const NearbyPlacesSection(),
+                  const LiveScreeningsSection(),
+                  const TopRatedSection(),
+                  const ComingSoonSection(),
+                  SizedBox(height: AppSpacing.xl),
+                ],
               ),
-                            SizedBox(height: AppSpacing.md.h),
-              Text(
-                user != null && user.name != null ? user.email : ('You have successfully completed the onboarding process.'),
-                textAlign: TextAlign.center,
-                style: textTheme.bodyMedium?.copyWith(
-                  color: colorScheme.onSurfaceVariant,
-                  fontSize: 14.sp,
-                ),
-              ),
-                          ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

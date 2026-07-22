@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:bookly/src/routing/global_navigator.dart';
 import 'package:bookly/src/routing/app_routes.dart';
+import 'package:bookly/src/routing/app_shell.dart';
 
 import 'package:bookly/src/features/auth/presentation/screens/login_screen.dart';
 import 'package:bookly/src/features/auth/presentation/screens/signup_screen.dart';
@@ -10,6 +11,10 @@ import 'package:bookly/src/features/auth/presentation/screens/forgot_password_sc
 import 'package:bookly/src/features/auth/presentation/providers/session_provider.dart';
 
 import 'package:bookly/src/features/home/presentation/screens/home_page.dart';
+import 'package:bookly/src/features/home/presentation/screens/categories_screen.dart';
+import 'package:bookly/src/features/booking/presentation/screens/my_booking_page.dart';
+import 'package:bookly/src/features/favorites/presentation/screens/favorites_page.dart';
+import 'package:bookly/src/features/more/presentation/screens/more_page.dart';
 import 'package:bookly/src/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:bookly/src/features/splash/presentation/screens/splash_screen.dart';
 
@@ -61,9 +66,50 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => const ForgotPasswordScreen(),
     ),
     GoRoute(
-      path: AppRoutes.home,
-      name: 'home',
-      builder: (context, state) => const HomePage(),
+      path: AppRoutes.categories,
+      name: 'categories',
+      builder: (context, state) => const CategoriesScreen(),
+    ),
+    StatefulShellRoute.indexedStack(
+      builder: (context, state, navigationShell) => AppShell(navigationShell: navigationShell),
+      branches: [
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: AppRoutes.home,
+              name: 'home',
+              builder: (context, state) => const HomePage(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: AppRoutes.myBooking,
+              name: 'myBooking',
+              builder: (context, state) => const MyBookingPage(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: AppRoutes.favorites,
+              name: 'favorites',
+              builder: (context, state) => const FavoritesPage(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: AppRoutes.more,
+              name: 'more',
+              builder: (context, state) => const MorePage(),
+            ),
+          ],
+        ),
+      ],
     ),
     GoRoute(
       path: AppRoutes.completeInfo,

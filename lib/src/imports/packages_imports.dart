@@ -25,5 +25,8 @@ export 'package:device_info_plus/device_info_plus.dart';
 export 'package:app_version_update/app_version_update.dart';
 export 'package:country_code_picker/country_code_picker.dart';
 export 'package:pinput/pinput.dart';
+export 'package:vector_graphics/vector_graphics.dart';
+export 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
+export 'package:simple_gradient_text/simple_gradient_text.dart';
 
 
