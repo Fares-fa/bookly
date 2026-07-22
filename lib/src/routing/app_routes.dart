@@ -14,4 +14,7 @@ abstract final class AppRoutes {
   static const String signup = '/signup';
   static const String forgotPassword = '/forgot-password';
   static const String completeInfo = '/complete-info';
+  static const String notifications = '/notifications';
+  static const String favoriteCategory = '/favorite-category';
+  static const String myFavorites = '/my-favorites';
 }

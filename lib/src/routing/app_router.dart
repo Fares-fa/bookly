@@ -12,6 +12,10 @@ import 'package:bookly/src/features/auth/presentation/providers/session_provider
 import 'package:bookly/src/features/restaurant/presentation/screens/restaurant_screen.dart';
 import 'package:bookly/src/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:bookly/src/features/splash/presentation/screens/splash_screen.dart';
+import 'package:bookly/src/features/notifications/presentation/screens/notifications_screen.dart';
+import 'package:bookly/src/features/favorites/presentation/favorite_category.dart';
+import 'package:bookly/src/features/favorites/presentation/screens/favorite_category_screen.dart';
+import 'package:bookly/src/features/favorites/presentation/screens/my_favorites_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   navigatorKey: rootNavigatorKey,
@@ -69,6 +73,23 @@ final GoRouter appRouter = GoRouter(
       path: AppRoutes.completeInfo,
       name: 'complete-info',
       builder: (context, state) => const CompleteInfo(),
+    ),
+    GoRoute(
+      path: AppRoutes.notifications,
+      name: 'notifications',
+      builder: (context, state) => const NotificationsScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.favoriteCategory,
+      name: 'favorite-category',
+      builder: (context, state) => FavoriteCategoryScreen(
+        category: (state.extra as FavoriteCategory?) ?? FavoriteCategory.hotels,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.myFavorites,
+      name: 'my-favorites',
+      builder: (context, state) => const MyFavoritesScreen(),
     ),
   ],
 );

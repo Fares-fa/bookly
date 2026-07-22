@@ -1,6 +1,14 @@
 flutter_native_splash:
-  color: "##0042D3"
-  # image: assets/images/splash.png
-  # android_12:
-  #   image: assets/images/splash.png
-  #   icon_background_color: "##0042D3"
+  color: "#F2F8FE"
+  image: assets/splash/bookly_wordmark.png # full wordmark (iOS + Android <=11)
+  android_gravity: center
+  ios_content_mode: center
+  android: true
+  ios: true
+  web: false
+  fullscreen: false
+
+  android_12:
+    color: "#F2F8FE"
+    image: assets/splash/android12_splash_icon.png # compact "B." (fits the circle)
+    icon_background_color: "#F2F8FE"
