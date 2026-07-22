@@ -77,8 +77,9 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: AppRoutes.notifications,
       name: 'notifications',
-      builder: (context, state) => const NotificationsScreen(),)
-        GoRoute(
+      builder: (context, state) => const NotificationsScreen(),
+    ),
+    GoRoute(
       path: AppRoutes.favoriteCategory,
       name: 'favorite-category',
       builder: (context, state) => FavoriteCategoryScreen(
