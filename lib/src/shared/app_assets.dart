@@ -20,6 +20,9 @@ class AppAssets {
   static const String favouritesHotel = '$_imagesPath/favourites_hotel.jpg';
   static const String booklyLogo = '$_svgsPath/bookly_logo.svg';
   static const String notificationIcon = '$_iconsPath/notification_icon.svg';
+  static const String bookingHotelsIcon = '$_iconsPath/mybooking_hotels_icon.png';
+  static const String bookingRestaurantsIcon = '$_iconsPath/mybooking_restaurants_icon.png';
+  static const String bookingCafeIcon = '$_iconsPath/mybooking_cafees_icon.png';
 
   static const String smallBooklyIconBlue =
       '$_svgsPath/bookly_small_logo_blue.svg';

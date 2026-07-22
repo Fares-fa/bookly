@@ -16,6 +16,7 @@ import 'package:bookly/src/features/notifications/presentation/screens/notificat
 import 'package:bookly/src/features/favorites/presentation/favorite_category.dart';
 import 'package:bookly/src/features/favorites/presentation/screens/favorite_category_screen.dart';
 import 'package:bookly/src/features/favorites/presentation/screens/my_favorites_screen.dart';
+import 'package:bookly/src/features/booking/presentation/screens/my_booking_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   navigatorKey: rootNavigatorKey,
@@ -90,6 +91,11 @@ final GoRouter appRouter = GoRouter(
       path: AppRoutes.myFavorites,
       name: 'my-favorites',
       builder: (context, state) => const MyFavoritesScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.myBooking,
+      name: 'my-booking',
+      builder: (context, state) => const MyBookingScreen(),
     ),
   ],
 );
