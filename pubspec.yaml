@@ -74,12 +74,16 @@ dependencies:
 
   # Localization
 
-  
+
+  liquid_glass_renderer: ^0.2.0-dev.4
+  vector_graphics: ^1.2.2
+
 
   pinput: ^6.0.2
 
   # Phone input
   country_code_picker: ^3.0.1
+  simple_gradient_text: ^1.4.0
 
 dev_dependencies:
   flutter_test:
@@ -114,13 +118,15 @@ flutter:
   uses-material-design: true
 
   assets:
+    - path: assets/svgs/
+      transformers:
+        - package: vector_graphics_compiler
     - assets/
     - assets/images/
     - assets/icons/
     - assets/lottie/
     - assets/splash/
     - assets/fonts/
-    - assets/svgs/
     - .env
 
   fonts:

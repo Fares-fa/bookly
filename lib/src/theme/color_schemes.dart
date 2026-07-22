@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   const AppColorsExtension({
     required this.success,
+    required this.primary,
+    this.green,
     required this.onSuccess,
     required this.warning,
     required this.onWarning,
@@ -19,6 +21,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   });
 
   final Color success;
+  final Color primary;
+  final Color? green;
   final Color onSuccess;
   final Color warning;
   final Color onWarning;
@@ -34,6 +38,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   @override
   ThemeExtension<AppColorsExtension> copyWith({
     Color? success,
+    Color? primary,
+    Color? green,
     Color? onSuccess,
     Color? warning,
     Color? onWarning,
@@ -48,6 +54,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   }) {
     return AppColorsExtension(
       success: success ?? this.success,
+      primary: primary ?? this.primary,
+      green: green ?? this.green,
       onSuccess: onSuccess ?? this.onSuccess,
       warning: warning ?? this.warning,
       onWarning: onWarning ?? this.onWarning,
@@ -71,7 +79,9 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       return this;
     }
     return AppColorsExtension(
+      primary: Color.lerp(primary, other.primary, t)!,
       success: Color.lerp(success, other.success, t)!,
+      green: Color.lerp(green, other.green, t)!,
       onSuccess: Color.lerp(onSuccess, other.onSuccess, t)!,
       warning: Color.lerp(warning, other.warning, t)!,
       onWarning: Color.lerp(onWarning, other.onWarning, t)!,
@@ -92,7 +102,9 @@ class AppPalettes {
   AppPalettes._();
 
   static const light = AppColorsExtension(
+    primary: Color(0xFF0042D3),
     success: Color(0xFF2E7D32),
+    green: Color(0xFF28A745),
     onSuccess: Colors.white,
     successContainer: Color(0xFFA5D6A7),
     onSuccessContainer: Color(0xFF1B5E20),
@@ -108,6 +120,7 @@ class AppPalettes {
 
   static const dark = AppColorsExtension(
     success: Color(0xFF81C784),
+    primary: Color(0xFF0042D3),
     onSuccess: Color(0xFF003300),
     successContainer: Color(0xFF1B5E20),
     onSuccessContainer: Color(0xFFA5D6A7),
@@ -123,4 +136,4 @@ class AppPalettes {
 }
 
 /// Access semantic colors via `context.appColors` from `context_extension.dart`.
-/// Example: `context.appColors.success`
+/// Example: `context.appColors.success`

@@ -27,6 +27,10 @@ class AppButton extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.borderRadius,
+    this.customWidth,
+    this.customHeight,
+    this.contentPadding,
+    this.labelFontWeight = FontWeight.w500,
   });
 
   final String label;
@@ -42,19 +46,32 @@ class AppButton extends StatelessWidget {
   final Widget? suffixIcon;
   final BorderRadius? borderRadius;
 
+  /// Overrides the [height]-derived pixel height with an exact value
+  /// (e.g. to match a design spec that doesn't fit the [ButtonSize] tiers).
+  final double? customHeight;
+
+  /// Overrides the [width]-derived pixel width with an exact value.
+  final double? customWidth;
+
+  /// Overrides the [height]-derived horizontal padding.
+  final EdgeInsetsGeometry? contentPadding;
+
+  /// The font weight of [label]. Defaults to [FontWeight.w500].
+  final FontWeight labelFontWeight;
+
   @override
   Widget build(BuildContext context) {
     final cs = context.theme.colorScheme;
     final appColors = context.theme.extension<AppColorsExtension>()!;
     final isDisabled = onPressed == null || isLoading;
 
-    final double buttonHeight = switch (height) {
+    final double buttonHeight = customHeight ?? switch (height) {
       ButtonSize.small => 36.h,
       ButtonSize.medium => 48.h,
       ButtonSize.large => 56.h,
     };
 
-    final double? buttonWidth = switch (width) {
+    final double? buttonWidth = customWidth ?? switch (width) {
       ButtonSize.small => 100.w,
       ButtonSize.medium => 150.w,
       ButtonSize.large => 200.w,
@@ -119,7 +136,7 @@ class AppButton extends StatelessWidget {
                   label,
                   style: TextStyle(
                     fontSize: fontSize,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: labelFontWeight,
                     color: isDisabled
                         ? fg.withValues(alpha: 0.5)
                         : textColor ?? fg,
@@ -144,14 +161,11 @@ class AppButton extends StatelessWidget {
           style: TextButton.styleFrom(
             backgroundColor: bg,
             foregroundColor: fg,
-            padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-            shape: border != null
-                ? RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    side: border,
-                  )
-                : const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(50))),
+            padding: contentPadding ?? EdgeInsets.symmetric(horizontal: horizontalPadding),
+            shape: RoundedRectangleBorder(
+              borderRadius: borderRadius ?? (border != null ? BorderRadius.circular(8) : BorderRadius.circular(50)),
+              side: border ?? BorderSide.none,
+            ),
           ),
           child: child,
         ),

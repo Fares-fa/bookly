@@ -17,4 +17,10 @@ abstract final class AppRoutes {
   static const String notifications = '/notifications';
   static const String favoriteCategory = '/favorite-category';
   static const String myFavorites = '/my-favorites';
+
+  // Bottom-nav shell branches (see `AppShell`).
+  static const String myBooking = '/my-booking';
+  static const String favorites = '/favorites';
+  static const String more = '/more';
+  static const String categories = '/categories';
 }
