@@ -30,7 +30,8 @@ class HotelCard extends StatelessWidget {
     return AppCard(
       onTap: onTap,
       showShadow: true,
-      padding: EdgeInsets.fromLTRB(AppSpacing.sm.w, 0, AppSpacing.sm.w, AppSpacing.sm.h),
+      padding: EdgeInsets.fromLTRB(
+          AppSpacing.sm.w, 0, AppSpacing.sm.w, AppSpacing.sm.h),
       leading: ClipRRect(
         borderRadius: AppBorders.xs,
         child: CommonImage(
@@ -65,33 +66,57 @@ class HotelCard extends StatelessWidget {
           ),
           SizedBox(height: AppSpacing.sm.h),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Icon(Icons.location_on_outlined, size: 16.sp, color: cs.onSurfaceVariant),
-              SizedBox(width: 4.w),
-              Text(
-                data.location,
-                style: TextStyle(fontSize: 13.sp, color: cs.onSurfaceVariant),
-              ),
-            ],
-          ),
-          for (final feature in data.features)
-            Padding(
-              padding: EdgeInsets.only(top: AppSpacing.xs.h),
-              child: Row(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.check, size: 16.sp, color: successColor),
-                  SizedBox(width: 4.w),
-                  Text(
-                    feature,
-                    style: TextStyle(
-                      fontSize: 13.sp,
-                      fontWeight: FontWeight.w500,
-                      color: successColor,
-                    ),
+                  Row(
+                    children: [
+                      Icon(Icons.location_on_outlined,
+                          size: 16.sp, color: cs.onSurfaceVariant),
+                      SizedBox(width: 4.w),
+                      Text(
+                        data.location,
+                        style: TextStyle(
+                            fontSize: 13.sp, color: cs.onSurfaceVariant),
+                      ),
+                    ],
                   ),
+                  for (final feature in data.features)
+                    Padding(
+                      padding: EdgeInsets.only(top: AppSpacing.xs.h),
+                      child: Row(
+                        children: [
+                          Icon(Icons.check, size: 16.sp, color: successColor),
+                          SizedBox(width: 4.w),
+                          Text(
+                            feature,
+                            style: TextStyle(
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w500,
+                              color: successColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                 ],
               ),
-            ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(data.price ?? '',
+                      style: context.textTheme.bodyLarge?.copyWith(
+                          color: cs.primary,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18)),
+                  Text('For ${data.numberOfNights} nights'),
+                ],
+              )
+            ],
+          )
         ],
       ),
     );

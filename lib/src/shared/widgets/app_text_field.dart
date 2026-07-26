@@ -1,6 +1,5 @@
 import '../../imports/core_imports.dart';
 
-
 /// A themed text form field wrapping [TextFormField].
 ///
 /// Usage:
@@ -14,27 +13,28 @@ import '../../imports/core_imports.dart';
 /// )
 /// ```
 class AppTextField extends StatelessWidget {
-  const AppTextField({
-    super.key,
-    this.label,
-    this.hint,
-    this.controller,
-    this.validator,
-    this.onChanged,
-    this.onFieldSubmitted,
-    this.focusNode,
-    this.keyboardType,
-    this.textInputAction,
-    this.obscureText = false,
-    this.readOnly = false,
-    this.enabled = true,
-    this.maxLines = 1,
-    this.minLines,
-    this.prefixIcon,
-    this.suffixIcon,
-    this.initialValue,
-    this.autofocus = false,
-  });
+  const AppTextField(
+      {super.key,
+      this.label,
+      this.hint,
+      this.controller,
+      this.validator,
+      this.onChanged,
+      this.onFieldSubmitted,
+      this.focusNode,
+      this.keyboardType,
+      this.textInputAction,
+      this.obscureText = false,
+      this.readOnly = false,
+      this.enabled = true,
+      this.maxLines = 1,
+      this.minLines,
+      this.prefixIcon,
+      this.suffixIcon,
+      this.initialValue,
+      this.autofocus = false,
+      this.hintStyle,
+      this.fillColor});
 
   final String? label;
   final String? hint;
@@ -54,6 +54,8 @@ class AppTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final String? initialValue;
   final bool autofocus;
+  final TextStyle? hintStyle;
+  final Color? fillColor;
 
   @override
   Widget build(BuildContext context) {
@@ -79,8 +81,10 @@ class AppTextField extends StatelessWidget {
       cursorColor: cs.primary,
       decoration: InputDecoration(
         isDense: true,
+        fillColor: fillColor,
         labelText: label,
         hintText: hint,
+        hintStyle: hintStyle,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
       ),

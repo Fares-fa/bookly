@@ -13,8 +13,12 @@ class HotelCardData {
     required this.reviewCount,
     required this.location,
     required this.features,
+    this.price,
+    this.numberOfNights,
   });
 
+  final String? price;
+  final int? numberOfNights;
   final String logoAsset;
   final String name;
   final int starRating;

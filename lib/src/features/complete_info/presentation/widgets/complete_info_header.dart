@@ -20,23 +20,23 @@ class CompleteInfoHeader extends StatelessWidget {
     final cs = context.theme.colorScheme;
 
     final logoAndSteps = Column(spacing: 12, children: [
-      SvgPicture.asset(AppAssets.smallBooklyIconBlue),
-      Row(
-          spacing: 4,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            for (var i = 0; i < 2; i++)
-              AnimatedContainer(
-                duration: Durations.short1,
-                child: Container(
-                  height: 8.h,
-                  width: i == step ? 40.w : 15.w,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: i == step ? cs.primary : cs.outlineVariant),
-                ),
-              ),
-          ]),
+      VectorGraphic(
+        loader: const AssetBytesLoader(AppAssets.smallBooklyIconBlue),
+        height: 26.w,
+      ),
+      Row(spacing: 4, mainAxisAlignment: MainAxisAlignment.center, children: [
+        for (var i = 0; i < 2; i++)
+          AnimatedContainer(
+            duration: Durations.short1,
+            child: Container(
+              height: 8.h,
+              width: i == step ? 40.w : 15.w,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: i == step ? cs.primary : cs.outlineVariant),
+            ),
+          ),
+      ]),
     ]);
 
     if (!showBackButton) {
