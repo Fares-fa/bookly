@@ -72,18 +72,16 @@ class PlaceDetailsScreen extends StatelessWidget {
                 children: [
                   TitleRow(title: title, rating: rating),
                   const SizedBox(height: 6),
-
                   LocationRow(location: location),
                   const SizedBox(height: 12),
                   PlaceDetailsTabBar(placeId: placeId, tabs: tabs),
                   const Divider(
                       height: 1, thickness: 1, color: AppColors.divider),
                   const SizedBox(height: 12),
-
                   PlaceDetailsTabContent(
                     placeId: placeId,
-                    aboutDescription: aboutDescription ??
-                        const AboutSection().description,
+                    aboutDescription:
+                        aboutDescription ?? const AboutSection().description,
                   ),
                   const SizedBox(height: 10),
                 ],
@@ -91,7 +89,7 @@ class PlaceDetailsScreen extends StatelessWidget {
             ),
           ),
           if (currentStep != null)
-            StepIndicator(currentStep: currentStep!, totalSteps: totalSteps),
+            StepIndicator(currentStep: currentStep!, totalSteps: 3),
           BottomBar(
             secondaryIcon: secondaryIcon,
             secondaryLabel: secondaryLabel,

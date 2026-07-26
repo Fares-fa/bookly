@@ -9,7 +9,7 @@ class StepIndicator extends StatelessWidget {
   const StepIndicator({
     super.key,
     required this.currentStep,
-    this.totalSteps = 4,
+    this.totalSteps = 3,
   });
 
   /// 1-based index of the current step.

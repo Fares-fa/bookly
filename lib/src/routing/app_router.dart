@@ -3,6 +3,7 @@ import 'package:bookly/src/features/hotels/presentation/booking_hotels.dart';
 import 'package:bookly/src/features/hotels/presentation/hotel_search_screen.dart';
 import 'package:bookly/src/features/hotels/presentation/hotel_results_screen.dart';
 import 'package:bookly/src/features/hotels/presentation/hotel_details_screen.dart';
+import 'package:bookly/src/features/hotels/presentation/hotel_rooms_screen.dart';
 import 'package:bookly/src/features/favorites/presentation/widgets/hotel_card_data.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -110,10 +111,14 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => const PartyDetailsScreen(),
     ),
     GoRoute(
-      path: AppRoutes.bookingSummary,
-      name: 'bookingSummary',
-      builder: (context, state) => const BookingSummaryScreen(),
-    ),
+        path: AppRoutes.bookingSummary,
+        name: 'bookingSummary',
+        builder: (context, state) {
+          final data = state.extra! as Map<String, dynamic>;
+          return BookingSummaryScreen(
+            hotelData: (data['hotelData'] as BookingDetailsData?),
+          );
+        }),
     GoRoute(
       path: AppRoutes.bookingConfirmed,
       name: 'bookingConfirmed',
@@ -165,7 +170,8 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => const CategoriesScreen(),
     ),
     StatefulShellRoute.indexedStack(
-      builder: (context, state, navigationShell) => AppShell(navigationShell: navigationShell),
+      builder: (context, state, navigationShell) =>
+          AppShell(navigationShell: navigationShell),
       branches: [
         StatefulShellBranch(
           routes: [
@@ -235,6 +241,13 @@ final GoRouter appRouter = GoRouter(
       ),
     ),
     GoRoute(
+      path: AppRoutes.hotelRooms,
+      name: 'hotel-rooms',
+      builder: (context, state) => HotelRoomsScreen(
+        hotelName: (state.extra as HotelCardData?)?.name ?? '',
+      ),
+    ),
+    GoRoute(
       path: AppRoutes.notifications,
       name: 'notifications',
       builder: (context, state) => const NotificationsScreen(),
@@ -260,7 +273,8 @@ final GoRouter appRouter = GoRouter(
       path: AppRoutes.bookingDetails,
       name: 'booking-details',
       builder: (context, state) => BookingDetailsScreen(
-        data: (state.extra as BookingDetailsData?) ?? kPlaceholderBookingDetails,
+        data:
+            (state.extra as BookingDetailsData?) ?? kPlaceholderBookingDetails,
       ),
     ),
   ],

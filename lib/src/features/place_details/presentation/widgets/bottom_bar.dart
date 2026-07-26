@@ -40,26 +40,8 @@ class BottomBar extends StatelessWidget {
         16 + MediaQuery.of(context).padding.bottom,
       ),
       child: Row(
+        spacing: 16,
         children: [
-          secondaryWidget ??
-              GestureDetector(
-                onTap: onSecondaryTap ?? () {},
-                child: SizedBox(
-                  width: 66,
-                  height: 66,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(secondaryIcon, color: AppColors.primary, size: 24),
-                      const SizedBox(height: 2),
-                      Text(secondaryLabel,
-                          style: AppTextStyle.primaryW500Size9),
-                    ],
-                  ),
-                ),
-              ),
-          const SizedBox(width: 16),
-          // Primary CTA (e.g. Book Table / Choose Room)
           Expanded(
             child: SizedBox(
               height: 66,

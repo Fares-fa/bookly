@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:bookly/src/features/favorites/presentation/widgets/hotel_card_data.dart';
 import 'package:bookly/src/features/place_details/presentation/screens/place_details_screen.dart';
 import 'package:bookly/src/features/place_details/presentation/widgets/price_nights_box.dart';
+import 'package:bookly/src/routing/app_routes.dart';
 
 /// Details screen for a hotel selected from [HotelResultsScreen], reusing
 /// the shared [PlaceDetailsScreen] used by the restaurant details screen.
@@ -29,6 +31,7 @@ class HotelDetailsScreen extends StatelessWidget {
       ),
       ctaIcon: Icons.meeting_room_outlined,
       ctaLabel: 'Choose Room',
+      onCtaTap: () => context.push(AppRoutes.hotelRooms, extra: data),
       currentStep: 1,
       totalSteps: 4,
     );
