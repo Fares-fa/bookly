@@ -11,11 +11,24 @@ class HotelSearchForm extends StatefulWidget {
 }
 
 class _HotelSearchFormState extends State<HotelSearchForm> {
+  final _destinationController = TextEditingController();
   DateTime? _checkIn;
   DateTime? _checkOut;
   int _adults = 1;
   int _children = 0;
   int _rooms = 1;
+
+  @override
+  void dispose() {
+    _destinationController.dispose();
+    super.dispose();
+  }
+
+  Future<void> _pickDestination() async {
+    final city = await context.push<String>(AppRoutes.hotelSearch);
+    if (city == null) return;
+    setState(() => _destinationController.text = city);
+  }
 
   Future<void> _pickDateRange() async {
     final now = DateTime.now();
@@ -72,9 +85,10 @@ class _HotelSearchFormState extends State<HotelSearchForm> {
           children: [
             GestureDetector(
               behavior: HitTestBehavior.opaque,
-              onTap: () => context.push(AppRoutes.hotelSearch),
+              onTap: _pickDestination,
               child: AbsorbPointer(
                 child: AppTextField(
+                  controller: _destinationController,
                   fillColor: const Color(0xFFF9F9F9),
                   hint: 'Enter Your Destination',
                   hintStyle: tt.bodyMedium?.copyWith(
@@ -141,7 +155,13 @@ class _HotelSearchFormState extends State<HotelSearchForm> {
             PrimaryButton(
               label: 'Search',
               isFullWidth: true,
-              onPressed: () {},
+              onPressed: () {
+                if (_destinationController.text.isEmpty) return;
+                context.push(
+                  AppRoutes.hotelResults,
+                  extra: _destinationController.text,
+                );
+              },
             ),
           ],
         ));

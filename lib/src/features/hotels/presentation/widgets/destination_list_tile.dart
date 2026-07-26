@@ -12,7 +12,7 @@ class DestinationListTile extends StatelessWidget {
     final cs = context.theme.colorScheme;
 
     return InkWell(
-      onTap: () => context.push(AppRoutes.hotelResults, extra: destination.city),
+      onTap: () => context.pop(destination.city),
       child: Row(
         children: [
           VectorGraphic(
