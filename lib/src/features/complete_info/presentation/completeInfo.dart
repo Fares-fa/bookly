@@ -93,7 +93,7 @@ class _CompleteInfoState extends State<CompleteInfo> {
                 onBack: () => setState(() => _step = 0),
               ),
               SizedBox(height: AppSpacing.lg.w),
-              Expanded(
+              Container(
                 child: _step == 0
                     ? PersonalInfoStep(
                         formKey: _personalInfoFormKey,
@@ -129,7 +129,7 @@ class _CompleteInfoState extends State<CompleteInfo> {
                 ? _handleContinueFromPersonalInfo
                 : (_selectedInterests.isEmpty
                     ? null
-                    : () => GoRouter.of(context).go(AppRoutes.home)),
+                    : () => GoRouter.of(context).go(AppRoutes.bookingHotels)),
             isFullWidth: true,
           ),
         ),

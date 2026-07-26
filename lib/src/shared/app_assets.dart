@@ -55,12 +55,10 @@ class AppAssets {
   static const String heart = '$_svgsPath/heart.svg';
   static const String location = '$_svgsPath/location.svg';
 
-
 //
   static const String favouritesHotel = '$_imagesPath/favourites_hotel.jpg';
   static const String booklyLogo = '$_svgsPath/bookly_logo.svg';
   static const String notificationIcon = '$_iconsPath/notification_icon.svg';
-
 
   static const String smallBooklyIconBlue =
       '$_svgsPath/bookly_small_logo_blue.svg';
@@ -69,4 +67,5 @@ class AppAssets {
       '$_lottiePath/bookly_typewriter.json';
   static const String onboardingOrbitLottie =
       '$_lottiePath/onboarding_orbit.json';
+  static const String bookHotelBackground = '$_imagesPath/book_hotel_bg.png';
 }

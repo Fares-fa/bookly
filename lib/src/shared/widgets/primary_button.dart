@@ -34,7 +34,7 @@ class PrimaryButton extends StatelessWidget {
 
     return AppButton(
       label: label,
-      onPressed: onPressed,
+      onPressed: onPressed ?? () {},
       variant: variant,
       color: cs.primary,
       textColor: textColor ?? cs.onPrimary,

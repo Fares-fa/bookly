@@ -1,4 +1,5 @@
 import 'package:bookly/src/features/complete_info/presentation/completeInfo.dart';
+import 'package:bookly/src/features/hotels/presentation/booking_hotels.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:bookly/src/routing/global_navigator.dart';
@@ -124,6 +125,11 @@ final GoRouter appRouter = GoRouter(
       path: AppRoutes.completeInfo,
       name: 'complete-info',
       builder: (context, state) => const CompleteInfo(),
+    ),
+    GoRoute(
+      path: AppRoutes.bookingHotels,
+      name: 'booking-hotels',
+      builder: (context, state) => const BookingHotels(),
     ),
     GoRoute(
       path: AppRoutes.notifications,
