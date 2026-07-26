@@ -5,6 +5,7 @@ import 'package:bookly/src/features/booking/presentation/widgets/booking_header.
 import 'package:bookly/src/features/booking/presentation/widgets/booking_category_selector.dart';
 import 'package:bookly/src/features/booking/presentation/widgets/booking_status_tabs.dart';
 import 'package:bookly/src/features/booking/presentation/widgets/booking_card.dart';
+import 'package:bookly/src/features/booking/presentation/widgets/booking_details_data.dart';
 
 const _placeholderBookings = <BookingCardData>[
   BookingCardData(
@@ -63,7 +64,10 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                 padding: EdgeInsets.all(AppSpacing.md.w),
                 itemCount: _placeholderBookings.length,
                 separatorBuilder: (context, index) => SizedBox(height: AppSpacing.md.h),
-                itemBuilder: (context, index) => BookingCard(data: _placeholderBookings[index]),
+                itemBuilder: (context, index) => BookingCard(
+                  data: _placeholderBookings[index],
+                  onTap: () => context.push(AppRoutes.bookingDetails, extra: kPlaceholderBookingDetails),
+                ),
               ),
             ),
           ],

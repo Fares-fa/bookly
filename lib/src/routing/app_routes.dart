@@ -16,4 +16,5 @@ abstract final class AppRoutes {
   static const String favoriteCategory = '/favorite-category';
   static const String myFavorites = '/my-favorites';
   static const String myBooking = '/my-booking';
+  static const String bookingDetails = '/booking-details';
 }
