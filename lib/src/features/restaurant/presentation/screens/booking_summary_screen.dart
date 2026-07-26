@@ -1,6 +1,9 @@
 import 'dart:async';
 
 import 'package:bookly/generated/l10n.dart';
+import 'package:bookly/src/features/booking/presentation/widgets/booking_details_data.dart';
+import 'package:bookly/src/features/booking/presentation/widgets/hotel_stay_card.dart';
+import 'package:bookly/src/features/booking/presentation/widgets/room_details_card.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/restaurant/domain/restaurant_spec.dart';
@@ -12,7 +15,8 @@ import 'package:bookly/src/features/venue/presentation/widgets/venue_widgets.dar
 /// pick a payment method and confirm. "Confirm & pay" unlocks once a payment
 /// method is selected.
 class BookingSummaryScreen extends ConsumerStatefulWidget {
-  const BookingSummaryScreen({super.key});
+  BookingSummaryScreen({super.key, this.hotelData});
+  final BookingDetailsData? hotelData;
 
   @override
   ConsumerState<BookingSummaryScreen> createState() =>
@@ -51,17 +55,25 @@ class _BookingSummaryScreenState extends ConsumerState<BookingSummaryScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: AppSpacing.md),
-                  VenueCard(
-                    name: restaurantSpec.name,
-                    location: restaurantSpec.location,
-                    rating: restaurantSpec.rating,
-                    imageAsset: restaurantSpec.cardImageAsset,
-                  ),
-                  SizedBox(height: AppSpacing.md),
-                  _SummaryCard(
-                    state: state,
-                    remaining: restaurantSpec.remaining,
-                  ),
+                  if (widget.hotelData != null) ...[
+                    HotelStayCard(data: widget.hotelData!),
+                    SizedBox(height: AppSpacing.md.h),
+                    RoomDetailsCard(data: widget.hotelData!),
+                    SizedBox(height: AppSpacing.lg.h),
+                  ],
+                  if (widget.hotelData == null) ...[
+                    VenueCard(
+                      name: restaurantSpec.name,
+                      location: restaurantSpec.location,
+                      rating: restaurantSpec.rating,
+                      imageAsset: restaurantSpec.cardImageAsset,
+                    ),
+                    SizedBox(height: AppSpacing.md),
+                    _SummaryCard(
+                      state: state,
+                      remaining: restaurantSpec.remaining,
+                    ),
+                  ],
                   SizedBox(height: AppSpacing.lg),
                   _sectionTitle(S.of(context).restaurantAddPromoCodeTitle),
                   SizedBox(height: AppSpacing.xxs),

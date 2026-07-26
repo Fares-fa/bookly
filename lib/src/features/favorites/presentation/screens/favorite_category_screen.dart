@@ -6,22 +6,25 @@ import 'package:bookly/src/features/favorites/presentation/widgets/hotel_card.da
 // TODO: Replace with real data from a favorites repository/provider once one
 // exists, keyed by category. Every image slot below points at the same
 // placeholder asset until real photos/logos are available.
-const _placeholderHotels = <HotelCardData>[
+const placeholderHotels = <HotelCardData>[
   HotelCardData(
-    logoAsset: AppAssets.favouritesHotel,
-    name: 'Mövenpick resort',
-    starRating: 5,
-    mainImage: AppAssets.favouritesHotel,
-    secondaryImage: AppAssets.favouritesHotel,
-    overlayImage: AppAssets.favouritesHotel,
-    morePhotosCount: 150,
-    score: 9.5,
-    scoreLabel: 'Excellent',
-    reviewCount: 20548,
-    location: 'Namaa Bay',
-    features: ['All Inclusive', 'Free Cancelation'],
-  ),
+      logoAsset: AppAssets.favouritesHotel,
+      name: 'Mövenpick resort',
+      starRating: 5,
+      mainImage: AppAssets.favouritesHotel,
+      secondaryImage: AppAssets.favouritesHotel,
+      overlayImage: AppAssets.favouritesHotel,
+      morePhotosCount: 150,
+      score: 9.5,
+      scoreLabel: 'Excellent',
+      reviewCount: 20548,
+      location: 'Namaa Bay',
+      features: ['All Inclusive', 'Free Cancelation'],
+      price: 'EGP 98,520',
+      numberOfNights: 5),
   HotelCardData(
+    price: 'EGP 98,520',
+    numberOfNights: 5,
     logoAsset: AppAssets.favouritesHotel,
     name: 'Mövenpick resort',
     starRating: 5,
@@ -56,10 +59,11 @@ class FavoriteCategoryScreen extends StatelessWidget {
             Expanded(
               child: ListView.separated(
                 padding: EdgeInsets.all(AppSpacing.md.w),
-                itemCount: _placeholderHotels.length,
-                separatorBuilder: (context, index) => SizedBox(height: AppSpacing.md.h),
+                itemCount: placeholderHotels.length,
+                separatorBuilder: (context, index) =>
+                    SizedBox(height: AppSpacing.md.h),
                 itemBuilder: (context, index) => HotelCard(
-                  data: _placeholderHotels[index],
+                  data: placeholderHotels[index],
                 ),
               ),
             ),
@@ -80,7 +84,8 @@ class _FavoriteCategoryHeader extends StatelessWidget {
     final cs = context.theme.colorScheme;
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppSpacing.md.w, vertical: AppSpacing.sm.h),
+      padding: EdgeInsets.symmetric(
+          horizontal: AppSpacing.md.w, vertical: AppSpacing.sm.h),
       child: SizedBox(
         height: 40.w,
         child: Stack(
@@ -88,7 +93,10 @@ class _FavoriteCategoryHeader extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600, color: cs.onSurface),
+              style: TextStyle(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.w600,
+                  color: cs.onSurface),
             ),
             Align(
               alignment: Alignment.centerLeft,
@@ -99,7 +107,8 @@ class _FavoriteCategoryHeader extends StatelessWidget {
                 child: Container(
                   width: 40.w,
                   height: 40.w,
-                  decoration: BoxDecoration(color: cs.primary, shape: BoxShape.circle),
+                  decoration:
+                      BoxDecoration(color: cs.primary, shape: BoxShape.circle),
                   child: const Icon(Icons.chevron_left, color: Colors.white),
                 ),
               ),

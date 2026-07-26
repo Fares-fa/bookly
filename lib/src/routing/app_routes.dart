@@ -38,4 +38,9 @@ abstract final class AppRoutes {
   static const String favorites = '/favorites';
   static const String more = '/more';
   static const String categories = '/categories';
+  static const String bookingHotels = '/booking-hotels';
+  static const String hotelSearch = '/hotel-search';
+  static const String hotelResults = '/hotel-results';
+  static const String hotelDetails = '/hotel-details';
+  static const String hotelRooms = '/hotel-rooms';
 }
