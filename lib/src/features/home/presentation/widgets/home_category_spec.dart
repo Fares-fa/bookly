@@ -52,10 +52,7 @@ abstract final class HomeCategorySpec {
   /// The 4 shortcuts shown in [HomeCategoryRow] on the home page.
   static const List<HomeCategoryData> categories = [
     HomeCategoryData(
-        id: 'hotels',
-        label: 'Hotels',
-        icon: AppAssets.hotel,
-        route: AppRoutes.bookingHotels),
+        id: 'hotels', icon: AppAssets.hotel, route: AppRoutes.bookingHotels),
     HomeCategoryData(
       id: 'cafe',
       icon: AppAssets.cafe,
@@ -88,19 +85,9 @@ abstract final class HomeCategorySpec {
       route: AppRoutes.bookingCafe,
     ),
     HomeCategoryData(
-        id: 'carRental',
-        label: 'Car Rental',
-        icon: AppAssets.carRental,
-        comingSoon: true),
+        id: 'carRental', icon: AppAssets.carRental, comingSoon: true),
     HomeCategoryData(
-        id: 'laboratory',
-        label: 'laboratory',
-        icon: AppAssets.laboratory,
-        comingSoon: true),
-    HomeCategoryData(
-        id: 'flight',
-        label: 'Flight',
-        icon: AppAssets.flight,
-        comingSoon: true),
+        id: 'laboratory', icon: AppAssets.laboratory, comingSoon: true),
+    HomeCategoryData(id: 'flight', icon: AppAssets.flight, comingSoon: true),
   ];
 }

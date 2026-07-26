@@ -101,7 +101,7 @@ dev_dependencies:
   # Native splash + launcher icons
   flutter_native_splash: ^2.4.7
   flutter_launcher_icons: ^0.14.4
-  intl_utils: ^2.8.16
+  intl_utils: ^2.8.8
 
 dependency_overrides:
   # Riverpod 3.x requires a newer test_api than what Flutter SDK pins.
