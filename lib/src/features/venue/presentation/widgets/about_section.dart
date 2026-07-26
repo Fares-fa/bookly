@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 /// "About" heading, description paragraph and a "See more" action.
@@ -11,14 +12,14 @@ class VenueAboutSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('About', style: AppTextStyle.blackW500Size17),
+        Text(S.of(context).venueAboutTitle, style: AppTextStyle.blackW500Size17),
         const SizedBox(height: 14),
         Text(text, style: AppTextStyle.blackW400Size14),
         const SizedBox(height: 8),
         GestureDetector(
           onTap: () {},
           child: Text(
-            'See more',
+            S.of(context).venueAboutSeeMore,
             style: AppTextStyle.blackW400Size14
                 .copyWith(color: AppColors.primary),
           ),

@@ -1,0 +1,725 @@
+{
+  "@@locale": "en",
+  "appName": "Bookly",
+  "@appName": {
+    "description": "The application name"
+  },
+  "helloWorld": "Hello World",
+  "@helloWorld": {
+    "description": "Sample greeting used to verify the localization pipeline"
+  },
+  "ok": "OK",
+  "@ok": {
+    "description": "Generic confirmation button label"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Generic cancel button label"
+  },
+
+  "commonErrorTitle": "Something went wrong",
+  "@commonErrorTitle": {
+    "description": "Default title shown on the generic error state widget when no custom title is provided"
+  },
+  "commonRetryButton": "Try Again",
+  "@commonRetryButton": {
+    "description": "Default label for the retry button on the generic error state widget"
+  },
+  "commonNavHome": "Home",
+  "@commonNavHome": {
+    "description": "Bottom navigation bar tab label for the Home tab"
+  },
+  "commonNavMyBooking": "My Booking",
+  "@commonNavMyBooking": {
+    "description": "Bottom navigation bar tab label for the My Booking tab"
+  },
+  "commonNavFavorite": "Favorite",
+  "@commonNavFavorite": {
+    "description": "Bottom navigation bar tab label for the Favorite tab"
+  },
+  "commonNavMore": "More",
+  "@commonNavMore": {
+    "description": "Bottom navigation bar tab label for the More tab"
+  },
+
+  "bookingCategoryHotels": "Hotels",
+  "@bookingCategoryHotels": {
+    "description": "Booking category label: hotels"
+  },
+  "bookingCategoryRestaurant": "Restaurant",
+  "@bookingCategoryRestaurant": {
+    "description": "Booking category label: restaurants"
+  },
+  "bookingCategoryCafe": "Cafe",
+  "@bookingCategoryCafe": {
+    "description": "Booking category label: cafes"
+  },
+  "bookingMyBookingTitle": "My Booking",
+  "@bookingMyBookingTitle": {
+    "description": "Title of the My Booking screen/tab"
+  },
+  "bookingMyBookingSubtitle": "View and manage all your reservations",
+  "@bookingMyBookingSubtitle": {
+    "description": "Subtitle shown under the My Booking screen title"
+  },
+  "bookingNoBookingsYetTitle": "No bookings yet",
+  "@bookingNoBookingsYetTitle": {
+    "description": "Empty state title on the placeholder My Booking tab"
+  },
+  "bookingNoBookingsYetSubtitle": "Your upcoming and past bookings will show up here.",
+  "@bookingNoBookingsYetSubtitle": {
+    "description": "Empty state subtitle on the placeholder My Booking tab"
+  },
+  "bookingStatusAll": "All",
+  "@bookingStatusAll": {
+    "description": "Booking status filter tab: all bookings"
+  },
+  "bookingStatusUpcoming": "Upcoming",
+  "@bookingStatusUpcoming": {
+    "description": "Booking status filter tab: upcoming bookings"
+  },
+  "bookingStatusCompleted": "Completed",
+  "@bookingStatusCompleted": {
+    "description": "Booking status filter tab: completed bookings"
+  },
+  "bookingStatusCancelled": "Cancelled",
+  "@bookingStatusCancelled": {
+    "description": "Booking status filter tab: cancelled bookings"
+  },
+  "bookingDetailsTitle": "Booking Details",
+  "@bookingDetailsTitle": {
+    "description": "Title of the Booking Details screen"
+  },
+  "bookingCheckInLabel": "Check In",
+  "@bookingCheckInLabel": {
+    "description": "Label for the check-in date/time column on the booking details screen"
+  },
+  "bookingCheckOutLabel": "Check Out",
+  "@bookingCheckOutLabel": {
+    "description": "Label for the check-out date/time column on the booking details screen"
+  },
+  "bookingTotalStayLabel": "Total Stay",
+  "@bookingTotalStayLabel": {
+    "description": "Label for the total stay length column on the booking details screen"
+  },
+  "bookingPaymentSummaryTitle": "Payment summary",
+  "@bookingPaymentSummaryTitle": {
+    "description": "Title of the payment summary section on the booking details screen"
+  },
+  "bookingSubtotalLabel": "Sub total",
+  "@bookingSubtotalLabel": {
+    "description": "Label for the subtotal row in the payment summary"
+  },
+  "bookingFeesLabel": "fees",
+  "@bookingFeesLabel": {
+    "description": "Label for the fees row in the payment summary"
+  },
+  "bookingTotalAmountLabel": "Total amount",
+  "@bookingTotalAmountLabel": {
+    "description": "Label for the total amount row in the payment summary"
+  },
+
+  "authResetPasswordTitle": "Reset Password",
+  "authResetPasswordSubtitle": "Enter your email to receive a reset link",
+  "authEmailLabel": "Email",
+  "authEmailRequired": "Email is required",
+  "authEmailInvalid": "Enter a valid email",
+  "authSendResetLinkButton": "Send Reset Link",
+  "authBackToLogin": "Back to Login",
+  "authEnterPhoneNumber": "Enter your phone number",
+  "authOtpNotice": "A OTP will be sent to your phone number for verification.",
+  "authContinueButton": "Continue",
+  "authCreateAccountTitle": "Create Account",
+  "authCreateAccountSubtitle": "Join us and start your journey",
+  "authFullNameLabel": "Full Name",
+  "authNameRequired": "Name is required",
+  "authPasswordLabel": "Password",
+  "authPasswordRequired": "Password is required",
+  "authPasswordTooShort": "Password must be at least 6 characters",
+  "authConfirmPasswordLabel": "Confirm Password",
+  "authConfirmPasswordRequired": "Confirm password is required",
+  "authPasswordsMismatch": "Passwords do not match",
+  "authSignUpButton": "Sign Up",
+  "authAlreadyHaveAccount": "Already have an account? ",
+  "authLogIn": "Log In",
+  "authJoinAsGuest": "Join As A Guest",
+  "authMobileNumberHint": "Mobile Number",
+  "authInvalidPhoneNumber": "Please enter a valid phone number",
+  "authOtpTitle": "Enter verification code",
+  "authOtpSentToPhone": "A 4 digit code was sent to {phoneNumber}.",
+  "@authOtpSentToPhone": {
+    "placeholders": {
+      "phoneNumber": {
+        "type": "String"
+      }
+    }
+  },
+  "authOtpSentGeneric": "Enter the 4 digit code sent to your phone.",
+  "authResendCode": "Resend code",
+  "authResendCodeIn": "Resend code in {time}",
+  "@authResendCodeIn": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "authVerifyButton": "Verify",
+  "authPasswordResetSuccess": "Password reset link sent successfully",
+  "completeInfoContinueButton": "Continue",
+  "completeInfoInterestFood": "Food",
+  "completeInfoInterestCafes": "Cafes",
+  "completeInfoInterestHotels": "Hotels",
+  "completeInfoInterestSpaWellness": "Spa & Wellness",
+  "completeInfoInterestBars": "Bars",
+  "completeInfoInterestShopping": "Shopping",
+  "completeInfoInterestLabTest": "Lab Test",
+  "completeInfoInterestsTitle": "Choose Your Interests",
+  "completeInfoInterestsSubtitle": "Get specific about things you love",
+  "completeInfoTitle": "Complete Your Information",
+  "completeInfoSubtitle": "Add your name and details to personalize your experience",
+  "completeInfoFullNameHint": "Enter your full name",
+  "completeInfoFullNameRequired": "Please enter your full name",
+  "completeInfoDobRequired": "Please select your date of birth",
+  "completeInfoSelectDob": "Select your date of birth",
+  "completeInfoGenderLabel": "Gender",
+  "completeInfoGenderMale": "Male",
+  "completeInfoGenderFemale": "Female",
+  "completeInfoGenderRequired": "Please select your gender",
+
+  "moreAccount": "Account",
+  "moreSupport": "Support",
+  "moreSettings": "setting",
+  "morePromoCodes": "Promo Codes",
+  "moreInviteFriend": "Invite Friend",
+  "moreLogout": "Log out",
+  "moreLogoutConfirmMessage": "Are you sure you want to log out?",
+  "moreLogoutConfirm": "Yes Log out",
+  "moreGreeting": "Hi",
+  "moreGuestFallbackName": "Guest",
+  "moreNoNewNotifications": "No new notifications",
+  "moreLanguageTitle": "Language",
+  "@moreLanguageTitle": {
+    "description": "More menu item label that opens the language picker sheet"
+  },
+  "moreUseDeviceLanguage": "Use device language",
+  "@moreUseDeviceLanguage": {
+    "description": "Option in the language picker sheet that follows the device's system language instead of a manually chosen one"
+  },
+  "notificationsTitle": "Notification",
+  "notificationsEmptyTitle": "No Notifications",
+  "notificationsEmptyMessage": "We'll let you know when there will be something to update you.",
+  "onboardingSkip": "Skip",
+  "onboardingGetStarted": "Get Started",
+  "onboardingJoinAsGuest": "Join as a Guest",
+  "onboardingPage1TitleLine1": "Compare Choose",
+  "onboardingPage1TitleLine2": "& Book",
+  "onboardingPage2TitleLine1": "One App Endless",
+  "onboardingPage2TitleLine2": "Bookings",
+  "splashSubtitle": "One App Every Booking",
+
+  "commonExtraComingSoonTitle": "Coming Soon",
+  "@commonExtraComingSoonTitle": {
+    "description": "Fallback heading for the Coming Soon teaser section when no title is provided"
+  },
+  "commonExtraSeatsLeftLabel": "{count} Seats left",
+  "@commonExtraSeatsLeftLabel": {
+    "description": "Badge label showing how many seats remain for a live screening",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "example": "8"
+      }
+    }
+  },
+  "commonExtraEgpCurrencyPrefix": "EGP ",
+  "@commonExtraEgpCurrencyPrefix": {
+    "description": "Currency prefix shown before a price value (note trailing space)"
+  },
+  "commonExtraCategoryDistanceKm": "{category} • {distance} km",
+  "@commonExtraCategoryDistanceKm": {
+    "description": "Caption combining a place/screening category with its distance in kilometers",
+    "placeholders": {
+      "category": {
+        "type": "String",
+        "example": "Cafe"
+      },
+      "distance": {
+        "type": "String",
+        "example": "1.2"
+      }
+    }
+  },
+  "commonExtraBookYourSeatsLabel": "Book your seats",
+  "@commonExtraBookYourSeatsLabel": {
+    "description": "Button label to book seats for a live screening"
+  },
+  "commonExtraClosedLabel": "Closed",
+  "@commonExtraClosedLabel": {
+    "description": "Status badge shown on a nearby place card when the place is not open"
+  },
+  "commonExtraNearbyPlacesTitle": "Nearby Places",
+  "@commonExtraNearbyPlacesTitle": {
+    "description": "Fallback section title for the Nearby Places section"
+  },
+  "commonExtraNoNearbyPlacesFound": "No nearby places found",
+  "@commonExtraNoNearbyPlacesFound": {
+    "description": "Empty state message when no nearby places are available"
+  },
+  "commonExtraCouldNotLoadNearbyPlaces": "Could not load nearby places",
+  "@commonExtraCouldNotLoadNearbyPlaces": {
+    "description": "Error message when nearby places fail to load"
+  },
+  "commonExtraAllFilterLabel": "All",
+  "@commonExtraAllFilterLabel": {
+    "description": "Default label for the filter chip on a card section"
+  },
+  "commonExtraFiltersComingSoonMessage": "Filters coming soon",
+  "@commonExtraFiltersComingSoonMessage": {
+    "description": "Snackbar message shown when a section's filter action has no handler yet"
+  },
+  "commonExtraTopRatedPlacesTitle": "Top Rated Places",
+  "@commonExtraTopRatedPlacesTitle": {
+    "description": "Fallback section title for the Top Rated Places section"
+  },
+
+  "favoritesHotelsScreenTitle": "Favorite Hotels",
+  "favoritesRestaurantsScreenTitle": "Favorite Restaurant",
+  "favoritesCafesScreenTitle": "Favorite Cafes",
+  "favoritesPageTitle": "Favorite",
+  "favoritesEmptyTitle": "No favorites yet",
+  "favoritesEmptySubtitle": "Places and screenings you favorite will show up here.",
+  "favoritesMyFavoriteTitle": "My Favorite",
+  "favoritesHotelsCategoryTitle": "Hotels",
+  "favoritesRestaurantCategoryTitle": "Restaurant",
+  "favoritesCafesCategoryTitle": "Cafes",
+  "favoritesReviewCount": "{count} Review",
+  "@favoritesReviewCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "cafeBookTableTitle": "Book Table",
+  "cafeSelectReservationTimeTitle": "Select Reservation Time",
+  "cafeReservationTimeHint": "From 1 hr , up to 14 days in Advance",
+  "cafeDateLabel": "Date",
+  "cafeSelectDatePlaceholder": "Select date",
+  "cafeTimeLabel": "Time",
+  "cafeSelectTimePlaceholder": "Select time",
+  "cafeContinueButton": "Continue",
+  "cafeBookingHeaderTitle": "Booking Cafe",
+  "cafeFilterAll": "All",
+  "cafeFilterCoffee": "Coffee",
+  "cafeFilterDessert": "Dessert",
+  "cafeTopRatedTitle": "Top Rated Places ⭐",
+  "cafeComingSoonTitle": "Coming Soon",
+  "cafeBookingSummaryTitle": "Booking summary",
+  "cafeAddPromoCodeTitle": "Add Promo Code",
+  "cafePromoCodeHint": "Use Promo Code to get more discount",
+  "cafeSelectPaymentMethodTitle": "Select Payment Method",
+  "cafeAddNewCardLabel": "Add a new card",
+  "cafePaymentSummaryTitle": "Payment summary",
+  "cafeConfirmAndPayButton": "Confirm & pay",
+  "cafeHoldReservationText": "We hold Your reservation for ",
+  "cafePersonLabel": "Person",
+  "cafePersonCount": "{count} Person",
+  "@cafePersonCount": {
+    "placeholders": {
+      "count": { "type": "String" }
+    }
+  },
+  "cafeOptionLabel": "Option",
+  "cafeNoteLabel": "Note",
+  "cafeAddNotePlaceholder": "Add a note",
+  "cafeRemainingMoneyLabel": "Remaining money",
+  "cafeEnterPromoCodeHint": "Enter promo code",
+  "cafeApplyButton": "Apply",
+  "cafePromoCodeAppliedMessage": "Promo code applied",
+  "cafeMenuTitle": "Menu",
+  "cafeHowManyPeopleTitle": "How Many People ?",
+  "cafeSelectOptionTitle": "Select Option",
+  "cafeAddNoteTitle": "Add Note",
+  "cafeNoteHint": "Ex: I want to do a birthday party",
+
+  "homeCategoriesTitle": "Categories",
+  "@homeCategoriesTitle": {
+    "description": "Title of the full categories grid screen"
+  },
+  "homeAdsLoadError": "Could not load ads",
+  "@homeAdsLoadError": {
+    "description": "Error message shown when the home ad banners fail to load"
+  },
+  "homeCategoryComingSoonBadge": "Soon",
+  "@homeCategoryComingSoonBadge": {
+    "description": "Ribbon badge on a category tile that isn't live yet"
+  },
+  "homeCategoryComingSoonMessage": "{label} coming soon",
+  "@homeCategoryComingSoonMessage": {
+    "description": "Snackbar shown when tapping a category with no destination yet",
+    "placeholders": {
+      "label": {"type": "String", "example": "Car Rental"}
+    }
+  },
+  "homeNoNotificationsMessage": "No new notifications",
+  "@homeNoNotificationsMessage": {
+    "description": "Snackbar shown when tapping the notification bell with nothing new"
+  },
+  "homeSearchHint": "What are you looking for?",
+  "@homeSearchHint": {
+    "description": "Hint text for the home search bar"
+  },
+  "homeCategoryHotels": "Hotels",
+  "@homeCategoryHotels": {
+    "description": "Display label for the Hotels quick-access category"
+  },
+  "homeCategoryCafe": "Cafe",
+  "@homeCategoryCafe": {
+    "description": "Display label for the Cafe quick-access category"
+  },
+  "homeCategoryRestaurant": "Restaurant",
+  "@homeCategoryRestaurant": {
+    "description": "Display label for the Restaurant quick-access category"
+  },
+  "homeCategoryMore": "More",
+  "@homeCategoryMore": {
+    "description": "Display label for the More category tile that opens the full grid"
+  },
+  "homeCategoryCarRental": "Car Rental",
+  "@homeCategoryCarRental": {
+    "description": "Display label for the Car Rental category"
+  },
+  "homeCategoryLaboratory": "Laboratory",
+  "@homeCategoryLaboratory": {
+    "description": "Display label for the Laboratory category"
+  },
+  "homeCategoryFlight": "Flight",
+  "@homeCategoryFlight": {
+    "description": "Display label for the Flight category"
+  },
+  "restaurantBookTableTitle": "Book Table",
+  "@restaurantBookTableTitle": {
+    "description": "App bar title for the book-table step of the restaurant booking wizard"
+  },
+  "restaurantSelectReservationTimeTitle": "Select Reservation Time",
+  "@restaurantSelectReservationTimeTitle": {
+    "description": "Section title on the book-table step"
+  },
+  "restaurantReservationTimeHint": "From 1 hr, up to 14 days in advance",
+  "@restaurantReservationTimeHint": {
+    "description": "Instructional copy under the reservation time section title"
+  },
+  "restaurantDateLabel": "Date",
+  "@restaurantDateLabel": {
+    "description": "Label for the reservation date row"
+  },
+  "restaurantSelectDatePlaceholder": "Select date",
+  "@restaurantSelectDatePlaceholder": {
+    "description": "Placeholder value shown before a reservation date is picked"
+  },
+  "restaurantTimeLabel": "Time",
+  "@restaurantTimeLabel": {
+    "description": "Label for the reservation time row"
+  },
+  "restaurantSelectTimePlaceholder": "Select time",
+  "@restaurantSelectTimePlaceholder": {
+    "description": "Placeholder value shown before a reservation time is picked"
+  },
+  "restaurantContinueLabel": "Continue",
+  "@restaurantContinueLabel": {
+    "description": "Continue button label used across the restaurant booking wizard steps"
+  },
+  "restaurantFilterAll": "All",
+  "@restaurantFilterAll": {
+    "description": "Cuisine filter chip: show all"
+  },
+  "restaurantFilterBurger": "Burger",
+  "@restaurantFilterBurger": {
+    "description": "Cuisine filter chip: burger"
+  },
+  "restaurantFilterPizza": "Pizza",
+  "@restaurantFilterPizza": {
+    "description": "Cuisine filter chip: pizza"
+  },
+  "restaurantBookingHeaderTitle": "Booking Restaurant",
+  "@restaurantBookingHeaderTitle": {
+    "description": "Title of the restaurant listing screen's hero header"
+  },
+  "restaurantTopRatedTitle": "Top Rated Places ⭐",
+  "@restaurantTopRatedTitle": {
+    "description": "Section title for top rated places on the restaurant listing screen"
+  },
+  "restaurantComingSoonTitle": "Coming Soon",
+  "@restaurantComingSoonTitle": {
+    "description": "Section title for the coming-soon section on the restaurant listing screen"
+  },
+  "restaurantMenuTitle": "Menu",
+  "@restaurantMenuTitle": {
+    "description": "App bar title for the restaurant menu photo screen"
+  },
+  "restaurantBookingSummaryTitle": "Booking summary",
+  "@restaurantBookingSummaryTitle": {
+    "description": "App bar title for the booking summary step"
+  },
+  "restaurantAddPromoCodeTitle": "Add Promo Code",
+  "@restaurantAddPromoCodeTitle": {
+    "description": "Section title for the promo code field on booking summary"
+  },
+  "restaurantPromoCodeSubtitle": "Use Promo Code to get more discount",
+  "@restaurantPromoCodeSubtitle": {
+    "description": "Subtitle under the Add Promo Code section title"
+  },
+  "restaurantSelectPaymentMethodTitle": "Select Payment Method",
+  "@restaurantSelectPaymentMethodTitle": {
+    "description": "Section title for the payment method list"
+  },
+  "restaurantAddNewCardLabel": "Add a new card",
+  "@restaurantAddNewCardLabel": {
+    "description": "Payment method tile label to add a new card"
+  },
+  "restaurantPaymentSummaryTitle": "Payment summary",
+  "@restaurantPaymentSummaryTitle": {
+    "description": "Section title for the payment summary breakdown"
+  },
+  "restaurantConfirmAndPayLabel": "Confirm & pay",
+  "@restaurantConfirmAndPayLabel": {
+    "description": "Bottom bar CTA on the booking summary step"
+  },
+  "restaurantHoldReservationMessage": "We hold your reservation for",
+  "@restaurantHoldReservationMessage": {
+    "description": "Prefix of the hold-countdown banner text, followed by a live mm:ss timer"
+  },
+  "restaurantPersonLabel": "Person",
+  "@restaurantPersonLabel": {
+    "description": "Field label for the party size row in the booking summary card"
+  },
+  "restaurantPartySizeValue": "{count} Person",
+  "@restaurantPartySizeValue": {
+    "description": "Value showing how many guests are in the party",
+    "placeholders": {
+      "count": {"type": "String", "example": "4"}
+    }
+  },
+  "restaurantOptionLabel": "Option",
+  "@restaurantOptionLabel": {
+    "description": "Field label for the seating option row in the booking summary card"
+  },
+  "restaurantNoteLabel": "Note",
+  "@restaurantNoteLabel": {
+    "description": "Field label for the note row in the booking summary card"
+  },
+  "restaurantRemainingMoneyLabel": "Remaining money",
+  "@restaurantRemainingMoneyLabel": {
+    "description": "Field label for the remaining balance row in the booking summary card"
+  },
+  "restaurantAddNoteText": "Add a note",
+  "@restaurantAddNoteText": {
+    "description": "Placeholder value shown when no note has been entered yet"
+  },
+  "restaurantPromoCodeHint": "Enter promo code",
+  "@restaurantPromoCodeHint": {
+    "description": "Hint text for the promo code text field"
+  },
+  "restaurantApplyLabel": "Apply",
+  "@restaurantApplyLabel": {
+    "description": "Button label to apply a promo code"
+  },
+  "restaurantPromoCodeAppliedMessage": "Promo code applied",
+  "@restaurantPromoCodeAppliedMessage": {
+    "description": "Snackbar shown after applying a promo code"
+  },
+  "restaurantHowManyPeopleTitle": "How many people?",
+  "@restaurantHowManyPeopleTitle": {
+    "description": "Section title on the party details step"
+  },
+  "restaurantSelectOptionTitle": "Select Option",
+  "@restaurantSelectOptionTitle": {
+    "description": "Section title for the seating option picker on the party details step"
+  },
+  "restaurantAddNoteTitle": "Add Note",
+  "@restaurantAddNoteTitle": {
+    "description": "Section title for the note field on the party details step"
+  },
+  "restaurantNoteHint": "Ex: I want to do a birthday party",
+  "@restaurantNoteHint": {
+    "description": "Hint text for the optional booking note field"
+  },
+
+  "venueAboutTitle": "About",
+  "@venueAboutTitle": {
+    "description": "Section heading for the venue's About tab/section"
+  },
+  "venueAboutSeeMore": "See more",
+  "@venueAboutSeeMore": {
+    "description": "Expand action under the About section description"
+  },
+  "venueMenuLabel": "Menu",
+  "@venueMenuLabel": {
+    "description": "Label under the circular shortcut button that opens the venue's menu"
+  },
+  "venueBookTableButton": "Book Table",
+  "@venueBookTableButton": {
+    "description": "Default CTA label on the venue detail screen's bottom bar"
+  },
+  "venueBookingConfirmedTitle": "Booking Confirmed",
+  "@venueBookingConfirmedTitle": {
+    "description": "Default headline on the booking-confirmed screen"
+  },
+  "venueBookingConfirmedMessage": "your Table has been reserved with successfully",
+  "@venueBookingConfirmedMessage": {
+    "description": "Default confirmation message on the booking-confirmed screen"
+  },
+  "venuePaymentSummaryTitle": "Payment summary",
+  "@venuePaymentSummaryTitle": {
+    "description": "Heading above the payment summary rows on the booking-confirmed screen"
+  },
+  "venueViewBookingDetailsButton": "View Booking Details",
+  "@venueViewBookingDetailsButton": {
+    "description": "Button on the booking-confirmed screen that opens the booking details"
+  },
+  "venueBackToHomeButton": "Back to home",
+  "@venueBackToHomeButton": {
+    "description": "Button on the booking-confirmed screen that returns to the home screen"
+  },
+  "venueBookingIdLabel": "Booking ID",
+  "@venueBookingIdLabel": {
+    "description": "Row label for the booking reference on the booking-confirmed details card"
+  },
+  "venueDateLabel": "Date",
+  "@venueDateLabel": {
+    "description": "Row label for the booking date on the booking-confirmed details card"
+  },
+  "venuePaymentMethodLabel": "Payment method",
+  "@venuePaymentMethodLabel": {
+    "description": "Row label for the payment method on the booking-confirmed details card"
+  },
+  "venuePaymentMethodApplePay": "Apple pay",
+  "@venuePaymentMethodApplePay": {
+    "description": "Display text for the Apple Pay payment method"
+  },
+  "venuePaymentMethodNewCard": "New card",
+  "@venuePaymentMethodNewCard": {
+    "description": "Display text for the new-card payment method"
+  },
+  "venueFacilitiesTitle": "Facilities",
+  "@venueFacilitiesTitle": {
+    "description": "Section heading for the venue's Facilities tab/section"
+  },
+  "venueFacilitiesSeeMore": "See More",
+  "@venueFacilitiesSeeMore": {
+    "description": "Expand action under the Facilities section list"
+  },
+  "venueLocationTitle": "Location",
+  "@venueLocationTitle": {
+    "description": "Section heading for the venue's Location tab/section"
+  },
+  "venueSeeLocationOnMapButton": "See Location on map",
+  "@venueSeeLocationOnMapButton": {
+    "description": "Button over the map preview in the Location section"
+  },
+  "venueFromYourLocationLabel": "From Your location",
+  "@venueFromYourLocationLabel": {
+    "description": "Label preceding the distance-from-user value in the Location section"
+  },
+  "venueSubTotalLabel": "Sub total",
+  "@venueSubTotalLabel": {
+    "description": "Row label for the subtotal amount in the venue payment summary"
+  },
+  "venueFeesLabel": "fees",
+  "@venueFeesLabel": {
+    "description": "Row label for the fees amount in the venue payment summary"
+  },
+  "venueTotalAmountLabel": "Total amount",
+  "@venueTotalAmountLabel": {
+    "description": "Row label for the total amount in the venue payment summary"
+  },
+  "venuePolicyTitle": "Policy",
+  "@venuePolicyTitle": {
+    "description": "Section heading for the venue's Policy tab/section"
+  },
+  "venueDepositNeedLabel": "Deposite Need : ",
+  "@venueDepositNeedLabel": {
+    "description": "Label prefix before the deposit amount in the Policy section"
+  },
+  "venuePerPersonSuffix": "/Person",
+  "@venuePerPersonSuffix": {
+    "description": "Unit suffix appended after a per-person price or deposit amount"
+  },
+  "venueOpeningAtLabel": "Opening at",
+  "@venueOpeningAtLabel": {
+    "description": "Label for the opening-hours row in the Policy section"
+  },
+  "venueClosedAtLabel": "Closed at",
+  "@venueClosedAtLabel": {
+    "description": "Label for the closing-hours row in the Policy section"
+  },
+  "venueCallPhoneLabel": "Call {phone}",
+  "@venueCallPhoneLabel": {
+    "description": "Call-to-action text with the venue's phone number in the Policy section",
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "venuePriceLabel": "Price : {price}",
+  "@venuePriceLabel": {
+    "description": "Price label shown on the hero image's price pill",
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "venueNextButton": "Next",
+  "@venueNextButton": {
+    "description": "Confirm button on the reservation calendar/time picker sheet"
+  },
+  "venueTimeLabel": "Time",
+  "@venueTimeLabel": {
+    "description": "Heading for the time-picker row on the reservation calendar sheet"
+  },
+  "venueAmLabel": "AM",
+  "@venueAmLabel": {
+    "description": "AM segment label on the reservation calendar sheet's meridiem toggle"
+  },
+  "venuePmLabel": "PM",
+  "@venuePmLabel": {
+    "description": "PM segment label on the reservation calendar sheet's meridiem toggle"
+  },
+  "venueCalendarSun": "SUN",
+  "@venueCalendarSun": {
+    "description": "Sunday column header on the reservation calendar sheet"
+  },
+  "venueCalendarMon": "MON",
+  "@venueCalendarMon": {
+    "description": "Monday column header on the reservation calendar sheet"
+  },
+  "venueCalendarTue": "TUE",
+  "@venueCalendarTue": {
+    "description": "Tuesday column header on the reservation calendar sheet"
+  },
+  "venueCalendarWed": "WED",
+  "@venueCalendarWed": {
+    "description": "Wednesday column header on the reservation calendar sheet"
+  },
+  "venueCalendarThu": "THU",
+  "@venueCalendarThu": {
+    "description": "Thursday column header on the reservation calendar sheet"
+  },
+  "venueCalendarFri": "FRI",
+  "@venueCalendarFri": {
+    "description": "Friday column header on the reservation calendar sheet"
+  },
+  "venueCalendarSat": "SAT",
+  "@venueCalendarSat": {
+    "description": "Saturday column header on the reservation calendar sheet"
+  },
+  "venueReviewLabel": "Review ",
+  "@venueReviewLabel": {
+    "description": "Label preceding the review count in the Reviews section heading"
+  },
+  "venueFiltersComingSoonMessage": "Filters coming soon",
+  "@venueFiltersComingSoonMessage": {
+    "description": "Snackbar shown when tapping the (not-yet-implemented) filters icon on the venue filter row"
+  }
+}

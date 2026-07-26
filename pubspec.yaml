@@ -76,7 +76,9 @@ dependencies:
 
 
   # Localization
-
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
 
   liquid_glass_renderer: ^0.2.0-dev.4
   vector_graphics: ^1.2.2
@@ -99,6 +101,7 @@ dev_dependencies:
   # Native splash + launcher icons
   flutter_native_splash: ^2.4.7
   flutter_launcher_icons: ^0.14.4
+  intl_utils: ^2.8.16
 
 dependency_overrides:
   # Riverpod 3.x requires a newer test_api than what Flutter SDK pins.
@@ -117,6 +120,13 @@ flutter_launcher_icons:
   ios: true
   remove_alpha_ios: true # App Store rejects alpha
   background_color_ios: "#F2F8FE"
+
+flutter_intl:
+  enabled: true
+  class_name: S
+  main_locale: en
+  arb_dir: lib/l10n
+  output_dir: lib/generated
 
 flutter:
   uses-material-design: true

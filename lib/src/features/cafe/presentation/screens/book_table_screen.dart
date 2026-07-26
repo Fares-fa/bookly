@@ -1,5 +1,6 @@
 import 'package:bookly/src/imports/imports.dart';
 
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/features/cafe/domain/cafe_spec.dart';
 import 'package:bookly/src/features/cafe/presentation/providers/cafe_booking_flow_provider.dart';
 import 'package:bookly/src/features/venue/presentation/providers/booking_flow_state.dart';
@@ -29,7 +30,7 @@ class CafeBookTableScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: const BookingAppBar(title: 'Book Table'),
+      appBar: BookingAppBar(title: S.of(context).cafeBookTableTitle),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSpacing.ml),
         child: Column(
@@ -43,28 +44,28 @@ class CafeBookTableScreen extends ConsumerWidget {
             ),
             SizedBox(height: AppSpacing.lg),
             Text(
-              'Select Reservation Time',
+              S.of(context).cafeSelectReservationTimeTitle,
               style: AppTextStyle.sectionTitle.copyWith(fontSize: 24.sp),
             ),
             SizedBox(height: AppSpacing.xs),
             Text(
-              'From 1 hr , up to 14 days in Advance',
+              S.of(context).cafeReservationTimeHint,
               style: AppTextStyle.grey400Size14.copyWith(fontSize: 16.sp),
             ),
             SizedBox(height: AppSpacing.lg),
             _ScheduleRow(
-              label: 'Date',
+              label: S.of(context).cafeDateLabel,
               value: state.date == null
-                  ? 'Select date'
+                  ? S.of(context).cafeSelectDatePlaceholder
                   : formatBookingDate(state.date!),
               placeholder: state.date == null,
               onTap: () => _openCalendar(context, ref),
             ),
             SizedBox(height: AppSpacing.md),
             _ScheduleRow(
-              label: 'Time',
+              label: S.of(context).cafeTimeLabel,
               value: state.time == null
-                  ? 'Select time'
+                  ? S.of(context).cafeSelectTimePlaceholder
                   : formatBookingTime(state.time!),
               placeholder: state.time == null,
               onTap: () => _openCalendar(context, ref),
@@ -74,7 +75,7 @@ class CafeBookTableScreen extends ConsumerWidget {
       ),
       bottomNavigationBar: BookingBottomBar(
         stepIndex: 0,
-        label: 'Continue',
+        label: S.of(context).cafeContinueButton,
         menuRoute: AppRoutes.cafeMenu,
         menuIcon: Icons.local_cafe_outlined,
         enabled: state.hasSchedule,

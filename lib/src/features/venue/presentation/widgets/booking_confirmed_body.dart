@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/venue/presentation/providers/booking_flow_state.dart';
@@ -31,8 +32,8 @@ class BookingConfirmedBody extends StatelessWidget {
     required this.total,
     required this.onViewBooking,
     required this.onBackToHome,
-    this.title = 'Booking Confirmed',
-    this.message = 'your Table has been reserved with successfully',
+    this.title,
+    this.message,
   });
 
   final String bookingId;
@@ -43,8 +44,12 @@ class BookingConfirmedBody extends StatelessWidget {
   final String total;
   final VoidCallback onViewBooking;
   final VoidCallback onBackToHome;
-  final String title;
-  final String message;
+
+  /// Falls back to the localized "Booking Confirmed" title when not provided.
+  final String? title;
+
+  /// Falls back to the localized confirmation message when not provided.
+  final String? message;
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +65,7 @@ class BookingConfirmedBody extends StatelessWidget {
                     const _SuccessHeader(),
                     SizedBox(height: AppSpacing.lg),
                     Text(
-                      title,
+                      title ?? S.of(context).venueBookingConfirmedTitle,
                       style: TextStyle(
                         fontSize: 24.sp,
                         fontWeight: FontWeight.w700,
@@ -69,7 +74,7 @@ class BookingConfirmedBody extends StatelessWidget {
                     ),
                     SizedBox(height: AppSpacing.sm),
                     Text(
-                      message,
+                      message ?? S.of(context).venueBookingConfirmedMessage,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 14.sp,
@@ -91,7 +96,7 @@ class BookingConfirmedBody extends StatelessWidget {
                           ),
                           SizedBox(height: AppSpacing.xl),
                           Text(
-                            'Payment summary',
+                            S.of(context).venuePaymentSummaryTitle,
                             style: AppTextStyle.blackW500Size16
                                 .copyWith(fontWeight: FontWeight.w600),
                           ),
@@ -119,7 +124,7 @@ class BookingConfirmedBody extends StatelessWidget {
               child: Column(
                 children: [
                   AppButton(
-                    label: 'View Booking Details',
+                    label: S.of(context).venueViewBookingDetailsButton,
                     isFullWidth: true,
                     customHeight: 56.h,
                     labelFontWeight: FontWeight.w600,
@@ -128,7 +133,7 @@ class BookingConfirmedBody extends StatelessWidget {
                   ),
                   SizedBox(height: AppSpacing.ms),
                   AppButton(
-                    label: 'Back to home',
+                    label: S.of(context).venueBackToHomeButton,
                     isFullWidth: true,
                     customHeight: 56.h,
                     color: AppColors.background,
@@ -234,16 +239,19 @@ class _DetailsCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          _row('Booking ID', Text(bookingId, style: _valueStyle)),
           _row(
-            'Date',
+            S.of(context).venueBookingIdLabel,
+            Text(bookingId, style: _valueStyle),
+          ),
+          _row(
+            S.of(context).venueDateLabel,
             Text(
               date == null ? '—' : formatBookingFullDate(date!),
               style: _valueStyle,
             ),
           ),
           _row(
-            'Payment method',
+            S.of(context).venuePaymentMethodLabel,
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -251,13 +259,23 @@ class _DetailsCard extends StatelessWidget {
                   const ApplePayMark(size: 24),
                   SizedBox(width: AppSpacing.sm),
                 ],
-                Text(paymentMethod?.label ?? '—', style: _valueStyle),
+                Text(_paymentMethodLabel(context), style: _valueStyle),
               ],
             ),
           ),
         ],
       ),
     );
+  }
+
+  /// Localized display text for [paymentMethod], independent of the enum's
+  /// own (English-only) `label`.
+  String _paymentMethodLabel(BuildContext context) {
+    return switch (paymentMethod) {
+      PaymentMethod.applePay => S.of(context).venuePaymentMethodApplePay,
+      PaymentMethod.newCard => S.of(context).venuePaymentMethodNewCard,
+      null => '—',
+    };
   }
 
   static final TextStyle _valueStyle = TextStyle(

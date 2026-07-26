@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/features/booking/presentation/widgets/booking_details_data.dart';
 import 'package:bookly/src/features/booking/presentation/widgets/hotel_stay_card.dart';
 import 'package:bookly/src/features/booking/presentation/widgets/room_details_card.dart';
@@ -42,7 +43,7 @@ class _BookingSummaryScreenState extends ConsumerState<BookingSummaryScreen> {
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: const BookingAppBar(title: 'Booking summary'),
+      appBar: BookingAppBar(title: S.of(context).restaurantBookingSummaryTitle),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,10 +75,10 @@ class _BookingSummaryScreenState extends ConsumerState<BookingSummaryScreen> {
                     ),
                   ],
                   SizedBox(height: AppSpacing.lg),
-                  _sectionTitle('Add Promo Code'),
+                  _sectionTitle(S.of(context).restaurantAddPromoCodeTitle),
                   SizedBox(height: AppSpacing.xxs),
                   Text(
-                    'Use Promo Code to get more discount',
+                    S.of(context).restaurantPromoCodeSubtitle,
                     style: TextStyle(
                       fontSize: 12.sp,
                       color: AppColors.grey,
@@ -87,7 +88,7 @@ class _BookingSummaryScreenState extends ConsumerState<BookingSummaryScreen> {
                   SizedBox(height: AppSpacing.md),
                   _PromoField(controller: _promoController),
                   SizedBox(height: AppSpacing.lg),
-                  _sectionTitle('Select Payment Method'),
+                  _sectionTitle(S.of(context).restaurantSelectPaymentMethodTitle),
                   SizedBox(height: AppSpacing.md),
                   _PaymentTile(
                     leading: const ApplePayMark(),
@@ -102,12 +103,12 @@ class _BookingSummaryScreenState extends ConsumerState<BookingSummaryScreen> {
                       size: 28,
                       color: AppColors.textDark,
                     ),
-                    label: 'Add a new card',
+                    label: S.of(context).restaurantAddNewCardLabel,
                     selected: state.paymentMethod == PaymentMethod.newCard,
                     onTap: () => notifier.selectPayment(PaymentMethod.newCard),
                   ),
                   SizedBox(height: AppSpacing.lg),
-                  _sectionTitle('Payment summary'),
+                  _sectionTitle(S.of(context).restaurantPaymentSummaryTitle),
                   SizedBox(height: AppSpacing.md),
                   PaymentSummary(
                     subTotal: restaurantSpec.subTotal,
@@ -123,7 +124,7 @@ class _BookingSummaryScreenState extends ConsumerState<BookingSummaryScreen> {
       ),
       bottomNavigationBar: BookingBottomBar(
         stepIndex: 2,
-        label: 'Confirm & pay',
+        label: S.of(context).restaurantConfirmAndPayLabel,
         menuRoute: AppRoutes.restaurantMenu,
         enabled: state.paymentMethod != null,
         onContinue: _confirm,
@@ -181,7 +182,7 @@ class _HoldBannerState extends State<_HoldBanner> {
       alignment: Alignment.center,
       child: Text.rich(
         TextSpan(
-          text: 'We hold Your resrvation for ',
+          text: '${S.of(context).restaurantHoldReservationMessage} ',
           style: AppTextStyle.blackW400Size14,
           children: [
             TextSpan(
@@ -217,14 +218,17 @@ class _SummaryCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          _row('Person', '${state.partySize} Person'),
-          _row('Option', state.option?.label ?? '—'),
           _row(
-            'Note',
-            state.note.isEmpty ? 'Add a note' : state.note,
+            S.of(context).restaurantPersonLabel,
+            S.of(context).restaurantPartySizeValue(state.partySize.toString()),
+          ),
+          _row(S.of(context).restaurantOptionLabel, state.option?.label ?? '—'),
+          _row(
+            S.of(context).restaurantNoteLabel,
+            state.note.isEmpty ? S.of(context).restaurantAddNoteText : state.note,
             isNote: true,
           ),
-          _row('Remaining money', remaining, emphasize: true),
+          _row(S.of(context).restaurantRemainingMoneyLabel, remaining, emphasize: true),
         ],
       ),
     );
@@ -310,18 +314,18 @@ class _PromoField extends StatelessWidget {
                 disabledBorder: InputBorder.none,
                 fillColor: AppColors.white,
                 border: InputBorder.none,
-                hintText: 'Enter promo code',
+                hintText: S.of(context).restaurantPromoCodeHint,
                 hintStyle:
                     TextStyle(fontSize: 14.sp, color: AppColors.textGray),
               ),
             ),
           ),
           AppButton(
-            label: 'Apply',
+            label: S.of(context).restaurantApplyLabel,
             customHeight: 26.h,
             contentPadding: EdgeInsets.symmetric(horizontal: AppSpacing.ml),
             borderRadius: AppBorders.full,
-            onPressed: () => context.showSnackBar('Promo code applied'),
+            onPressed: () => context.showSnackBar(S.of(context).restaurantPromoCodeAppliedMessage),
           ),
         ],
       ),

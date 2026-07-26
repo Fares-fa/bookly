@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/core_imports.dart';
 import 'package:bookly/src/imports/packages_imports.dart';
 
@@ -54,7 +55,7 @@ class LoginPhoneForm extends StatelessWidget {
                 child: TextFormField(
                   style: tt.bodyLarge,
                   decoration: InputDecoration(
-                    hintText: 'Mobile Number',
+                    hintText: S.of(context).authMobileNumberHint,
                     hintStyle: TextStyle(fontSize: 14),
                     fillColor: Colors.transparent,
                     contentPadding: EdgeInsets.all(20),
@@ -67,7 +68,7 @@ class LoginPhoneForm extends StatelessWidget {
                   ],
                   validator: (v) => AppUtils.isPhoneNumber(v.toString())
                       ? null
-                      : 'Please enter a valid phone number',
+                      : S.of(context).authInvalidPhoneNumber,
                 ),
               ),
             ],

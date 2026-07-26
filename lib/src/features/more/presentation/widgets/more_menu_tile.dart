@@ -1,19 +1,25 @@
 import 'package:bookly/src/imports/imports.dart';
 
-/// A single tappable row inside a [MorePage] menu group: leading SVG icon,
-/// label, and a trailing chevron. Icons render with their native SVG fill
-/// unless [iconColor] is given (used to tint the logout row red).
+/// A single tappable row inside a [MorePage] menu group: leading icon,
+/// label, optional trailing value, and a trailing chevron. Icons render with
+/// their native SVG fill unless [iconColor] is given (used to tint the
+/// logout row red). Pass [materialIcon] instead of [icon] when there's no
+/// SVG asset for it.
 class MoreMenuTile extends StatelessWidget {
   const MoreMenuTile({
     super.key,
-    required this.icon,
+    this.icon,
+    this.materialIcon,
     required this.label,
+    this.trailingLabel,
     this.iconColor,
     this.onTap,
-  });
+  }) : assert(icon != null || materialIcon != null, 'Provide icon or materialIcon');
 
-  final String icon;
+  final String? icon;
+  final IconData? materialIcon;
   final String label;
+  final String? trailingLabel;
   final Color? iconColor;
   final VoidCallback? onTap;
 
@@ -36,12 +42,14 @@ class MoreMenuTile extends StatelessWidget {
             SizedBox(
               width: 18,
               height: 18,
-              child: VectorGraphic(
-                loader: AssetBytesLoader(icon),
-                colorFilter: iconColor != null
-                    ? ColorFilter.mode(iconColor!, BlendMode.srcIn)
-                    : null,
-              ),
+              child: materialIcon != null
+                  ? Icon(materialIcon, size: 18, color: iconColor ?? appColors.blackText)
+                  : VectorGraphic(
+                      loader: AssetBytesLoader(icon!),
+                      colorFilter: iconColor != null
+                          ? ColorFilter.mode(iconColor!, BlendMode.srcIn)
+                          : null,
+                    ),
             ),
             SizedBox(width: AppSpacing.ms),
             Expanded(
@@ -54,6 +62,13 @@ class MoreMenuTile extends StatelessWidget {
                 ),
               ),
             ),
+            if (trailingLabel != null) ...[
+              Text(
+                trailingLabel!,
+                style: tt.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
+              ),
+              SizedBox(width: AppSpacing.xs),
+            ],
             Icon(
               Icons.chevron_right_rounded,
               color: cs.onSurfaceVariant,

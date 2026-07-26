@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/core_imports.dart';
 import 'package:bookly/src/imports/packages_imports.dart';
 
@@ -107,7 +108,7 @@ class _OtpBottomSheetState extends State<_OtpBottomSheet> {
           // SizedBox(height: AppSpacing.lg.h),
           Text(
             textAlign: TextAlign.center,
-            'Enter verification code',
+            S.of(context).authOtpTitle,
             style: tt.headlineMedium?.copyWith(
               color: Colors.black,
               fontWeight: FontWeight.w600,
@@ -116,8 +117,8 @@ class _OtpBottomSheetState extends State<_OtpBottomSheet> {
           SizedBox(height: AppSpacing.sm.h),
           Text(
             widget.phoneNumber != null
-                ? 'A 4 digit code was sent to ${widget.phoneNumber}.'
-                : 'Enter the 4 digit code sent to your phone.',
+                ? S.of(context).authOtpSentToPhone(widget.phoneNumber!)
+                : S.of(context).authOtpSentGeneric,
             style: tt.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
           ),
           SizedBox(height: AppSpacing.xl.h),
@@ -166,7 +167,7 @@ class _OtpBottomSheetState extends State<_OtpBottomSheet> {
                 ? TextButton(
                     onPressed: _startTimer,
                     child: Text(
-                      'Resend code',
+                      S.of(context).authResendCode,
                       style: tt.labelLarge?.copyWith(
                         color: cs.primary,
                         fontWeight: FontWeight.w600,
@@ -174,7 +175,7 @@ class _OtpBottomSheetState extends State<_OtpBottomSheet> {
                     ),
                   )
                 : Text(
-                    'Resend code in $_formattedTime',
+                    S.of(context).authResendCodeIn(_formattedTime),
                     style: tt.bodyMedium?.copyWith(
                       color: cs.onSurfaceVariant,
                     ),
@@ -182,7 +183,7 @@ class _OtpBottomSheetState extends State<_OtpBottomSheet> {
           ),
           SizedBox(height: AppSpacing.xl.h),
           PrimaryButton(
-            label: 'Verify',
+            label: S.of(context).authVerifyButton,
             isFullWidth: true,
             onPressed: isComplete && !isExpired
                 ? () => GoRouter.of(context).pop(_code)

@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/core_imports.dart';
 import 'package:bookly/src/imports/packages_imports.dart';
 
@@ -76,7 +77,7 @@ class AuthController extends StateNotifier<bool> {
       },
       (success) {
         if (context.mounted) {
-          showToast(context, message: 'Password reset link sent successfully', status: 'success');
+          showToast(context, message: S.of(context).authPasswordResetSuccess, status: 'success');
         }
         if (context.mounted) {
           context.go(AppRoutes.login);

@@ -1,5 +1,6 @@
 import 'package:bookly/src/imports/imports.dart';
 
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/features/home/presentation/widgets/home_search_bar.dart';
 import 'package:bookly/src/features/venue/presentation/widgets/venue_widgets.dart';
 
@@ -8,17 +9,15 @@ import 'package:bookly/src/features/venue/presentation/widgets/venue_widgets.dar
 class BookingCafe extends StatelessWidget {
   const BookingCafe({super.key});
 
-  static const _filters = ['All', 'Coffee', 'Dessert'];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
       body: CustomScrollView(
         slivers: [
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: VenueBookingHeader(
-              title: 'Booking Cafe',
+              title: S.of(context).cafeBookingHeaderTitle,
               imageAsset: AppAssets.cafeImage,
             ),
           ),
@@ -26,16 +25,22 @@ class BookingCafe extends StatelessWidget {
             child: Column(
               children: [
                 const HomeSearchBar(),
-                const VenueFilterRow(filters: _filters),
+                VenueFilterRow(
+                  filters: [
+                    S.of(context).cafeFilterAll,
+                    S.of(context).cafeFilterCoffee,
+                    S.of(context).cafeFilterDessert,
+                  ],
+                ),
                 NearbyPlacesSection(
                   onPlaceTap: (_) => context.push(AppRoutes.cafe),
                 ),
                 SizedBox(height: AppSpacing.md),
                 TopRatedSection(
-                  title: 'Top Rated Places ⭐',
+                  title: S.of(context).cafeTopRatedTitle,
                   onPlaceTap: (_) => context.push(AppRoutes.cafe),
                 ),
-                const ComingSoonSection(title: 'Cooming Soon'),
+                ComingSoonSection(title: S.of(context).cafeComingSoonTitle),
                 SizedBox(height: AppSpacing.xl),
               ],
             ),

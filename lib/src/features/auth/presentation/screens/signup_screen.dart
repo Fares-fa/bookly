@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/core_imports.dart';
 import 'package:bookly/src/imports/packages_imports.dart';
 
@@ -108,12 +109,12 @@ class _SignupView extends StatelessWidget {
               children: [
                 SizedBox(height: AppSpacing.xl.h),
                 Text(
-                  'Create Account',
+                  S.of(context).authCreateAccountTitle,
                   style: tt.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: AppSpacing.sm.h),
                 Text(
-                  'Join us and start your journey',
+                  S.of(context).authCreateAccountSubtitle,
                   textAlign: TextAlign.center,
                   style: tt.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
                 ),
@@ -125,11 +126,11 @@ class _SignupView extends StatelessWidget {
                       AppTextField(
                         controller: nameController,
                         enabled: !isLoading,
-                        label: 'Full Name',
+                        label: S.of(context).authFullNameLabel,
                         prefixIcon: const Icon(Icons.person_outline),
                         validator: (v) {
                           if (AppUtils.isBlank(v)) {
-                            return 'Name is required';
+                            return S.of(context).authNameRequired;
                           }
                           return null;
                         },
@@ -138,14 +139,14 @@ class _SignupView extends StatelessWidget {
                       AppTextField(
                         controller: emailController,
                         enabled: !isLoading,
-                        label: 'Email',
+                        label: S.of(context).authEmailLabel,
                         prefixIcon: const Icon(Icons.email_outlined),
                         validator: (v) {
                           if (AppUtils.isBlank(v)) {
-                            return 'Email is required';
+                            return S.of(context).authEmailRequired;
                           }
                           if (!AppUtils.isValidEmail(v!)) {
-                            return 'Enter a valid email';
+                            return S.of(context).authEmailInvalid;
                           }
                           return null;
                         },
@@ -154,7 +155,7 @@ class _SignupView extends StatelessWidget {
                       AppTextField(
                         controller: passwordController,
                         enabled: !isLoading,
-                        label: 'Password',
+                        label: S.of(context).authPasswordLabel,
                         obscureText: obscurePassword,
                         prefixIcon: const Icon(Icons.lock_outline),
                         suffixIcon: IconButton(
@@ -163,10 +164,10 @@ class _SignupView extends StatelessWidget {
                         ),
                          validator: (v) {
                           if (AppUtils.isBlank(v)) {
-                            return 'Password is required';
+                            return S.of(context).authPasswordRequired;
                           }
                           if (v!.length < 6) {
-                            return 'Password must be at least 6 characters';
+                            return S.of(context).authPasswordTooShort;
                           }
                           return null;
                         },
@@ -175,7 +176,7 @@ class _SignupView extends StatelessWidget {
                       AppTextField(
                         controller: confirmPasswordController,
                         enabled: !isLoading,
-                        label: 'Confirm Password',
+                        label: S.of(context).authConfirmPasswordLabel,
                         obscureText: obscureConfirmPassword,
                         prefixIcon: const Icon(Icons.lock_outline),
                         suffixIcon: IconButton(
@@ -184,17 +185,17 @@ class _SignupView extends StatelessWidget {
                         ),
                          validator: (v) {
                           if (AppUtils.isBlank(v)) {
-                            return 'Confirm password is required';
+                            return S.of(context).authConfirmPasswordRequired;
                           }
                           if (v != passwordController.text) {
-                            return 'Passwords do not match';
+                            return S.of(context).authPasswordsMismatch;
                           }
                           return null;
                         },
                       ),
                       SizedBox(height: AppSpacing.lg.h),
                       AppButton(
-                        label: 'Sign Up',
+                        label: S.of(context).authSignUpButton,
                         isLoading: isLoading,
                         onPressed: isLoading ? null : onSignup,
                         width: ButtonSize.large,
@@ -210,11 +211,11 @@ class _SignupView extends StatelessWidget {
                   },
                   child: RichText(
                     text: TextSpan(
-                      text: 'Already have an account? ',
+                      text: S.of(context).authAlreadyHaveAccount,
                       style: tt.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
                       children: [
                         TextSpan(
-                          text: 'Log In',
+                          text: S.of(context).authLogIn,
                           style: TextStyle(
                             color: cs.primary,
                             fontWeight: FontWeight.bold,

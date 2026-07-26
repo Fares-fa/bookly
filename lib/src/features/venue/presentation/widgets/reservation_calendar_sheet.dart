@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/venue/presentation/providers/booking_flow_state.dart';
@@ -42,15 +43,18 @@ class ReservationCalendarSheet extends StatefulWidget {
 }
 
 class _ReservationCalendarSheetState extends State<ReservationCalendarSheet> {
-  static const _weekdayLabels = [
-    'SUN',
-    'MON',
-    'TUE',
-    'WED',
-    'THU',
-    'FRI',
-    'SAT'
-  ];
+  List<String> _weekdayLabels(BuildContext context) {
+    final s = S.of(context);
+    return [
+      s.venueCalendarSun,
+      s.venueCalendarMon,
+      s.venueCalendarTue,
+      s.venueCalendarWed,
+      s.venueCalendarThu,
+      s.venueCalendarFri,
+      s.venueCalendarSat,
+    ];
+  }
 
   late DateTime _month; // first day of the displayed month
   late DateTime _selected; // the chosen day (date only)
@@ -132,14 +136,14 @@ class _ReservationCalendarSheetState extends State<ReservationCalendarSheet> {
         children: [
           _header(),
           SizedBox(height: AppSpacing.md),
-          _weekdayRow(),
+          _weekdayRow(context),
           SizedBox(height: AppSpacing.sm),
           _daysGrid(),
           SizedBox(height: AppSpacing.ml),
-          _timeRow(),
+          _timeRow(context),
           SizedBox(height: AppSpacing.ml),
           AppButton(
-            label: 'Next',
+            label: S.of(context).venueNextButton,
             isFullWidth: true,
             customHeight: 56.h,
             labelFontWeight: FontWeight.w600,
@@ -185,10 +189,10 @@ class _ReservationCalendarSheetState extends State<ReservationCalendarSheet> {
     );
   }
 
-  Widget _weekdayRow() {
+  Widget _weekdayRow(BuildContext context) {
     return Row(
       children: [
-        for (final label in _weekdayLabels)
+        for (final label in _weekdayLabels(context))
           Expanded(
             child: Center(
               child: Text(
@@ -275,11 +279,11 @@ class _ReservationCalendarSheetState extends State<ReservationCalendarSheet> {
     );
   }
 
-  Widget _timeRow() {
+  Widget _timeRow(BuildContext context) {
     return Row(
       children: [
         Text(
-          'Time',
+          S.of(context).venueTimeLabel,
           style: AppTextStyle.blackW500Size17.copyWith(
             fontWeight: FontWeight.w600,
           ),
@@ -303,12 +307,12 @@ class _ReservationCalendarSheetState extends State<ReservationCalendarSheet> {
           ),
         ),
         SizedBox(width: AppSpacing.sm),
-        _meridiemToggle(),
+        _meridiemToggle(context),
       ],
     );
   }
 
-  Widget _meridiemToggle() {
+  Widget _meridiemToggle(BuildContext context) {
     return DecoratedBox(
       decoration: const BoxDecoration(
         color: AppColors.background,
@@ -316,16 +320,28 @@ class _ReservationCalendarSheetState extends State<ReservationCalendarSheet> {
       ),
       child: Row(
         children: [
-          _meridiemSegment('AM', _isAm),
-          _meridiemSegment('PM', !_isAm),
+          _meridiemSegment(
+            isAm: true,
+            label: S.of(context).venueAmLabel,
+            selected: _isAm,
+          ),
+          _meridiemSegment(
+            isAm: false,
+            label: S.of(context).venuePmLabel,
+            selected: !_isAm,
+          ),
         ],
       ),
     );
   }
 
-  Widget _meridiemSegment(String label, bool selected) {
+  Widget _meridiemSegment({
+    required bool isAm,
+    required String label,
+    required bool selected,
+  }) {
     return GestureDetector(
-      onTap: () => setState(() => _isAm = label == 'AM'),
+      onTap: () => setState(() => _isAm = isAm),
       child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: AppSpacing.md,

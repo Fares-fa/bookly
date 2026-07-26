@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 
@@ -57,7 +58,7 @@ class _NotificationButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.showSnackBar('No new notifications'),
+      onTap: () => context.showSnackBar(S.of(context).homeNoNotificationsMessage),
       child: const LiquidGlassLayer(
         settings: LiquidGlassSettings(
           lightAngle: 15,

@@ -1,8 +1,11 @@
 import 'package:bookly/src/imports/imports.dart';
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/features/auth/presentation/providers/session_provider.dart';
 import 'package:bookly/src/features/more/presentation/widgets/more_header.dart';
 import 'package:bookly/src/features/more/presentation/widgets/more_menu_tile.dart';
 import 'package:bookly/src/features/more/presentation/widgets/logout_sheet.dart';
+import 'package:bookly/src/features/more/presentation/widgets/language_sheet.dart';
+import 'package:bookly/src/features/more/presentation/providers/locale_provider.dart';
 
 /// Settings/account hub tab: identity header, account/support/settings menu,
 /// promo/invite shortcuts, and logout — all data-fetching is left to
@@ -15,6 +18,12 @@ class MorePage extends ConsumerWidget {
     final cs = context.theme.colorScheme;
     final user = ref.watch(sessionProvider).user;
     final appColors = context.appColors;
+    final currentLocale = ref.watch(localeProvider);
+    final languageLabel = switch (currentLocale?.languageCode) {
+      'en' => 'English',
+      'ar' => 'العربية',
+      _ => S.of(context).moreUseDeviceLanguage,
+    };
     return Scaffold(
       backgroundColor: appColors.backgroundColor,
       body: SafeArea(
@@ -35,20 +44,27 @@ class MorePage extends ConsumerWidget {
                   children: [
                     MoreMenuTile(
                       icon: AppAssets.account,
-                      label: 'Account',
+                      label: S.of(context).moreAccount,
                       onTap: () {},
                     ),
                     AppDivider(indent: AppSpacing.md, endIndent: AppSpacing.md),
                     MoreMenuTile(
                       icon: AppAssets.support,
-                      label: 'Support',
+                      label: S.of(context).moreSupport,
                       onTap: () {},
                     ),
                     AppDivider(indent: AppSpacing.md, endIndent: AppSpacing.md),
                     MoreMenuTile(
                       icon: AppAssets.settings,
-                      label: 'setting',
+                      label: S.of(context).moreSettings,
                       onTap: () {},
+                    ),
+                    AppDivider(indent: AppSpacing.md, endIndent: AppSpacing.md),
+                    MoreMenuTile(
+                      materialIcon: Icons.language,
+                      label: S.of(context).moreLanguageTitle,
+                      trailingLabel: languageLabel,
+                      onTap: () => showLanguageSheet(context, ref),
                     ),
                   ],
                 ),
@@ -61,13 +77,13 @@ class MorePage extends ConsumerWidget {
                   children: [
                     MoreMenuTile(
                       icon: AppAssets.promo,
-                      label: 'Promo Codes',
+                      label: S.of(context).morePromoCodes,
                       onTap: () {},
                     ),
                     AppDivider(indent: AppSpacing.md, endIndent: AppSpacing.md),
                     MoreMenuTile(
                       icon: AppAssets.invite,
-                      label: 'Invite Friend',
+                      label: S.of(context).moreInviteFriend,
                       onTap: () {},
                     ),
                   ],
@@ -87,7 +103,7 @@ class MorePage extends ConsumerWidget {
                     ),
                     SizedBox(width: AppSpacing.sm),
                     Text(
-                      'Log out',
+                      S.of(context).moreLogout,
                       style: context.textTheme.bodyLarge?.copyWith(
                         color: cs.error,
                         fontWeight: FontWeight.w600,

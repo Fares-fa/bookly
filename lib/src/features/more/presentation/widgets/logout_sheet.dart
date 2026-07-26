@@ -1,4 +1,5 @@
 import 'package:bookly/src/imports/imports.dart';
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/features/auth/presentation/providers/session_provider.dart';
 
 /// Shows the "Are you sure you want to log out?" confirmation bottom sheet
@@ -34,7 +35,7 @@ class _LogoutSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'Log out',
+            S.of(context).moreLogout,
             style: tt.titleLarge?.copyWith(
               color: cs.primary,
               fontWeight: FontWeight.w400,
@@ -43,7 +44,7 @@ class _LogoutSheet extends StatelessWidget {
           ),
           SizedBox(height: AppSpacing.xxl),
           Text(
-            'Are you sure you want to log out?',
+            S.of(context).moreLogoutConfirmMessage,
             textAlign: TextAlign.center,
             style: tt.bodyMedium?.copyWith(color: cs.onSurfaceVariant,fontSize: 16),
           ),
@@ -52,7 +53,7 @@ class _LogoutSheet extends StatelessWidget {
             children: [
               Expanded(
                 child: AppButton(
-                  label: 'Cancel',
+                  label: S.of(context).cancel,
                   labelStyle: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w400
@@ -67,7 +68,7 @@ class _LogoutSheet extends StatelessWidget {
               SizedBox(width: AppSpacing.ms),
               Expanded(
                 child: AppButton(
-                  label: 'Yes Log out',
+                  label: S.of(context).moreLogoutConfirm,
                   labelStyle: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w400

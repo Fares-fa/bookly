@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 /// Price-per-person pill shown centered over the hero image.
@@ -19,11 +20,11 @@ class PricePill extends StatelessWidget {
         text: TextSpan(
           children: [
             TextSpan(
-              text: 'Price : $price',
+              text: S.of(context).venuePriceLabel(price),
               style: AppTextStyle.whiteW500Size14,
             ),
             TextSpan(
-              text: '/Person',
+              text: S.of(context).venuePerPersonSuffix,
               style: AppTextStyle.greyW500Size12,
             ),
           ],

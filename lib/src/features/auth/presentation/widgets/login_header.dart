@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/core_imports.dart';
 import 'package:bookly/src/imports/packages_imports.dart';
 
@@ -31,7 +32,7 @@ class LoginHeader extends StatelessWidget {
                   TextButton(
                     onPressed: onJoinAsGuest,
                     child: Text(
-                      'Join As A Guest',
+                      S.of(context).authJoinAsGuest,
                       style: tt.labelLarge?.copyWith(
                         color: cs.onPrimary,
                         fontWeight: FontWeight.w400,

@@ -1,4 +1,5 @@
 import 'package:bookly/src/imports/imports.dart';
+import 'package:bookly/generated/l10n.dart';
 
 import 'package:bookly/src/features/onboarding/presentation/widgets/phone_illustration.dart';
 import 'package:bookly/src/features/onboarding/presentation/widgets/orbit_illustration.dart';
@@ -24,18 +25,24 @@ abstract final class OnboardingSpec {
   // ── Gap between the skip bar row and the "B." logo below it ────────────
   static const double logoTopGap = 8;
 
-  static const List<OnboardingPageData> pages = [
-    OnboardingPageData(
-      titleLine1: 'Compare Choose',
-      titleLine2: '& Book',
-      illustration: PhoneIllustration(),
-    ),
-    OnboardingPageData(
-      titleLine1: 'One App Endless',
-      titleLine2: 'Bookings',
-      illustration: OrbitIllustration(),
-    ),
-  ];
+  /// Number of onboarding pages — safe to use without a [BuildContext] (e.g.
+  /// for sizing the segmented progress bar).
+  static const int pageCount = 2;
+
+  /// Localized onboarding page content. Needs a [BuildContext] because the
+  /// titles are translated strings.
+  static List<OnboardingPageData> pages(BuildContext context) => [
+        OnboardingPageData(
+          titleLine1: S.of(context).onboardingPage1TitleLine1,
+          titleLine2: S.of(context).onboardingPage1TitleLine2,
+          illustration: const PhoneIllustration(),
+        ),
+        OnboardingPageData(
+          titleLine1: S.of(context).onboardingPage2TitleLine1,
+          titleLine2: S.of(context).onboardingPage2TitleLine2,
+          illustration: const OrbitIllustration(),
+        ),
+      ];
 }
 
 class OnboardingPageData {

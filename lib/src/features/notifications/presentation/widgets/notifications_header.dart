@@ -1,4 +1,5 @@
 import 'package:bookly/src/imports/imports.dart';
+import 'package:bookly/generated/l10n.dart';
 
 /// Header for [NotificationsScreen]: a circular back button and centered
 /// title.
@@ -17,7 +18,7 @@ class NotificationsHeader extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Text(
-              'Notification',
+              S.of(context).notificationsTitle,
               style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500, color: cs.onSurface),
             ),
             Align(

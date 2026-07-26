@@ -1,3 +1,6 @@
+import 'package:flutter/widgets.dart';
+
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/shared/app_assets.dart';
 
 /// The service category being viewed on [MyBookingScreen].
@@ -6,10 +9,10 @@ enum BookingCategory {
   restaurants,
   cafes;
 
-  String get label => switch (this) {
-        BookingCategory.hotels => 'Hotels',
-        BookingCategory.restaurants => 'Restaurant',
-        BookingCategory.cafes => 'Cafe',
+  String label(BuildContext context) => switch (this) {
+        BookingCategory.hotels => S.of(context).bookingCategoryHotels,
+        BookingCategory.restaurants => S.of(context).bookingCategoryRestaurant,
+        BookingCategory.cafes => S.of(context).bookingCategoryCafe,
       };
 
   String get iconAsset => switch (this) {

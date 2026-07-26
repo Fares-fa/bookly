@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 import 'package:bookly/src/features/complete_info/presentation/widgets/interest_option.dart';
 
@@ -20,9 +21,9 @@ class InterestsStep extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Choose Your Interests',
+        Text(S.of(context).completeInfoInterestsTitle,
             style: tt.headlineSmall?.copyWith(fontWeight: FontWeight.w600)),
-        const Text('Get specific about things you love'),
+        Text(S.of(context).completeInfoInterestsSubtitle),
         SizedBox(height: 24.h),
         Wrap(
           spacing: 12.w,

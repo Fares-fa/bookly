@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/home/presentation/widgets/home_category_spec.dart';
@@ -18,7 +19,7 @@ class CategoryGridTile extends StatelessWidget {
       if (data.route != null) {
         context.go(data.route!);
       } else {
-        context.showSnackBar('${data.label} coming soon');
+        context.showSnackBar(S.of(context).homeCategoryComingSoonMessage(data.label(context)));
       }
     }
 
@@ -36,7 +37,7 @@ class CategoryGridTile extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  data.label,
+                  data.label(context),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(fontSize: 13,fontWeight: FontWeight.w400,color: Colors.black),
@@ -58,7 +59,7 @@ class CategoryGridTile extends StatelessWidget {
                   borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
                 ),
                 child: Text(
-                  'Soon',
+                  S.of(context).homeCategoryComingSoonBadge,
                   textAlign: TextAlign.center,
                   style: tt.bodySmall?.copyWith(color: Colors.white, fontWeight: FontWeight.w600),
                 ),

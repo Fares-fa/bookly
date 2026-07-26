@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/venue/domain/venue_spec.dart';
@@ -29,7 +30,7 @@ class VenueReviewsSection extends StatelessWidget {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: 'Review ',
+                    text: S.of(context).venueReviewLabel,
                     style: AppTextStyle.blackW500Size17,
                   ),
                   TextSpan(

@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/core_imports.dart';
 import 'package:bookly/src/imports/packages_imports.dart';
 
@@ -120,7 +121,7 @@ class _LoginView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Enter your phone number',
+                              S.of(context).authEnterPhoneNumber,
                               style: tt.bodyLarge?.copyWith(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w600,
@@ -128,7 +129,7 @@ class _LoginView extends StatelessWidget {
                             ),
                             SizedBox(height: AppSpacing.sm.h),
                             Text(
-                              'A OTP will be sent to your phone number for verification.',
+                              S.of(context).authOtpNotice,
                               style: tt.bodyMedium?.copyWith(
                                 color: cs.onSurfaceVariant,
                               ),
@@ -158,7 +159,7 @@ class _LoginView extends StatelessWidget {
             vertical: AppSpacing.md.h,
           ),
           child: PrimaryButton(
-            label: 'Continue',
+            label: S.of(context).authContinueButton,
             isLoading: isLoading,
             onPressed: onContinue,
             isFullWidth: true,

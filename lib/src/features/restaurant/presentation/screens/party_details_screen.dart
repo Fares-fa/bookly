@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/restaurant/domain/restaurant_spec.dart';
@@ -43,7 +44,7 @@ class _PartyDetailsScreenState extends ConsumerState<PartyDetailsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('How Many People ?', style: AppTextStyle.blackW500Size16),
+            Text(S.of(context).restaurantHowManyPeopleTitle, style: AppTextStyle.blackW500Size16),
             SizedBox(height: AppSpacing.md),
             Row(
               children: [
@@ -59,7 +60,7 @@ class _PartyDetailsScreenState extends ConsumerState<PartyDetailsScreen> {
             SizedBox(height: AppSpacing.md),
             const AppDivider(),
             SizedBox(height: AppSpacing.md),
-            Text('Select Option', style: AppTextStyle.blackW500Size16),
+            Text(S.of(context).restaurantSelectOptionTitle, style: AppTextStyle.blackW500Size16),
             SizedBox(height: AppSpacing.md),
             Row(
               children: [
@@ -79,7 +80,7 @@ class _PartyDetailsScreenState extends ConsumerState<PartyDetailsScreen> {
             SizedBox(height: AppSpacing.md),
             const AppDivider(),
             SizedBox(height: AppSpacing.md),
-            Text('Add Note', style: AppTextStyle.blackW500Size16),
+            Text(S.of(context).restaurantAddNoteTitle, style: AppTextStyle.blackW500Size16),
             SizedBox(height: AppSpacing.md),
             _NoteField(
               controller: _noteController,
@@ -91,7 +92,7 @@ class _PartyDetailsScreenState extends ConsumerState<PartyDetailsScreen> {
       ),
       bottomNavigationBar: BookingBottomBar(
         stepIndex: 1,
-        label: 'Continue',
+        label: S.of(context).restaurantContinueLabel,
         menuRoute: AppRoutes.restaurantMenu,
         enabled: state.hasPartyDetails,
         onContinue: () => context.push(AppRoutes.bookingSummary),
@@ -187,7 +188,7 @@ class _PersonBadge extends StatelessWidget {
             shape: BoxShape.circle,
           ),
           child: Text(
-            '$count Person',
+            S.of(context).restaurantPartySizeValue(count.toString()),
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.w400,
@@ -262,7 +263,7 @@ class _NoteField extends StatelessWidget {
         disabledBorder: InputBorder.none,
         fillColor: AppColors.white,
         border: InputBorder.none,
-        hintText: 'Ex: I want to do a birthday party',
+        hintText: S.of(context).restaurantNoteHint,
         hintStyle: TextStyle(
           fontSize: 12.sp,
           color: AppColors.grey,

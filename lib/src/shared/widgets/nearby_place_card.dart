@@ -1,3 +1,5 @@
+import 'package:bookly/generated/l10n.dart';
+
 import '../../imports/imports.dart';
 
 import 'package:bookly/src/features/home/domain/entities/nearby_place.dart';
@@ -33,7 +35,7 @@ class NearbyPlaceCard extends ConsumerWidget {
       imageHeight: 92.h,
       isFavorite: isFavorite,
       onFavoriteToggle: () => ref.read(favoriteIdsProvider.notifier).toggle(place.id),
-      topLeftBadge: place.isOpen ? null : StatusBadge(label: 'Closed', color: cs.error),
+      topLeftBadge: place.isOpen ? null : StatusBadge(label: S.of(context).commonExtraClosedLabel, color: cs.error),
       bottomRightBadge: RatingBadge(rating: place.rating),
       caption: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +48,8 @@ class NearbyPlaceCard extends ConsumerWidget {
           ),
           SizedBox(height: AppSpacing.xxs),
           Text(
-            '${place.category} • ${place.distanceKm.toStringAsFixed(1)} km',
+            S.of(context).commonExtraCategoryDistanceKm(
+                place.category, place.distanceKm.toStringAsFixed(1)),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: tt.bodySmall?.copyWith(color: cs.onSurfaceVariant,fontWeight: FontWeight.w400,fontSize: 13),

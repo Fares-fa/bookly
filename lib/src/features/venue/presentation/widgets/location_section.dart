@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 /// "Location" tab: a map preview with a "See Location on map" action.
@@ -12,7 +13,7 @@ class VenueLocationSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Location', style: AppTextStyle.blackW500Size17),
+        Text(S.of(context).venueLocationTitle, style: AppTextStyle.blackW500Size17),
         const SizedBox(height: 14),
         ClipRRect(
           borderRadius: BorderRadius.circular(16),
@@ -39,7 +40,7 @@ class VenueLocationSection extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'See Location on map',
+                      S.of(context).venueSeeLocationOnMapButton,
                       style: AppTextStyle.whiteW400Size14,
                     ),
                   ),
@@ -56,7 +57,7 @@ class VenueLocationSection extends StatelessWidget {
               spacing: 6,
               children: [
                 SvgPicture.asset(AppAssets.location),
-                Text('From Your location',
+                Text(S.of(context).venueFromYourLocationLabel,
                     style: AppTextStyle.grey400Size14),
               ],
             ),

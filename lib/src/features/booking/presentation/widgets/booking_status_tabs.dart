@@ -1,6 +1,15 @@
 import 'package:bookly/src/imports/imports.dart';
 
-const _statusTabs = ['All', 'Upcoming', 'Completed', 'Cancelled'];
+import 'package:bookly/generated/l10n.dart';
+
+const _statusTabsCount = 4;
+
+List<String> _statusTabLabels(BuildContext context) => [
+      S.of(context).bookingStatusAll,
+      S.of(context).bookingStatusUpcoming,
+      S.of(context).bookingStatusCompleted,
+      S.of(context).bookingStatusCancelled,
+    ];
 
 /// "All / Upcoming / Completed / Cancelled" tab row for [MyBookingScreen].
 class BookingStatusTabs extends StatefulWidget {
@@ -20,7 +29,7 @@ class _BookingStatusTabsState extends State<BookingStatusTabs> with SingleTicker
   void initState() {
     super.initState();
     _controller = TabController(
-      length: _statusTabs.length,
+      length: _statusTabsCount,
       initialIndex: widget.selectedIndex,
       vsync: this,
     )..addListener(_handleTabChange);
@@ -64,7 +73,7 @@ class _BookingStatusTabsState extends State<BookingStatusTabs> with SingleTicker
       indicatorSize: TabBarIndicatorSize.label,
       indicatorWeight: 2,
       dividerColor: cs.outlineVariant,
-      tabs: _statusTabs.map((label) => Tab(text: label)).toList(),
+      tabs: _statusTabLabels(context).map((label) => Tab(text: label)).toList(),
     );
   }
 }

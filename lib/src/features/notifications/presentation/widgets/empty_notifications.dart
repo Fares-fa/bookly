@@ -1,4 +1,5 @@
 import 'package:bookly/src/imports/imports.dart';
+import 'package:bookly/generated/l10n.dart';
 
 /// "No Notifications" empty state for [NotificationsScreen].
 class EmptyNotifications extends StatelessWidget {
@@ -17,12 +18,12 @@ class EmptyNotifications extends StatelessWidget {
             SvgPicture.asset(AppAssets.notificationIcon),
             SizedBox(height: AppSpacing.lg.h),
             Text(
-              'No Notifications',
+              S.of(context).notificationsEmptyTitle,
               style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600, color: cs.onSurface),
             ),
             SizedBox(height: AppSpacing.sm.h),
             Text(
-              "We'll let you know when there will be something to update you.",
+              S.of(context).notificationsEmptyMessage,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14.sp, color: cs.onSurfaceVariant),
             ),

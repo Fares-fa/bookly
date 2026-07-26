@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/venue/presentation/widgets/venue_widgets.dart';
@@ -12,7 +13,7 @@ class RestaurantMenuScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: const BookingAppBar(title: 'Menu'),
+      appBar: BookingAppBar(title: S.of(context).restaurantMenuTitle),
       body: Padding(
         padding: const EdgeInsets.all(8),
         child: InteractiveViewer(

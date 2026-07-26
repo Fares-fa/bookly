@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 /// Static quick-access category shown in [HomeCategoryRow] and the full
@@ -9,7 +10,6 @@ import 'package:bookly/src/imports/imports.dart';
 class HomeCategoryData {
   const HomeCategoryData({
     required this.id,
-    required this.label,
     required this.icon,
     this.route,
     this.tinted = false,
@@ -17,7 +17,6 @@ class HomeCategoryData {
   });
 
   final String id;
-  final String label;
 
   /// Asset path of the category's SVG illustration/icon.
   final String icon;
@@ -33,6 +32,18 @@ class HomeCategoryData {
   /// Whether this category is shown with a "Soon" ribbon and isn't tappable
   /// yet (used in the full [CategoriesScreen] grid).
   final bool comingSoon;
+
+  /// The localized display label for this category.
+  String label(BuildContext context) => switch (id) {
+        'hotels' => S.of(context).homeCategoryHotels,
+        'cafe' => S.of(context).homeCategoryCafe,
+        'restaurant' => S.of(context).homeCategoryRestaurant,
+        'more' => S.of(context).homeCategoryMore,
+        'carRental' => S.of(context).homeCategoryCarRental,
+        'laboratory' => S.of(context).homeCategoryLaboratory,
+        'flight' => S.of(context).homeCategoryFlight,
+        _ => id,
+      };
 }
 
 abstract final class HomeCategorySpec {
@@ -47,19 +58,16 @@ abstract final class HomeCategorySpec {
         route: AppRoutes.bookingHotels),
     HomeCategoryData(
       id: 'cafe',
-      label: 'Cafe',
       icon: AppAssets.cafe,
       route: AppRoutes.bookingCafe,
     ),
     HomeCategoryData(
       id: 'restaurant',
-      label: 'Restaurant',
       icon: AppAssets.restaurant,
       route: AppRoutes.bookingRestaurant,
     ),
     HomeCategoryData(
       id: 'more',
-      label: 'More',
       icon: AppAssets.more,
       route: AppRoutes.categories,
       tinted: true,
@@ -70,14 +78,12 @@ abstract final class HomeCategorySpec {
   static const List<HomeCategoryData> allCategories = [
     HomeCategoryData(
       id: 'restaurant',
-      label: 'Restaurant',
       icon: AppAssets.restaurant,
       route: AppRoutes.bookingRestaurant,
     ),
-    HomeCategoryData(id: 'hotels', label: 'Hotels', icon: AppAssets.hotel),
+    HomeCategoryData(id: 'hotels', icon: AppAssets.hotel),
     HomeCategoryData(
       id: 'cafe',
-      label: 'Cafe',
       icon: AppAssets.cafe,
       route: AppRoutes.bookingCafe,
     ),

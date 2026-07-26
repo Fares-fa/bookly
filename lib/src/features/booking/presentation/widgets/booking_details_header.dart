@@ -1,5 +1,7 @@
 import 'package:bookly/src/imports/imports.dart';
 
+import 'package:bookly/generated/l10n.dart';
+
 /// Back button + centered title header for `BookingDetailsScreen`.
 class BookingDetailsHeader extends StatelessWidget {
   const BookingDetailsHeader({super.key});
@@ -16,7 +18,7 @@ class BookingDetailsHeader extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Text(
-              'Booking Details',
+              S.of(context).bookingDetailsTitle,
               style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600, color: cs.onSurface),
             ),
             Align(

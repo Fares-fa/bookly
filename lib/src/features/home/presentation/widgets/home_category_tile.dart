@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/home/presentation/widgets/home_category_spec.dart';
@@ -13,11 +14,11 @@ class HomeCategoryTile extends StatelessWidget {
     final tt = context.theme.textTheme;
 
     void handleTap() {
-      print('test ${data.label}');
+      print('test ${data.label(context)}');
       if (data.route != null) {
         context.push(data.route!);
       } else {
-        context.showSnackBar('${data.label} coming soon');
+        context.showSnackBar(S.of(context).homeCategoryComingSoonMessage(data.label(context)));
       }
     }
 
@@ -41,7 +42,7 @@ class HomeCategoryTile extends StatelessWidget {
             ),
             SizedBox(height: AppSpacing.xs),
             Text(
-              data.label,
+              data.label(context),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: tt.bodySmall?.copyWith(
@@ -53,7 +54,7 @@ class HomeCategoryTile extends StatelessWidget {
 
           ]: [
             Text(
-              data.label,
+              data.label(context),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: tt.bodySmall?.copyWith(

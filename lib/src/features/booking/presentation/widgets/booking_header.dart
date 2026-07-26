@@ -1,5 +1,7 @@
 import 'package:bookly/src/imports/imports.dart';
 
+import 'package:bookly/generated/l10n.dart';
+
 /// Title + subtitle header for [MyBookingScreen].
 class BookingHeader extends StatelessWidget {
   const BookingHeader({super.key});
@@ -12,12 +14,12 @@ class BookingHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'My Booking',
+          S.of(context).bookingMyBookingTitle,
           style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w600, color: cs.onSurface),
         ),
         SizedBox(height: AppSpacing.xs.h),
         Text(
-          'View and manage all your reservations',
+          S.of(context).bookingMyBookingSubtitle,
           style: TextStyle(fontSize: 12.sp, color: cs.onSurfaceVariant,fontWeight: FontWeight.w400),
         ),
       ],
