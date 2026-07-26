@@ -13,16 +13,16 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    final appColors = context.appColors;
     return Scaffold(
-      backgroundColor:const Color(0xFF0042D3),
+      backgroundColor:appColors.primary,
       body: CustomScrollView(
         slivers: [
           const SliverToBoxAdapter(child: HomeHeader()),
           SliverToBoxAdapter(
             child: DecoratedBox(
               decoration: BoxDecoration(
-                color: const Color(0xFFF0F8FF),
+                color: appColors.backgroundColor,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(28.r)),
               ),
               child: Column(

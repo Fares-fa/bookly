@@ -79,7 +79,7 @@ class LiveScreeningCard extends ConsumerWidget {
                 ],
               ),
             ),
-            SizedBox(height: AppSpacing.sm.h),
+            SizedBox(height: AppSpacing.sm),
             AppButton(
               label: 'Book your seats',
               onPressed: () {},

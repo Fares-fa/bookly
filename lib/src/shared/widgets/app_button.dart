@@ -20,6 +20,8 @@ class AppButton extends StatelessWidget {
     this.variant = ButtonVariant.primary,
     this.color,
     this.textColor,
+    this.borderColor,
+    this.borderWidth,
     this.height = ButtonSize.medium,
     this.width,
     this.isLoading = false,
@@ -31,6 +33,7 @@ class AppButton extends StatelessWidget {
     this.customHeight,
     this.contentPadding,
     this.labelFontWeight = FontWeight.w500,
+    this.labelStyle,
   });
 
   final String label;
@@ -38,6 +41,15 @@ class AppButton extends StatelessWidget {
   final ButtonVariant variant;
   final Color? color;
   final Color? textColor;
+
+  /// Overrides the border color. Applies to [ButtonVariant.outline]'s
+  /// default border, and adds a border to variants that don't normally
+  /// have one.
+  final Color? borderColor;
+
+  /// Overrides the border width. Defaults to 1.5 when [borderColor] is set
+  /// without an explicit width.
+  final double? borderWidth;
   final ButtonSize height;
   final ButtonSize? width;
   final bool isLoading;
@@ -58,6 +70,11 @@ class AppButton extends StatelessWidget {
 
   /// The font weight of [label]. Defaults to [FontWeight.w500].
   final FontWeight labelFontWeight;
+
+  /// Extra style merged over the computed default (size/weight/color) —
+  /// only the fields you set here override it, everything else keeps
+  /// falling back to [height]/[labelFontWeight]/[textColor].
+  final TextStyle? labelStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -90,26 +107,33 @@ class AppButton extends StatelessWidget {
       ButtonSize.large => 16.sp,
     };
 
-    final (bg, fg, border) = switch (variant) {
+    final (bg, fg, defaultBorder) = switch (variant) {
       ButtonVariant.primary => (
           color ?? cs.primary,
           color ?? cs.onPrimary,
           null
         ),
       ButtonVariant.secondary => (
-          cs.secondaryContainer,
+          color ?? cs.secondaryContainer,
           cs.onSecondaryContainer,
           null
         ),
       ButtonVariant.outline => (
-          Colors.transparent,
+          color ?? Colors.transparent,
           cs.primary,
           BorderSide(color: cs.outline, width: 1.5)
         ),
-      ButtonVariant.ghost => (Colors.transparent, cs.primary, null),
-      ButtonVariant.danger => (cs.error, cs.onError, null),
-      ButtonVariant.success => (appColors.success, appColors.onSuccess, null),
+      ButtonVariant.ghost => (color ?? Colors.transparent, cs.primary, null),
+      ButtonVariant.danger => (color ?? cs.error, cs.onError, null),
+      ButtonVariant.success => (color ?? appColors.success, appColors.onSuccess, null),
     };
+
+    final border = borderColor != null
+        ? BorderSide(
+            color: borderColor!,
+            width: borderWidth ?? defaultBorder?.width ?? 1.5,
+          )
+        : defaultBorder;
 
     final child = AnimatedSwitcher(
       duration: AppDurations.fast,
@@ -140,7 +164,7 @@ class AppButton extends StatelessWidget {
                     color: isDisabled
                         ? fg.withValues(alpha: 0.5)
                         : textColor ?? fg,
-                  ),
+                  ).merge(labelStyle),
                 ),
                 if (suffixIcon != null) ...[
                   SizedBox(width: 8.w),

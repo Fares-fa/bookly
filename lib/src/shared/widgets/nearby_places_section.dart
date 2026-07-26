@@ -12,11 +12,15 @@ class NearbyPlacesSection extends StatelessWidget {
     this.title = 'Nearby Places',
     this.provider,
     this.onFilterTap,
+    this.onPlaceTap,
   });
 
   final String title;
   final FutureProvider<List<NearbyPlace>>? provider;
   final VoidCallback? onFilterTap;
+
+  /// Called with the tapped place; when null the cards aren't tappable.
+  final void Function(NearbyPlace place)? onPlaceTap;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,11 @@ class NearbyPlacesSection extends StatelessWidget {
         label: 'All',
         onTap: onFilterTap ?? () => context.showSnackBar('Filters coming soon'),
       ),
-      itemBuilder: (context, place, width) => NearbyPlaceCard(place: place, width: width),
+      itemBuilder: (context, place, width) => NearbyPlaceCard(
+        place: place,
+        width: width,
+        onTap: onPlaceTap == null ? null : () => onPlaceTap!(place),
+      ),
     );
   }
 }

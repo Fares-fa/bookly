@@ -32,6 +32,14 @@ class AppAssets {
   static const String booking = '$_svgsPath/booking.svg';
   static const String favorite = '$_svgsPath/favorite.svg';
   static const String moreNav = '$_svgsPath/more.svg';
+
+  //More screen
+  static const String account = '$_svgsPath/account.svg';
+  static const String support = '$_svgsPath/support.svg';
+  static const String settings = '$_svgsPath/settings.svg';
+  static const String invite = '$_svgsPath/invite.svg';
+  static const String promo = '$_svgsPath/promo.svg';
+  static const String logout = '$_svgsPath/logout.svg';
   // SVGs
   static const String googleIcon = '$_iconsPath/google.svg';
   static const String facebookIcon = '$_iconsPath/facebook.svg';
@@ -40,6 +48,9 @@ class AppAssets {
   static const String firstOnboardingImage =
       '$_imagesPath/first_onboarding_image.svg';
   static const String middleBooklyIcon = '$_imagesPath/middle_bookly_icon.svg';
+  static const String menu = '$_imagesPath/menu.png';
+  static const String celebration = '$_imagesPath/celebration.png';
+
 
   static const String smallBooklyIconTop =
       '$_imagesPath/small_bookly_icon_top.svg';
@@ -51,7 +62,11 @@ class AppAssets {
   static const String rest3 = '$_imagesPath/3.png';
   static const String map = '$_imagesPath/map.png';
 
-  static const String back = '$_svgsPath/back.svg';
+
+
+  static const String back = '$_iconsPath/back.png';
+  static const String backPrimary = '$_svgsPath/back_primary.svg';
+
   static const String heart = '$_svgsPath/heart.svg';
   static const String location = '$_svgsPath/location.svg';
 
@@ -59,6 +74,9 @@ class AppAssets {
   static const String favouritesHotel = '$_imagesPath/favourites_hotel.jpg';
   static const String booklyLogo = '$_svgsPath/bookly_logo.svg';
   static const String notificationIcon = '$_iconsPath/notification_icon.svg';
+  static const String bookingHotelsIcon = '$_iconsPath/mybooking_hotels_icon.png';
+  static const String bookingRestaurantsIcon = '$_iconsPath/mybooking_restaurants_icon.png';
+  static const String bookingCafeIcon = '$_iconsPath/mybooking_cafees_icon.png';
 
   static const String smallBooklyIconBlue =
       '$_svgsPath/bookly_small_logo_blue.svg';

@@ -13,6 +13,7 @@ class HomeCategoryTile extends StatelessWidget {
     final tt = context.theme.textTheme;
 
     void handleTap() {
+      print('test ${data.label}');
       if (data.route != null) {
         context.push(data.route!);
       } else {

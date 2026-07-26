@@ -4,10 +4,19 @@ import 'package:bookly/src/features/home/domain/entities/nearby_place.dart';
 import 'package:bookly/src/features/home/presentation/providers/home_providers.dart';
 
 class NearbyPlaceCard extends ConsumerWidget {
-  const NearbyPlaceCard({super.key, required this.place, required this.width});
+  const NearbyPlaceCard({
+    super.key,
+    required this.place,
+    required this.width,
+    this.onTap,
+  });
 
   final NearbyPlace place;
   final double width;
+
+  /// Called when the card body is tapped. When null the card isn't tappable
+  /// (the favorite heart keeps working regardless).
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -18,7 +27,7 @@ class NearbyPlaceCard extends ConsumerWidget {
     // never the rest of the list.
     final isFavorite = ref.watch(favoriteIdsProvider.select((ids) => ids.contains(place.id)));
 
-    return MediaCardShell(
+    final card = MediaCardShell(
       imageAsset: place.imageAsset,
       width: width,
       imageHeight: 92.h,
@@ -44,6 +53,13 @@ class NearbyPlaceCard extends ConsumerWidget {
           ),
         ],
       ),
+    );
+
+    if (onTap == null) return card;
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
+      child: card,
     );
   }
 }

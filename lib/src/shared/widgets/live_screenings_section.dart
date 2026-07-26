@@ -24,7 +24,9 @@ class LiveScreeningsSection extends StatelessWidget {
       emptyTitle: 'No live screenings right now',
       errorMessage: 'Could not load live screenings',
       cardWidth: 150,
-      listHeight: 180,
+      // Tall enough for image + 2-line caption + the "Book your seats" button;
+      // 180 clipped the button by a few pixels.
+      listHeight: 196,
       itemBuilder: (context, screening, width) => LiveScreeningCard(screening: screening, width: width),
     );
   }
