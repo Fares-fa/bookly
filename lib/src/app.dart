@@ -1,4 +1,4 @@
-import 'package:bookly/src/imports/core_imports.dart';
+import 'package:bookly/src/imports/imports.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -17,10 +17,12 @@ class App extends StatelessWidget {
       // darkTheme: buildDarkTheme(primaryColorHex: '#0042D3'),
       themeMode: ThemeMode.system,
       routerConfig: appRouter,
+      locale: DevicePreview.locale(context),
       builder: (context, child) {
         Widget current = child!;
         current = SkeletonWrapper(child: current);
         current = SessionListenerWrapper(child: current);
+        current = DevicePreview.appBuilder(context, current);
         return current;
       },
     );

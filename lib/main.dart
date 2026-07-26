@@ -12,8 +12,11 @@ Future<void> main() async {
   await AppConfig.init();
 
   runApp(
-    const StateWrapper(
-      child: App(),
+    DevicePreview(
+      enabled: false,
+      builder: (context) => const StateWrapper(
+        child: App(),
+      ),
     ),
   );
 }

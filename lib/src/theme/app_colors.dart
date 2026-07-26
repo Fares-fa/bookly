@@ -11,6 +11,7 @@ class AppColors {
 
   static const background = Color(0xFFF0F8FF); // AliceBlue page bg
   static const primary = Color(0xFF1B3FD8); // royal blue (CTA, badge, tab)
+  static const secondary = Color(0xFFF0F8FF);
   static const textDark = Color(0xFF15243B); // titles
   static const textGray = Color(0xFF8B95A7); // subtitles / inactive tabs
   static const star = Color(0xFFFFC107); // rating star

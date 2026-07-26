@@ -28,5 +28,6 @@ export 'package:pinput/pinput.dart';
 export 'package:vector_graphics/vector_graphics.dart';
 export 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
 export 'package:simple_gradient_text/simple_gradient_text.dart';
+export 'package:device_preview/device_preview.dart' hide DeviceType, basicLocaleListResolution;
 
 

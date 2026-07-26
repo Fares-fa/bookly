@@ -81,12 +81,16 @@ extension ContextExtension on BuildContext {
     required WidgetBuilder builder,
     bool isScrollControlled = true,
     bool useSafeArea = true,
+    bool useRootNavigator = false,
   }) {
     return showModalBottomSheet<T>(
+      showDragHandle: false,
+      backgroundColor: Colors.white,
       context: this,
       builder: builder,
       isScrollControlled: isScrollControlled,
       useSafeArea: useSafeArea,
+      useRootNavigator: useRootNavigator,
     );
   }
 

@@ -27,6 +27,7 @@ class AppCard extends StatelessWidget {
     this.margin,
     this.onTap,
     this.showShadow = false,
+    this.showBorder = false,
     this.color,
   });
 
@@ -41,14 +42,13 @@ class AppCard extends StatelessWidget {
 
   /// When true, uses [AppShadows.card] instead of a border outline.
   final bool showShadow;
+  final bool showBorder;
   final Color? color;
 
   @override
   Widget build(BuildContext context) {
     final cs = context.theme.colorScheme;
     final tt = context.theme.textTheme;
-
-    final cardColor = color ?? cs.surfaceContainerLow;
 
     final Widget content = Column(
       mainAxisSize: MainAxisSize.min,
@@ -106,9 +106,9 @@ class AppCard extends StatelessWidget {
     return Container(
       margin: margin,
       decoration: BoxDecoration(
-        color: cardColor,
+        color: Colors.white,
         borderRadius: AppBorders.card,
-        border: showShadow
+        border: showBorder == false
             ? null
             : Border.all(color: cs.outlineVariant, width: 1),
         boxShadow: showShadow ? AppShadows.card : AppShadows.none,
