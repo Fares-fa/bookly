@@ -1,9 +1,21 @@
-import 'package:bookly/src/imports/core_imports.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bookly/src/imports/imports.dart';
+
+import 'package:bookly/src/features/venue/domain/venue_spec.dart';
 
 /// "Reviews" tab: overall score badge and a list of user reviews.
-class ReviewsSection extends StatelessWidget {
-  const ReviewsSection({super.key});
+class VenueReviewsSection extends StatelessWidget {
+  const VenueReviewsSection({
+    super.key,
+    required this.reviews,
+    required this.rating,
+    required this.ratingCount,
+    required this.ratingLabel,
+  });
+
+  final List<VenueReview> reviews;
+  final double rating;
+  final String ratingCount;
+  final String ratingLabel;
 
   @override
   Widget build(BuildContext context) {
@@ -16,34 +28,37 @@ class ReviewsSection extends StatelessWidget {
             RichText(
               text: TextSpan(
                 children: [
-                  TextSpan(text: 'Review ', style: AppTextStyle.blackW500Size17),
-                  TextSpan(text: '(20,052)', style: AppTextStyle.grey400Size14),
+                  TextSpan(
+                    text: 'Review ',
+                    style: AppTextStyle.blackW500Size17,
+                  ),
+                  TextSpan(
+                    text: ratingCount,
+                    style: AppTextStyle.grey400Size14,
+                  ),
                 ],
               ),
             ),
             const Spacer(),
-            const _ScoreBadge(),
+            _ScoreBadge(rating: rating, label: ratingLabel),
           ],
         ),
         const SizedBox(height: 8),
-        const _Review(
-          name: 'Fares Abd Elrazek',
-          rating: '9.5',
-          comment: 'Amazing the best in sharm el Shiekh',
-        ),
-        const Divider(height: 1, thickness: 1, color: AppColors.divider),
-        const _Review(
-          name: 'Mohamed el barawy',
-          rating: '9.5',
-          comment: 'Amazing the best in sharm el Shiekh',
-        ),
+        for (var i = 0; i < reviews.length; i++) ...[
+          if (i > 0)
+            const Divider(height: 1, thickness: 1, color: AppColors.divider),
+          _Review(review: reviews[i]),
+        ],
       ],
     );
   }
 }
 
 class _ScoreBadge extends StatelessWidget {
-  const _ScoreBadge();
+  const _ScoreBadge({required this.rating, required this.label});
+
+  final double rating;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
@@ -51,20 +66,27 @@ class _ScoreBadge extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
         color: AppColors.menuBg,
-        borderRadius: BorderRadius.only(topRight: Radius.circular(18.r),bottomLeft:Radius.circular(18.r) ),
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(18.r),
+          bottomLeft: Radius.circular(18.r),
+        ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           const Icon(Icons.star, color: AppColors.star, size: 18),
           const SizedBox(width: 6),
-          Text('9.5',
-              style: AppTextStyle.whiteW500Size14
-                  .copyWith(color: AppColors.primary)),
+          Text(
+            rating.toStringAsFixed(1),
+            style: AppTextStyle.whiteW500Size14
+                .copyWith(color: AppColors.primary),
+          ),
           const SizedBox(width: 6),
-          Text('Excellent',
-              style: AppTextStyle.whiteW400Size14
-                  .copyWith(color: AppColors.primary)),
+          Text(
+            label,
+            style: AppTextStyle.whiteW400Size14
+                .copyWith(color: AppColors.primary),
+          ),
         ],
       ),
     );
@@ -72,14 +94,9 @@ class _ScoreBadge extends StatelessWidget {
 }
 
 class _Review extends StatelessWidget {
-  final String name;
-  final String rating;
-  final String comment;
-  const _Review({
-    required this.name,
-    required this.rating,
-    required this.comment,
-  });
+  const _Review({required this.review});
+
+  final VenueReview review;
 
   @override
   Widget build(BuildContext context) {
@@ -99,13 +116,14 @@ class _Review extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(name, style: AppTextStyle.blackW400Size16),
+                  Text(review.name, style: AppTextStyle.blackW400Size16),
                   const SizedBox(height: 2),
                   Row(
                     children: [
                       const Icon(Icons.star, color: AppColors.star, size: 16),
                       const SizedBox(width: 4),
-                      Text(rating, style: AppTextStyle.blackW500Size14),
+                      Text(review.rating,
+                          style: AppTextStyle.blackW500Size14),
                     ],
                   ),
                 ],
@@ -113,7 +131,7 @@ class _Review extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10),
-          Text(comment, style: AppTextStyle.blackW400Size14),
+          Text(review.comment, style: AppTextStyle.blackW400Size14),
         ],
       ),
     );

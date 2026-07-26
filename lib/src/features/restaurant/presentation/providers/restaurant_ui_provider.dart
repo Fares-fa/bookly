@@ -1,27 +1,9 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:bookly/src/features/venue/presentation/providers/venue_ui_state.dart';
 
-/// UI state for the restaurant screen: selected tab + favorite toggle.
-class RestaurantUiState {
-  final int selectedTab;
-  final bool isFavorite;
-  const RestaurantUiState({this.selectedTab = 0, this.isFavorite = false});
-
-  RestaurantUiState copyWith({int? selectedTab, bool? isFavorite}) =>
-      RestaurantUiState(
-        selectedTab: selectedTab ?? this.selectedTab,
-        isFavorite: isFavorite ?? this.isFavorite,
-      );
-}
-
-class RestaurantUiNotifier extends Notifier<RestaurantUiState> {
-  @override
-  RestaurantUiState build() => const RestaurantUiState();
-
-  void selectTab(int index) => state = state.copyWith(selectedTab: index);
-  void toggleFavorite() => state = state.copyWith(isFavorite: !state.isFavorite);
-}
-
-final restaurantUiProvider =
-    NotifierProvider<RestaurantUiNotifier, RestaurantUiState>(
-  RestaurantUiNotifier.new,
+/// Tab + favorite state for the restaurant detail screen.
+///
+/// Its own instance of the shared [VenueUiNotifier] so it stays independent of
+/// the cafe's selection.
+final VenueUiProvider restaurantUiProvider = VenueUiProvider(
+  VenueUiNotifier.new,
 );

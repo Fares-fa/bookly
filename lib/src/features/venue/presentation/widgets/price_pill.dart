@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
-
-import 'package:bookly/src/theme/app_colors.dart';
-import 'package:bookly/src/theme/app_text_style.dart';
+import 'package:bookly/src/imports/imports.dart';
 
 /// Price-per-person pill shown centered over the hero image.
 class PricePill extends StatelessWidget {
-  const PricePill({super.key});
+  const PricePill({super.key, required this.price});
+
+  /// Formatted amount, e.g. `275EGP`.
+  final String price;
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +17,14 @@ class PricePill extends StatelessWidget {
       ),
       child: RichText(
         text: TextSpan(
-          children:  [
+          children: [
             TextSpan(
-              text: 'Price : 275EGP',
+              text: 'Price : $price',
               style: AppTextStyle.whiteW500Size14,
             ),
             TextSpan(
               text: '/Person',
               style: AppTextStyle.greyW500Size12,
-
             ),
           ],
         ),

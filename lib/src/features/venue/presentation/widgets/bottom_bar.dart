@@ -1,11 +1,22 @@
-import 'package:flutter/material.dart';
+import 'package:bookly/src/imports/imports.dart';
 
-import 'package:bookly/src/theme/app_colors.dart';
-import 'package:bookly/src/theme/app_text_style.dart';
+/// Pinned bottom action bar on the venue detail screen: circular Menu button
+/// + "Book Table" CTA.
+class VenueBottomBar extends StatelessWidget {
+  const VenueBottomBar({
+    super.key,
+    required this.menuRoute,
+    required this.bookRoute,
+    this.menuIcon = Icons.room_service_outlined,
+    this.label = 'Book Table',
+  });
 
-/// Pinned bottom action bar: circular Menu button + "Book Table" CTA.
-class BottomBar extends StatelessWidget {
-  const BottomBar({super.key});
+  final String menuRoute;
+  final String bookRoute;
+
+  /// Cutlery for a restaurant, a cup for a cafe.
+  final IconData menuIcon;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +30,8 @@ class BottomBar extends StatelessWidget {
       ),
       child: Row(
         children: [
-          // Menu button
           GestureDetector(
-            onTap: () {},
+            onTap: () => context.push(menuRoute),
             child: Container(
               width: 66,
               height: 66,
@@ -32,8 +42,7 @@ class BottomBar extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(Icons.room_service_outlined,
-                      color: AppColors.primary, size: 24),
+                  Icon(menuIcon, color: AppColors.primary, size: 24),
                   const SizedBox(height: 2),
                   Text('Menu', style: AppTextStyle.primaryW500Size9),
                 ],
@@ -41,12 +50,11 @@ class BottomBar extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 16),
-          // Book Table CTA
           Expanded(
             child: SizedBox(
               height: 66,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => context.push(bookRoute),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
                   foregroundColor: AppColors.white,
@@ -55,7 +63,7 @@ class BottomBar extends StatelessWidget {
                     borderRadius: BorderRadius.circular(33),
                   ),
                 ),
-                child: Text('Book Table', style: AppTextStyle.whiteW500Size16),
+                child: Text(label, style: AppTextStyle.whiteW500Size16),
               ),
             ),
           ),

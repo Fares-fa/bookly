@@ -9,6 +9,20 @@ abstract final class AppRoutes {
   static const String home = '/';
   static const String onboarding = '/onboarding';
   static const String restaurant = '/restaurant';
+  static const String bookingRestaurant = '/booking-restaurant';
+  static const String bookTable = '/book-table';
+  static const String partyDetails = '/party-details';
+  static const String bookingSummary = '/booking-summary';
+  static const String bookingConfirmed = '/booking-confirmed';
+  static const String restaurantMenu = '/restaurant-menu';
+
+  static const String cafe = '/cafe';
+  static const String bookingCafe = '/booking-cafe';
+  static const String cafeBookTable = '/cafe-book-table';
+  static const String cafePartyDetails = '/cafe-party-details';
+  static const String cafeBookingSummary = '/cafe-booking-summary';
+  static const String cafeBookingConfirmed = '/cafe-booking-confirmed';
+  static const String cafeMenu = '/cafe-menu';
 
   static const String login = '/login';
   static const String signup = '/signup';

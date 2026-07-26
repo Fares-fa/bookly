@@ -1,10 +1,11 @@
-import 'package:bookly/src/imports/core_imports.dart';
-
-import '../../../../imports/imports.dart';
+import 'package:bookly/src/imports/imports.dart';
 
 /// "Location" tab: a map preview with a "See Location on map" action.
-class LocationSection extends StatelessWidget {
-  const LocationSection({super.key});
+class VenueLocationSection extends StatelessWidget {
+  const VenueLocationSection({super.key, required this.distance});
+
+  /// Distance from the user, e.g. `0.5 KM`.
+  final String distance;
 
   @override
   Widget build(BuildContext context) {
@@ -48,24 +49,20 @@ class LocationSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 14),
-
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               spacing: 6,
               children: [
-                SvgPicture.asset(
-                  AppAssets.location,
-                ),
-                Text('From Your location', style: AppTextStyle.grey400Size14),
+                SvgPicture.asset(AppAssets.location),
+                Text('From Your location',
+                    style: AppTextStyle.grey400Size14),
               ],
             ),
-            Text('0.5 KM', style: AppTextStyle.grey400Size14),
-
+            Text(distance, style: AppTextStyle.grey400Size14),
           ],
         ),
-
       ],
     );
   }

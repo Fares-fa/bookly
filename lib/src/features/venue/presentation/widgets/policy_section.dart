@@ -1,9 +1,19 @@
-import 'package:bookly/src/imports/core_imports.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bookly/src/imports/imports.dart';
 
 /// "Policy" tab: deposit, opening/closing hours and a call action.
-class PolicySection extends StatelessWidget {
-  const PolicySection({super.key});
+class VenuePolicySection extends StatelessWidget {
+  const VenuePolicySection({
+    super.key,
+    required this.deposit,
+    required this.openingAt,
+    required this.closedAt,
+    required this.phone,
+  });
+
+  final String deposit;
+  final String openingAt;
+  final String closedAt;
+  final String phone;
 
   @override
   Widget build(BuildContext context) {
@@ -20,22 +30,22 @@ class PolicySection extends StatelessWidget {
                 style: AppTextStyle.blackW500Size14,
               ),
               TextSpan(
-                text: '150EGP',
+                text: deposit,
                 style: AppTextStyle.blackW500Size14
                     .copyWith(color: AppColors.primary),
               ),
               TextSpan(
                 text: '/Person',
                 style: AppTextStyle.blackW500Size14
-                    .copyWith(color: AppColors.primary,fontSize: 12.sp),
+                    .copyWith(color: AppColors.primary, fontSize: 12.sp),
               ),
             ],
           ),
         ),
         const SizedBox(height: 22),
-        const _HoursRow(label: 'Opening at', value: '09:00 PM'),
+        _HoursRow(label: 'Opening at', value: openingAt),
         const SizedBox(height: 18),
-        const _HoursRow(label: 'Closed at', value: '12:00 AM'),
+        _HoursRow(label: 'Closed at', value: closedAt),
         const SizedBox(height: 22),
         GestureDetector(
           onTap: () {},
@@ -44,7 +54,7 @@ class PolicySection extends StatelessWidget {
               const Icon(Icons.call, color: AppColors.primary, size: 22),
               const SizedBox(width: 12),
               Text(
-                'Call 1999',
+                'Call $phone',
                 style: AppTextStyle.whiteW500Size16
                     .copyWith(color: AppColors.primary),
               ),
@@ -57,9 +67,10 @@ class PolicySection extends StatelessWidget {
 }
 
 class _HoursRow extends StatelessWidget {
+  const _HoursRow({required this.label, required this.value});
+
   final String label;
   final String value;
-  const _HoursRow({required this.label, required this.value});
 
   @override
   Widget build(BuildContext context) {

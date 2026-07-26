@@ -41,8 +41,18 @@ abstract final class HomeCategorySpec {
   /// The 4 shortcuts shown in [HomeCategoryRow] on the home page.
   static const List<HomeCategoryData> categories = [
     HomeCategoryData(id: 'hotels', label: 'Hotels', icon: AppAssets.hotel),
-    HomeCategoryData(id: 'cafe', label: 'Cafe', icon: AppAssets.cafe),
-    HomeCategoryData(id: 'restaurant', label: 'Restaurant', icon: AppAssets.restaurant),
+    HomeCategoryData(
+      id: 'cafe',
+      label: 'Cafe',
+      icon: AppAssets.cafe,
+      route: AppRoutes.bookingCafe,
+    ),
+    HomeCategoryData(
+      id: 'restaurant',
+      label: 'Restaurant',
+      icon: AppAssets.restaurant,
+      route: AppRoutes.bookingRestaurant,
+    ),
     HomeCategoryData(
       id: 'more',
       label: 'More',
@@ -54,9 +64,19 @@ abstract final class HomeCategorySpec {
 
   /// The full category list shown in [CategoriesScreen].
   static const List<HomeCategoryData> allCategories = [
-    HomeCategoryData(id: 'restaurant', label: 'Restaurant', icon: AppAssets.restaurant),
+    HomeCategoryData(
+      id: 'restaurant',
+      label: 'Restaurant',
+      icon: AppAssets.restaurant,
+      route: AppRoutes.bookingRestaurant,
+    ),
     HomeCategoryData(id: 'hotels', label: 'Hotels', icon: AppAssets.hotel),
-    HomeCategoryData(id: 'cafe', label: 'Cafe', icon: AppAssets.cafe),
+    HomeCategoryData(
+      id: 'cafe',
+      label: 'Cafe',
+      icon: AppAssets.cafe,
+      route: AppRoutes.bookingCafe,
+    ),
     HomeCategoryData(id: 'carRental', label: 'Car Rental', icon: AppAssets.carRental, comingSoon: true),
     HomeCategoryData(id: 'laboratory', label: 'laboratory', icon: AppAssets.laboratory, comingSoon: true),
     HomeCategoryData(id: 'flight', label: 'Flight', icon: AppAssets.flight, comingSoon: true),

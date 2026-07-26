@@ -11,6 +11,19 @@ import 'package:bookly/src/features/auth/presentation/screens/forgot_password_sc
 import 'package:bookly/src/features/auth/presentation/providers/session_provider.dart';
 
 import 'package:bookly/src/features/restaurant/presentation/screens/restaurant_screen.dart';
+import 'package:bookly/src/features/restaurant/presentation/screens/booking_restaurant.dart';
+import 'package:bookly/src/features/restaurant/presentation/screens/book_table_screen.dart';
+import 'package:bookly/src/features/restaurant/presentation/screens/party_details_screen.dart';
+import 'package:bookly/src/features/restaurant/presentation/screens/booking_summary_screen.dart';
+import 'package:bookly/src/features/cafe/presentation/screens/cafe_screen.dart';
+import 'package:bookly/src/features/cafe/presentation/screens/booking_cafe.dart';
+import 'package:bookly/src/features/cafe/presentation/screens/book_table_screen.dart';
+import 'package:bookly/src/features/cafe/presentation/screens/party_details_screen.dart';
+import 'package:bookly/src/features/cafe/presentation/screens/booking_summary_screen.dart';
+import 'package:bookly/src/features/restaurant/presentation/screens/menu_screen.dart';
+import 'package:bookly/src/features/cafe/presentation/screens/menu_screen.dart';
+import 'package:bookly/src/features/restaurant/presentation/screens/booking_confirmed_screen.dart';
+import 'package:bookly/src/features/cafe/presentation/screens/booking_confirmed_screen.dart';
 import 'package:bookly/src/features/home/presentation/screens/home_page.dart';
 import 'package:bookly/src/features/home/presentation/screens/categories_screen.dart';
 import 'package:bookly/src/features/booking/presentation/screens/my_booking_page.dart';
@@ -73,6 +86,71 @@ final GoRouter appRouter = GoRouter(
       path: AppRoutes.restaurant,
       name: 'restaurant',
       builder: (context, state) => const RestaurantScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.bookingRestaurant,
+      name: 'bookingRestaurant',
+      builder: (context, state) => const BookingRestaurant(),
+    ),
+    GoRoute(
+      path: AppRoutes.bookTable,
+      name: 'bookTable',
+      builder: (context, state) => const BookTableScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.partyDetails,
+      name: 'partyDetails',
+      builder: (context, state) => const PartyDetailsScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.bookingSummary,
+      name: 'bookingSummary',
+      builder: (context, state) => const BookingSummaryScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.bookingConfirmed,
+      name: 'bookingConfirmed',
+      builder: (context, state) => const BookingConfirmedScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.restaurantMenu,
+      name: 'restaurantMenu',
+      builder: (context, state) => const RestaurantMenuScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.cafe,
+      name: 'cafe',
+      builder: (context, state) => const CafeScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.bookingCafe,
+      name: 'bookingCafe',
+      builder: (context, state) => const BookingCafe(),
+    ),
+    GoRoute(
+      path: AppRoutes.cafeBookTable,
+      name: 'cafeBookTable',
+      builder: (context, state) => const CafeBookTableScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.cafePartyDetails,
+      name: 'cafePartyDetails',
+      builder: (context, state) => const CafePartyDetailsScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.cafeBookingSummary,
+      name: 'cafeBookingSummary',
+      builder: (context, state) => const CafeBookingSummaryScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.cafeBookingConfirmed,
+      name: 'cafeBookingConfirmed',
+      builder: (context, state) => const CafeBookingConfirmedScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.cafeMenu,
+      name: 'cafeMenu',
+      builder: (context, state) => const CafeMenuScreen(),
     ),
     GoRoute(
       path: AppRoutes.categories,

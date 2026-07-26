@@ -21,6 +21,7 @@ class AppColors {
   static const scrimStrong = Color(0x90000000); // #00000080 — 50% black image overlays
   static const greyPerson = Color(0xFFB6B6B6);
   static const grey = Color(0xFF666666); // #666666
+  static const semiGrey = Color(0xFFEAEAEA); // #666666
 
   static const black = Colors.black;
   static const white = Colors.white;

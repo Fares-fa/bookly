@@ -1,11 +1,11 @@
 import 'package:bookly/src/imports/imports.dart';
 
-import 'package:bookly/src/features/restaurant/domain/restaurant_spec.dart';
-import 'package:bookly/src/features/restaurant/presentation/providers/restaurant_ui_provider.dart';
+import 'package:bookly/src/features/cafe/domain/cafe_spec.dart';
+import 'package:bookly/src/features/cafe/presentation/providers/cafe_ui_provider.dart';
 import 'package:bookly/src/features/venue/presentation/widgets/venue_widgets.dart';
 
-class RestaurantScreen extends StatelessWidget {
-  const RestaurantScreen({super.key});
+class CafeScreen extends StatelessWidget {
+  const CafeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,42 +14,34 @@ class RestaurantScreen extends StatelessWidget {
       body: Column(
         children: [
           // Fixed hero — stays pinned while the content below scrolls.
-          VenueHeroSection(
-            spec: restaurantSpec,
-            uiProvider: restaurantUiProvider,
-          ),
+          VenueHeroSection(spec: cafeSpec, uiProvider: cafeUiProvider),
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  VenueTitleRow(
-                    name: restaurantSpec.name,
-                    rating: restaurantSpec.rating,
-                  ),
+                  VenueTitleRow(name: cafeSpec.name, rating: cafeSpec.rating),
                   const SizedBox(height: 6),
-                  VenueLocationRow(location: restaurantSpec.location),
+                  VenueLocationRow(location: cafeSpec.location),
                   const SizedBox(height: 12),
                   VenueTabBar(
                     tabs: VenueTabContent.tabs,
-                    uiProvider: restaurantUiProvider,
+                    uiProvider: cafeUiProvider,
                   ),
                   const Divider(
                       height: 1, thickness: 1, color: AppColors.divider),
                   const SizedBox(height: 12),
-                  VenueTabContent(
-                    spec: restaurantSpec,
-                    uiProvider: restaurantUiProvider,
-                  ),
+                  VenueTabContent(spec: cafeSpec, uiProvider: cafeUiProvider),
                   const SizedBox(height: 10),
                 ],
               ),
             ),
           ),
           const VenueBottomBar(
-            menuRoute: AppRoutes.restaurantMenu,
-            bookRoute: AppRoutes.bookTable,
+            menuRoute: AppRoutes.cafeMenu,
+            bookRoute: AppRoutes.cafeBookTable,
+            menuIcon: Icons.local_cafe_outlined,
           ),
         ],
       ),

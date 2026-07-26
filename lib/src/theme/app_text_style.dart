@@ -31,13 +31,20 @@ class AppTextStyle {
     letterSpacing: 0,
     color: AppColors.black,
   );
-
+  static TextStyle get blackW500Size16 => TextStyle(
+    fontFamily: _fontFamily,
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w500,
+    height: 22 / 18, // line-height 22px
+    letterSpacing: 0,
+    color: AppColors.black,
+  );
   /// Section heading, e.g. "About" (22 · w800).
   static TextStyle get sectionTitle => TextStyle(
         fontFamily: _fontFamily,
-        fontSize: 22.sp,
-        fontWeight: FontWeight.w800,
-        color: AppColors.textDark,
+        fontSize: 24.sp,
+        fontWeight: FontWeight.w500,
+        color: AppColors.black,
       );
 
   /// Reading/body copy (17 · w400 · 1.5 line height).

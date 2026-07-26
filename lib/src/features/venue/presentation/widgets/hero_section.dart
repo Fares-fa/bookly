@@ -1,24 +1,26 @@
-import 'package:bookly/src/features/restaurant/presentation/widgets/widgets.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:bookly/src/imports/imports.dart';
 
-import 'package:bookly/src/features/restaurant/presentation/providers/restaurant_ui_provider.dart';
-
-import 'package:bookly/src/theme/app_colors.dart';
-import 'package:bookly/src/imports/core_imports.dart';
-
-
+import 'package:bookly/src/features/venue/domain/venue_spec.dart';
+import 'package:bookly/src/features/venue/presentation/providers/venue_ui_state.dart';
+import 'package:bookly/src/features/venue/presentation/widgets/venue_widgets.dart';
 
 /// Hero: cover image with rounded bottom corners, top controls
 /// (back / price / favorite) and the thumbnail gallery strip.
-class HeroSection extends ConsumerWidget {
-  const HeroSection({super.key});
+class VenueHeroSection extends ConsumerWidget {
+  const VenueHeroSection({
+    super.key,
+    required this.spec,
+    required this.uiProvider,
+  });
+
+  final VenueSpec spec;
+  final VenueUiProvider uiProvider;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final topPad = MediaQuery.of(context).padding.top;
     final height = MediaQuery.of(context).size.height * 0.42;
-    final isFav = ref.watch(restaurantUiProvider).isFavorite;
+    final isFav = ref.watch(uiProvider.select((s) => s.isFavorite));
 
     return SizedBox(
       height: height,
@@ -34,10 +36,7 @@ class HeroSection extends ConsumerWidget {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  Image.asset(
-                    AppAssets.cover,
-                    fit: BoxFit.cover,
-                  ),
+                  Image.asset(spec.coverAsset, fit: BoxFit.cover),
                   // CSS: linear-gradient(360deg,
                   //   rgba(0,0,0,0) 0%, rgba(255,255,255,0.56) 75.68%)
                   // 360deg runs bottom → top, so the transparent stop sits at
@@ -67,29 +66,31 @@ class HeroSection extends ConsumerWidget {
             right: 16,
             child: Row(
               children: [
-                CircleButton(
+                CircleButtonPng(
                   name: AppAssets.back,
-                  onTap: () {},
+                  onTap: () => context.pop(),
                 ),
                 const Spacer(),
-                const PricePill(),
+                PricePill(price: spec.pricePerPerson),
                 const Spacer(),
                 CircleButton(
-                  name: isFav ?AppAssets.heart : AppAssets.heart,
+                  name: AppAssets.heart,
                   iconColor: isFav ? AppColors.favorite : AppColors.white,
-                  onTap: () =>
-                      ref.read(restaurantUiProvider.notifier).toggleFavorite(),
+                  onTap: () => ref.read(uiProvider.notifier).toggleFavorite(),
                 ),
               ],
             ),
           ),
 
           // --- Thumbnail gallery strip ----------------------------------
-          const Positioned(
+          Positioned(
             left: 32,
             right: 32,
             bottom: 20,
-            child: ThumbnailStrip(),
+            child: VenueThumbnailStrip(
+              assets: spec.galleryAssets,
+              overflowLabel: spec.galleryOverflowLabel,
+            ),
           ),
         ],
       ),

@@ -1,26 +1,35 @@
-import 'package:bookly/src/imports/core_imports.dart';
+import 'package:bookly/src/imports/imports.dart';
 
-/// "Facilities" tab: a grid-ish list of amenities with a "See More" action.
-class FacilitiesSection extends StatelessWidget {
-  const FacilitiesSection({super.key});
+import 'package:bookly/src/features/venue/domain/venue_spec.dart';
+
+/// "Facilities" tab: the first three amenities on one row, the rest stacked
+/// underneath, then a "See More" action.
+class VenueFacilitiesSection extends StatelessWidget {
+  const VenueFacilitiesSection({super.key, required this.facilities});
+
+  final List<VenueFacility> facilities;
 
   @override
   Widget build(BuildContext context) {
+    final firstRow = facilities.take(3).toList();
+    final rest = facilities.skip(3).toList();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Facilities', style: AppTextStyle.blackW500Size17),
         const SizedBox(height: 20),
-        const Row(
+        Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(child: _Facility(icon: Icons.local_parking, label: 'Parking')),
-            Expanded(child: _Facility(icon: Icons.wifi, label: 'Fast Wifi')),
-            Expanded(child: _Facility(icon: Icons.ac_unit, label: 'Air Con..')),
+            for (final facility in firstRow)
+              Expanded(child: _Facility(facility: facility)),
           ],
         ),
-        const SizedBox(height: 20),
-        const _Facility(icon: Icons.child_care, label: 'Kids Area'),
+        for (final facility in rest) ...[
+          const SizedBox(height: 20),
+          _Facility(facility: facility),
+        ],
         const SizedBox(height: 14),
         GestureDetector(
           onTap: () {},
@@ -36,20 +45,20 @@ class FacilitiesSection extends StatelessWidget {
 }
 
 class _Facility extends StatelessWidget {
-  final IconData icon;
-  final String label;
-  const _Facility({required this.icon, required this.label});
+  const _Facility({required this.facility});
+
+  final VenueFacility facility;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(icon, color: AppColors.black, size: 22),
+        Icon(facility.icon, color: AppColors.black, size: 22),
         const SizedBox(width: 8),
         Flexible(
           child: Text(
-            label,
+            facility.label,
             overflow: TextOverflow.ellipsis,
             style: AppTextStyle.blackW400Size14,
           ),
