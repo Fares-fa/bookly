@@ -1,4 +1,5 @@
 import 'package:bookly/src/features/hotels/presentation/widgets/popular_destinations_list.dart';
+import 'package:bookly/src/features/hotels/presentation/widgets/simple_header.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 class HotelSearchScreen extends StatelessWidget {
@@ -12,7 +13,7 @@ class HotelSearchScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            _HotelSearchHeader(),
+            const SimpleHeader(title: 'Search'),
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: AppSpacing.md.w,
@@ -36,48 +37,6 @@ class HotelSearchScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: AppSpacing.md.w),
               child: const PopularDestinationsList(),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _HotelSearchHeader extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final cs = context.theme.colorScheme;
-
-    return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: AppSpacing.md.w, vertical: AppSpacing.sm.h),
-      child: SizedBox(
-        height: 40.w,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Text(
-              'Search',
-              style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w600,
-                  color: cs.onSurface),
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: GestureDetector(
-                onTap: () {
-                  if (context.canPop()) context.pop();
-                },
-                child: Container(
-                  width: 40.w,
-                  height: 40.w,
-                  decoration:
-                      BoxDecoration(color: cs.primary, shape: BoxShape.circle),
-                  child: const Icon(Icons.chevron_left, color: Colors.white),
-                ),
-              ),
             ),
           ],
         ),

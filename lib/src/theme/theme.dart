@@ -368,10 +368,10 @@ ThemeData buildLightTheme({required String primaryColorHex}) {
   final seed =
       _colorFromHex(primaryColorHex.isNotEmpty ? primaryColorHex : '#0042D3');
   final colorScheme = ColorScheme.fromSeed(
-    seedColor: seed,
-    primary: Color(0xFF0042D3),
-    secondary: Color(0xFFF97316),
-  );
+      seedColor: seed,
+      primary: Color(0xFF0042D3),
+      secondary: Color(0xFFF97316),
+      surface: Color(0xFFF0F8FF));
   return _buildTheme(colorScheme, AppPalettes.light);
 }
 
