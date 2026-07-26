@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   const AppColorsExtension({
     required this.success,
+    required this.primary,
+    this.green,
+    this.backgroundColor,
     required this.onSuccess,
     required this.warning,
     required this.onWarning,
@@ -16,9 +19,13 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     this.onWarningContainer,
     this.infoContainer,
     this.onInfoContainer,
+    this.blackText,
   });
 
   final Color success;
+  final Color primary;
+  final Color? green;
+  final Color? backgroundColor;
   final Color onSuccess;
   final Color warning;
   final Color onWarning;
@@ -30,10 +37,14 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   final Color? onWarningContainer;
   final Color? infoContainer;
   final Color? onInfoContainer;
+  final Color? blackText;
 
   @override
   ThemeExtension<AppColorsExtension> copyWith({
     Color? success,
+    Color? primary,
+    Color? green,
+    Color? backgroundColor,
     Color? onSuccess,
     Color? warning,
     Color? onWarning,
@@ -45,9 +56,13 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     Color? onWarningContainer,
     Color? infoContainer,
     Color? onInfoContainer,
+    Color? blackText,
   }) {
     return AppColorsExtension(
       success: success ?? this.success,
+      primary: primary ?? this.primary,
+      green: green ?? this.green,
+      backgroundColor: backgroundColor ?? this.backgroundColor,
       onSuccess: onSuccess ?? this.onSuccess,
       warning: warning ?? this.warning,
       onWarning: onWarning ?? this.onWarning,
@@ -59,6 +74,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       onWarningContainer: onWarningContainer ?? this.onWarningContainer,
       infoContainer: infoContainer ?? this.infoContainer,
       onInfoContainer: onInfoContainer ?? this.onInfoContainer,
+      blackText: blackText ?? this.blackText,
     );
   }
 
@@ -71,7 +87,10 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       return this;
     }
     return AppColorsExtension(
+      primary: Color.lerp(primary, other.primary, t)!,
       success: Color.lerp(success, other.success, t)!,
+      green: Color.lerp(green, other.green, t)!,
+      backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t)!,
       onSuccess: Color.lerp(onSuccess, other.onSuccess, t)!,
       warning: Color.lerp(warning, other.warning, t)!,
       onWarning: Color.lerp(onWarning, other.onWarning, t)!,
@@ -83,6 +102,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       onWarningContainer: Color.lerp(onWarningContainer, other.onWarningContainer, t),
       infoContainer: Color.lerp(infoContainer, other.infoContainer, t),
       onInfoContainer: Color.lerp(onInfoContainer, other.onInfoContainer, t),
+      blackText: Color.lerp(blackText, other.blackText, t),
     );
   }
 }
@@ -92,7 +112,10 @@ class AppPalettes {
   AppPalettes._();
 
   static const light = AppColorsExtension(
+    primary: Color(0xFF0042D3),
     success: Color(0xFF2E7D32),
+    green: Color(0xFF28A745),
+    backgroundColor:  Color(0xFFF0F8FF),
     onSuccess: Colors.white,
     successContainer: Color(0xFFA5D6A7),
     onSuccessContainer: Color(0xFF1B5E20),
@@ -104,10 +127,13 @@ class AppPalettes {
     onInfo: Colors.white,
     infoContainer: Color(0xFF81D4FA),
     onInfoContainer: Color(0xFF01579B),
+    blackText: Color(0xFF000000),
   );
 
   static const dark = AppColorsExtension(
     success: Color(0xFF81C784),
+    primary: Color(0xFF0042D3),
+    backgroundColor:  Color(0xFFF0F8FF),
     onSuccess: Color(0xFF003300),
     successContainer: Color(0xFF1B5E20),
     onSuccessContainer: Color(0xFFA5D6A7),
@@ -119,8 +145,9 @@ class AppPalettes {
     onInfo: Color(0xFF01579B),
     infoContainer: Color(0xFF0277BD),
     onInfoContainer: Color(0xFFE1F5FE),
+    blackText: Color(0xFF000000),
   );
 }
 
 /// Access semantic colors via `context.appColors` from `context_extension.dart`.
-/// Example: `context.appColors.success`
+/// Example: `context.appColors.success`

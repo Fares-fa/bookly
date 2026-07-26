@@ -7,6 +7,39 @@ class AppAssets {
   static const String _lottiePath = '$_basePath/lottie';
   static const String _svgsPath = '$_basePath/svgs';
 
+  //home
+  static const String bookly = '$_svgsPath/bookly_logo.svg';
+  static const String filter = '$_svgsPath/filter.svg';
+  static const String notification = '$_svgsPath/notification_icon.svg';
+  static const String search = '$_svgsPath/search.svg';
+  static const String gemini = '$_svgsPath/gemini.svg';
+  static const String hotel = '$_iconsPath/hotel.png';
+  static const String cafe = '$_iconsPath/cafe.png';
+  static const String restaurant = '$_iconsPath/restaurant.png';
+  static const String more = '$_iconsPath/more.png';
+  static const String carRental = '$_iconsPath/car_rental.png';
+  static const String flight = '$_iconsPath/flight.png';
+  static const String laboratory = '$_iconsPath/laboratory.png';
+  static const String rest = '$_imagesPath/rest.png';
+  static const String hilton = '$_imagesPath/hilton.png';
+  static const String cafeImage = '$_imagesPath/cafe_img.png';
+  static const String ad = '$_imagesPath/ad.png';
+  static const String soonOne = '$_imagesPath/soon_one.png';
+  static const String soonTwo = '$_imagesPath/soon_two.png';
+  static const String soonThree = '$_imagesPath/soon_three.png';
+  //home bottom nav icon
+  static const String home = '$_svgsPath/home.svg';
+  static const String booking = '$_svgsPath/booking.svg';
+  static const String favorite = '$_svgsPath/favorite.svg';
+  static const String moreNav = '$_svgsPath/more.svg';
+
+  //More screen
+  static const String account = '$_svgsPath/account.svg';
+  static const String support = '$_svgsPath/support.svg';
+  static const String settings = '$_svgsPath/settings.svg';
+  static const String invite = '$_svgsPath/invite.svg';
+  static const String promo = '$_svgsPath/promo.svg';
+  static const String logout = '$_svgsPath/logout.svg';
   // SVGs
   static const String googleIcon = '$_iconsPath/google.svg';
   static const String facebookIcon = '$_iconsPath/facebook.svg';
@@ -15,14 +48,37 @@ class AppAssets {
   static const String firstOnboardingImage =
       '$_imagesPath/first_onboarding_image.svg';
   static const String middleBooklyIcon = '$_imagesPath/middle_bookly_icon.svg';
+  static const String menu = '$_imagesPath/menu.png';
+  static const String celebration = '$_imagesPath/celebration.png';
+
+
   static const String smallBooklyIconTop =
       '$_imagesPath/small_bookly_icon_top.svg';
+
+// restaurant
+  static const String cover = '$_imagesPath/cover.png';
+  static const String rest1 = '$_imagesPath/1.png';
+  static const String rest2 = '$_imagesPath/2.png';
+  static const String rest3 = '$_imagesPath/3.png';
+  static const String map = '$_imagesPath/map.png';
+
+
+
+  static const String back = '$_iconsPath/back.png';
+  static const String backPrimary = '$_svgsPath/back_primary.svg';
+
+  static const String heart = '$_svgsPath/heart.svg';
+  static const String location = '$_svgsPath/location.svg';
+
+
+//
   static const String favouritesHotel = '$_imagesPath/favourites_hotel.jpg';
   static const String booklyLogo = '$_svgsPath/bookly_logo.svg';
   static const String notificationIcon = '$_iconsPath/notification_icon.svg';
   static const String bookingHotelsIcon = '$_iconsPath/mybooking_hotels_icon.png';
   static const String bookingRestaurantsIcon = '$_iconsPath/mybooking_restaurants_icon.png';
   static const String bookingCafeIcon = '$_iconsPath/mybooking_cafees_icon.png';
+
 
   static const String smallBooklyIconBlue =
       '$_svgsPath/bookly_small_logo_blue.svg';
