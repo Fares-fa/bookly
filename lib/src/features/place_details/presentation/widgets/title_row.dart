@@ -6,7 +6,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// Restaurant name with a primary-colored rating badge on the right.
 class TitleRow extends StatelessWidget {
-  const TitleRow({super.key});
+  const TitleRow({
+    super.key,
+    required this.title,
+    this.rating = '9.5',
+  });
+
+  final String title;
+  final String rating;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +22,7 @@ class TitleRow extends StatelessWidget {
       children: [
         Expanded(
           child: Text(
-            'Sky Roof Restaurant',
+            title,
             style: AppTextStyle.blackW500Size18,
           ),
         ),
@@ -30,7 +37,7 @@ class TitleRow extends StatelessWidget {
             children: [
               const Icon(Icons.star, color: AppColors.star, size: 18),
                SizedBox(width: 8.w),
-              Text('9.5', style: AppTextStyle.whiteW500Size14),
+              Text(rating, style: AppTextStyle.whiteW500Size14),
             ],
           ),
         ),

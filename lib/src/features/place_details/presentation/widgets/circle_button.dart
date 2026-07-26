@@ -1,3 +1,4 @@
+import 'package:bookly/src/imports/imports.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly/src/theme/app_colors.dart';
 import 'package:bookly/src/imports/packages_imports.dart';
@@ -17,8 +18,16 @@ class CircleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: SvgPicture.asset(
-        name,
+      child: Container(
+        width: 36,
+        height: 36,
+        alignment: Alignment.center,
+        // decoration: BoxDecoration(
+        //   shape: BoxShape.circle,
+        // ),
+        child: VectorGraphic(
+          loader: AssetBytesLoader(name),
+        ),
       ),
     );
   }

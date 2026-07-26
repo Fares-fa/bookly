@@ -1,24 +1,32 @@
-import 'package:bookly/src/features/restaurant/presentation/widgets/widgets.dart';
+import 'package:bookly/src/features/place_details/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:bookly/src/features/restaurant/presentation/providers/restaurant_ui_provider.dart';
+import 'package:bookly/src/features/place_details/presentation/providers/place_details_ui_provider.dart';
 
 import 'package:bookly/src/theme/app_colors.dart';
 import 'package:bookly/src/imports/core_imports.dart';
-
-
+import 'package:go_router/go_router.dart';
 
 /// Hero: cover image with rounded bottom corners, top controls
 /// (back / price / favorite) and the thumbnail gallery strip.
 class HeroSection extends ConsumerWidget {
-  const HeroSection({super.key});
+  const HeroSection({
+    super.key,
+    required this.placeId,
+    this.coverAsset,
+    this.priceLabel,
+  });
+
+  final String placeId;
+  final String? coverAsset;
+  final String? priceLabel;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final topPad = MediaQuery.of(context).padding.top;
     final height = MediaQuery.of(context).size.height * 0.42;
-    final isFav = ref.watch(restaurantUiProvider).isFavorite;
+    final isFav = ref.watch(placeDetailsUiProvider(placeId)).isFavorite;
 
     return SizedBox(
       height: height,
@@ -35,7 +43,7 @@ class HeroSection extends ConsumerWidget {
                 fit: StackFit.expand,
                 children: [
                   Image.asset(
-                    AppAssets.cover,
+                    coverAsset ?? AppAssets.cover,
                     fit: BoxFit.cover,
                   ),
                   // CSS: linear-gradient(360deg,
@@ -68,17 +76,22 @@ class HeroSection extends ConsumerWidget {
             child: Row(
               children: [
                 CircleButton(
+                  iconColor: Colors.white,
                   name: AppAssets.back,
-                  onTap: () {},
+                  onTap: () {
+                    GoRouter.of(context).pop();
+                  },
                 ),
                 const Spacer(),
-                const PricePill(),
+                if (priceLabel != null && priceLabel!.isNotEmpty)
+                  PricePill(label: priceLabel ?? 'Price : 275EGP'),
                 const Spacer(),
                 CircleButton(
-                  name: isFav ?AppAssets.heart : AppAssets.heart,
+                  name: isFav ? AppAssets.heart : AppAssets.heart,
                   iconColor: isFav ? AppColors.favorite : AppColors.white,
-                  onTap: () =>
-                      ref.read(restaurantUiProvider.notifier).toggleFavorite(),
+                  onTap: () => ref
+                      .read(placeDetailsUiProvider(placeId).notifier)
+                      .toggleFavorite(),
                 ),
               ],
             ),

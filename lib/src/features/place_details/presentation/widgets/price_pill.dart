@@ -5,7 +5,9 @@ import 'package:bookly/src/theme/app_text_style.dart';
 
 /// Price-per-person pill shown centered over the hero image.
 class PricePill extends StatelessWidget {
-  const PricePill({super.key});
+  const PricePill({super.key, this.label = 'Price : 275EGP'});
+
+  final String label;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class PricePill extends StatelessWidget {
         text: TextSpan(
           children:  [
             TextSpan(
-              text: 'Price : 275EGP',
+              text: label,
               style: AppTextStyle.whiteW500Size14,
             ),
             TextSpan(

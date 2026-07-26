@@ -6,7 +6,9 @@ import 'package:bookly/src/theme/app_text_style.dart';
 
 /// Location line with a pin icon under the title.
 class LocationRow extends StatelessWidget {
-  const LocationRow({super.key});
+  const LocationRow({super.key, required this.location});
+
+  final String location;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class LocationRow extends StatelessWidget {
           AppAssets.location,
         ),
         const SizedBox(width: 6),
-        Text('El ramel Station', style: AppTextStyle.grey400Size14),
+        Text(location, style: AppTextStyle.grey400Size14),
       ],
     );
   }

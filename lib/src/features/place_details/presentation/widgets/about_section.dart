@@ -5,7 +5,15 @@ import 'package:bookly/src/theme/app_text_style.dart';
 
 /// "About" heading, description paragraph and a "See more" action.
 class AboutSection extends StatelessWidget {
-  const AboutSection({super.key});
+  const AboutSection({
+    super.key,
+    this.description = 'Sky Roof is a rooftop restaurant offering panoramic '
+        'sea views, making it a popular destination for romantic dinners, '
+        'gatherings with friends, and special occasions. The restaurant '
+        'combines a relaxed atmosphere with international and seafood dishes.',
+  });
+
+  final String description;
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +23,7 @@ class AboutSection extends StatelessWidget {
         Text('About', style: AppTextStyle.blackW500Size17),
         const SizedBox(height: 14),
         Text(
-          'Sky Roof is a rooftop restaurant offering panoramic sea views, '
-          'making it a popular destination for romantic dinners, gatherings '
-          'with friends, and special occasions. The restaurant combines a '
-          'relaxed atmosphere with international and seafood dishes.',
+          description,
           style: AppTextStyle.blackW400Size14,
         ),
         const SizedBox(height: 8),

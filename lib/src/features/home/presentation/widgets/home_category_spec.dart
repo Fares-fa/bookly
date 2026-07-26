@@ -47,7 +47,10 @@ abstract final class HomeCategorySpec {
         route: AppRoutes.bookingHotels),
     HomeCategoryData(id: 'cafe', label: 'Cafe', icon: AppAssets.cafe),
     HomeCategoryData(
-        id: 'restaurant', label: 'Restaurant', icon: AppAssets.restaurant),
+        id: 'restaurant',
+        label: 'Restaurant',
+        icon: AppAssets.restaurant,
+        route: AppRoutes.restaurant),
     HomeCategoryData(
       id: 'more',
       label: 'More',

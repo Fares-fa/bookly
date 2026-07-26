@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:bookly/src/features/restaurant/presentation/providers/restaurant_ui_provider.dart';
+import 'package:bookly/src/features/place_details/presentation/providers/place_details_ui_provider.dart';
 import 'package:bookly/src/theme/app_colors.dart';
 import 'package:bookly/src/theme/app_text_style.dart';
 
 /// Horizontally scrollable tab bar with an underline under the active tab.
-class RestaurantTabBar extends ConsumerWidget {
+class PlaceDetailsTabBar extends ConsumerWidget {
+  final String placeId;
   final List<String> tabs;
-  const RestaurantTabBar({super.key, required this.tabs});
+  const PlaceDetailsTabBar({
+    super.key,
+    required this.placeId,
+    required this.tabs,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selected = ref.watch(restaurantUiProvider).selectedTab;
+    final selected = ref.watch(placeDetailsUiProvider(placeId)).selectedTab;
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
@@ -20,7 +25,9 @@ class RestaurantTabBar extends ConsumerWidget {
         children: List.generate(tabs.length, (i) {
           final isActive = i == selected;
           return GestureDetector(
-            onTap: () => ref.read(restaurantUiProvider.notifier).selectTab(i),
+            onTap: () => ref
+                .read(placeDetailsUiProvider(placeId).notifier)
+                .selectTab(i),
             child: Padding(
               padding: const EdgeInsets.only(right: 18),
               child: Column(

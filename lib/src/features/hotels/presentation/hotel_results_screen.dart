@@ -30,7 +30,7 @@ class _HotelResultsScreenState extends State<HotelResultsScreen> {
             SimpleHeader(title: widget.city),
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: AppSpacing.md.w,
+                horizontal: AppSpacing.ms.w,
                 vertical: AppSpacing.sm.h,
               ),
               child: AppTextField(
@@ -48,7 +48,7 @@ class _HotelResultsScreenState extends State<HotelResultsScreen> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppSpacing.md.w),
+              padding: EdgeInsets.symmetric(horizontal: AppSpacing.ms.w),
               child: HotelFiltersRow(
                 quickFilters: _quickFilters,
                 selectedFilter: _selectedFilter,
@@ -59,12 +59,16 @@ class _HotelResultsScreenState extends State<HotelResultsScreen> {
             ),
             Expanded(
               child: ListView.separated(
-                padding: EdgeInsets.all(AppSpacing.md.w),
+                padding: EdgeInsets.all(AppSpacing.ms.w),
                 itemCount: placeholderHotels.length,
                 separatorBuilder: (context, index) =>
                     SizedBox(height: AppSpacing.md.h),
                 itemBuilder: (context, index) => HotelCard(
                   data: placeholderHotels[index],
+                  onTap: () => context.push(
+                    AppRoutes.hotelDetails,
+                    extra: placeholderHotels[index],
+                  ),
                 ),
               ),
             ),
