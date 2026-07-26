@@ -1,5 +1,6 @@
 import 'package:bookly/src/imports/imports.dart';
 
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/features/booking/presentation/widgets/booking_details_data.dart';
 import 'package:bookly/src/features/booking/presentation/widgets/stay_column.dart';
 
@@ -105,12 +106,24 @@ class HotelStayCard extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Expanded(child: StayColumn(label: 'Check In', primary: data.checkInDate, secondary: data.checkInTime)),
-                Expanded(child: StayColumn(label: 'Check Out', primary: data.checkOutDate, secondary: data.checkOutTime)),
+                Expanded(
+                  child: StayColumn(
+                    label: S.of(context).bookingCheckInLabel,
+                    primary: data.checkInDate,
+                    secondary: data.checkInTime,
+                  ),
+                ),
+                Expanded(
+                  child: StayColumn(
+                    label: S.of(context).bookingCheckOutLabel,
+                    primary: data.checkOutDate,
+                    secondary: data.checkOutTime,
+                  ),
+                ),
                 Container(width: 1, height: 36.h, color: cs.outlineVariant),
                 SizedBox(width: AppSpacing.sm.w),
                 StayColumn(
-                  label: 'Total Stay',
+                  label: S.of(context).bookingTotalStayLabel,
                   primary: data.totalStayLabel,
                   crossAxisAlignment: CrossAxisAlignment.end,
                 ),

@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/restaurant/domain/restaurant_spec.dart';
@@ -32,7 +33,7 @@ class BookTableScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: const BookingAppBar(title: 'Book Table'),
+      appBar: BookingAppBar(title: S.of(context).restaurantBookTableTitle),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSpacing.ml),
         child: Column(
@@ -46,28 +47,28 @@ class BookTableScreen extends ConsumerWidget {
             ),
             SizedBox(height: AppSpacing.lg),
             Text(
-              'Select Reservation Time',
+              S.of(context).restaurantSelectReservationTimeTitle,
               style: AppTextStyle.sectionTitle.copyWith(fontSize: 24.sp),
             ),
             SizedBox(height: AppSpacing.xs),
             Text(
-              'From 1 hr , up to 14 days in Advance',
+              S.of(context).restaurantReservationTimeHint,
               style: AppTextStyle.grey400Size14.copyWith(fontSize: 16.sp),
             ),
             SizedBox(height: AppSpacing.lg),
             _ScheduleRow(
-              label: 'Date',
+              label: S.of(context).restaurantDateLabel,
               value: state.date == null
-                  ? 'Select date'
+                  ? S.of(context).restaurantSelectDatePlaceholder
                   : formatBookingDate(state.date!),
               placeholder: state.date == null,
               onTap: () => _openCalendar(context, ref),
             ),
             SizedBox(height: AppSpacing.md),
             _ScheduleRow(
-              label: 'Time',
+              label: S.of(context).restaurantTimeLabel,
               value: state.time == null
-                  ? 'Select time'
+                  ? S.of(context).restaurantSelectTimePlaceholder
                   : formatBookingTime(state.time!),
               placeholder: state.time == null,
               onTap: () => _openCalendar(context, ref),
@@ -77,7 +78,7 @@ class BookTableScreen extends ConsumerWidget {
       ),
       bottomNavigationBar: BookingBottomBar(
         stepIndex: 0,
-        label: 'Continue',
+        label: S.of(context).restaurantContinueLabel,
         menuRoute: AppRoutes.restaurantMenu,
         enabled: state.hasSchedule,
         onContinue: () => context.push(AppRoutes.partyDetails),

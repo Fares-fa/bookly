@@ -1,3 +1,5 @@
+import 'package:bookly/generated/l10n.dart';
+
 import '../../imports/imports.dart';
 
 import 'package:bookly/src/features/home/domain/entities/nearby_place.dart';
@@ -9,13 +11,13 @@ import 'package:bookly/src/features/home/presentation/providers/home_providers.d
 class NearbyPlacesSection extends StatelessWidget {
   const NearbyPlacesSection({
     super.key,
-    this.title = 'Nearby Places',
+    this.title,
     this.provider,
     this.onFilterTap,
     this.onPlaceTap,
   });
 
-  final String title;
+  final String? title;
   final FutureProvider<List<NearbyPlace>>? provider;
   final VoidCallback? onFilterTap;
 
@@ -25,13 +27,13 @@ class NearbyPlacesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AsyncCardSection<NearbyPlace>(
-      title: title,
+      title: title ?? S.of(context).commonExtraNearbyPlacesTitle,
       provider: provider ?? nearbyPlacesProvider,
-      emptyTitle: 'No nearby places found',
-      errorMessage: 'Could not load nearby places',
+      emptyTitle: S.of(context).commonExtraNoNearbyPlacesFound,
+      errorMessage: S.of(context).commonExtraCouldNotLoadNearbyPlaces,
       trailing: AppFilterChip(
-        label: 'All',
-        onTap: onFilterTap ?? () => context.showSnackBar('Filters coming soon'),
+        label: S.of(context).commonExtraAllFilterLabel,
+        onTap: onFilterTap ?? () => context.showSnackBar(S.of(context).commonExtraFiltersComingSoonMessage),
       ),
       itemBuilder: (context, place, width) => NearbyPlaceCard(
         place: place,

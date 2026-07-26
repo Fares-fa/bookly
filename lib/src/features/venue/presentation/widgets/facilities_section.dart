@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/venue/domain/venue_spec.dart';
@@ -17,7 +18,7 @@ class VenueFacilitiesSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Facilities', style: AppTextStyle.blackW500Size17),
+        Text(S.of(context).venueFacilitiesTitle, style: AppTextStyle.blackW500Size17),
         const SizedBox(height: 20),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,7 +35,7 @@ class VenueFacilitiesSection extends StatelessWidget {
         GestureDetector(
           onTap: () {},
           child: Text(
-            'See More',
+            S.of(context).venueFacilitiesSeeMore,
             style:
                 AppTextStyle.blackW400Size14.copyWith(color: AppColors.primary),
           ),

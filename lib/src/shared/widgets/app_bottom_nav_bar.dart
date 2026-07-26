@@ -1,17 +1,17 @@
+import 'package:bookly/generated/l10n.dart';
 import '../../imports/imports.dart';
 
 class _NavItemData {
-  const _NavItemData({required this.icon, required this.label});
+  const _NavItemData({required this.icon});
 
   final String icon;
-  final String label;
 }
 
 const List<_NavItemData> _navItems = [
-  _NavItemData(icon: AppAssets.home, label: 'Home'),
-  _NavItemData(icon: AppAssets.booking, label: 'My Booking'),
-  _NavItemData(icon: AppAssets.favorite, label: 'Favorite'),
-  _NavItemData(icon: AppAssets.moreNav, label: 'More'),
+  _NavItemData(icon: AppAssets.home),
+  _NavItemData(icon: AppAssets.booking),
+  _NavItemData(icon: AppAssets.favorite),
+  _NavItemData(icon: AppAssets.moreNav),
 ];
 
 const Color _activeColor = Color(0xFF0042D3);
@@ -34,6 +34,13 @@ class AppBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final navLabels = [
+      S.of(context).commonNavHome,
+      S.of(context).commonNavMyBooking,
+      S.of(context).commonNavFavorite,
+      S.of(context).commonNavMore,
+    ];
+
     return DecoratedBox(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -73,6 +80,7 @@ class AppBottomNavBar extends StatelessWidget {
                       Expanded(
                         child: _NavItem(
                           data: _navItems[i],
+                          label: navLabels[i],
                           isSelected: i == currentIndex,
                           onTap: () => onTap(i),
                         ),
@@ -89,9 +97,10 @@ class AppBottomNavBar extends StatelessWidget {
 }
 
 class _NavItem extends StatelessWidget {
-  const _NavItem({required this.data, required this.isSelected, required this.onTap});
+  const _NavItem({required this.data, required this.label, required this.isSelected, required this.onTap});
 
   final _NavItemData data;
+  final String label;
   final bool isSelected;
   final VoidCallback onTap;
 
@@ -113,7 +122,7 @@ class _NavItem extends StatelessWidget {
           ),
           SizedBox(height: AppSpacing.xxs),
           Text(
-            data.label,
+            label,
             style: TextStyle(color: color, fontSize: 11.sp, fontWeight: FontWeight.w500),
           ),
         ],

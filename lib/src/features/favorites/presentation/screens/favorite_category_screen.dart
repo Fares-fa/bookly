@@ -52,7 +52,7 @@ class FavoriteCategoryScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            _FavoriteCategoryHeader(title: category.screenTitle),
+            _FavoriteCategoryHeader(title: category.screenTitle(context)),
             Expanded(
               child: ListView.separated(
                 padding: EdgeInsets.all(AppSpacing.md.w),

@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 /// Pinned bottom bar for the booking wizard: a 3-segment progress indicator,
@@ -94,7 +95,7 @@ class _MenuButton extends StatelessWidget {
           children: [
             Icon(icon, color: AppColors.primary, size: 22),
             SizedBox(height: 2.h),
-            Text('Menu', style: AppTextStyle.primaryW500Size9),
+            Text(S.of(context).venueMenuLabel, style: AppTextStyle.primaryW500Size9),
           ],
         ),
       ),

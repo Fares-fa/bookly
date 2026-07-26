@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import '../../imports/imports.dart';
 
 /// Displays an error state with an icon, title, optional body, and retry button.
@@ -13,13 +14,13 @@ import '../../imports/imports.dart';
 class AppErrorWidget extends StatelessWidget {
   const AppErrorWidget({
     super.key,
-    this.title = 'Something went wrong',
+    this.title,
     this.message,
     this.onRetry,
     this.icon = Icons.error_outline_rounded,
   });
 
-  final String title;
+  final String? title;
   final String? message;
   final VoidCallback? onRetry;
   final dynamic icon;
@@ -38,7 +39,7 @@ class AppErrorWidget extends StatelessWidget {
             AppIcon(icon: icon, size: 56, color: cs.error),
             const SizedBox(height: 16),
             Text(
-              title,
+              title ?? S.of(context).commonErrorTitle,
               style: tt.titleMedium?.copyWith(
                 color: cs.onSurface,
                 fontWeight: FontWeight.bold,
@@ -56,7 +57,7 @@ class AppErrorWidget extends StatelessWidget {
             if (onRetry != null) ...[
               const SizedBox(height: 24),
               AppButton(
-                label: 'Try Again',
+                label: S.of(context).commonRetryButton,
                 onPressed: onRetry,
                 variant: ButtonVariant.outline,
               ),

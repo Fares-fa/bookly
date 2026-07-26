@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 import 'package:bookly/src/features/complete_info/presentation/widgets/gender_option.dart';
 
@@ -34,19 +35,18 @@ class PersonalInfoStep extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Complete Your Information',
+          Text(S.of(context).completeInfoTitle,
               style: tt.headlineSmall?.copyWith(fontWeight: FontWeight.w600)),
-          const Text(
-              'Add your name and details to personalize your experience'),
+          Text(S.of(context).completeInfoSubtitle),
           SizedBox(height: 24.h),
           TextFormField(
-            decoration: const InputDecoration(
-                hint: Text('Enter your full name'),
+            decoration: InputDecoration(
+                hint: Text(S.of(context).completeInfoFullNameHint),
                 fillColor: Colors.transparent),
             controller: nameController,
             textInputAction: TextInputAction.next,
             validator: (value) => (value == null || value.trim().isEmpty)
-                ? 'Please enter your full name'
+                ? S.of(context).completeInfoFullNameRequired
                 : null,
           ),
           SizedBox(height: 16.h),
@@ -58,7 +58,7 @@ class PersonalInfoStep extends StatelessWidget {
                 isDense: true,
                 suffixIcon: const Icon(Icons.calendar_today_outlined),
                 errorText: showDateOfBirthError
-                    ? 'Please select your date of birth'
+                    ? S.of(context).completeInfoDobRequired
                     : null,
               ),
               child: SizedBox(
@@ -67,7 +67,7 @@ class PersonalInfoStep extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     dateOfBirth == null
-                        ? 'Select your date of birth'
+                        ? S.of(context).completeInfoSelectDob
                         : '${dateOfBirth!.day}/${dateOfBirth!.month}/${dateOfBirth!.year}',
                     style: tt.bodyMedium?.copyWith(
                         color: dateOfBirth == null
@@ -79,13 +79,13 @@ class PersonalInfoStep extends StatelessWidget {
             ),
           ),
           SizedBox(height: 16.h),
-          Text('Gender', style: tt.bodyLarge),
+          Text(S.of(context).completeInfoGenderLabel, style: tt.bodyLarge),
           SizedBox(height: 8.h),
           Row(
             children: [
               Expanded(
                 child: GenderOption(
-                  label: 'Male',
+                  label: S.of(context).completeInfoGenderMale,
                   icon: Icons.male,
                   selected: gender == 'male',
                   onTap: () => onGenderSelected('male'),
@@ -94,7 +94,7 @@ class PersonalInfoStep extends StatelessWidget {
               SizedBox(width: 12.w),
               Expanded(
                 child: GenderOption(
-                  label: 'Female',
+                  label: S.of(context).completeInfoGenderFemale,
                   icon: Icons.female,
                   selected: gender == 'female',
                   onTap: () => onGenderSelected('female'),
@@ -104,7 +104,7 @@ class PersonalInfoStep extends StatelessWidget {
           ),
           if (showGenderError) ...[
             SizedBox(height: 8.h),
-            Text('Please select your gender',
+            Text(S.of(context).completeInfoGenderRequired,
                 style: tt.bodySmall?.copyWith(color: cs.error)),
           ],
         ],

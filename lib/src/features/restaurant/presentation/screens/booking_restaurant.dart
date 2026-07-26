@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/home/presentation/widgets/home_search_bar.dart';
@@ -8,17 +9,21 @@ import 'package:bookly/src/features/venue/presentation/widgets/venue_widgets.dar
 class BookingRestaurant extends StatelessWidget {
   const BookingRestaurant({super.key});
 
-  static const _filters = ['All', 'Burger', 'Pizaa'];
-
   @override
   Widget build(BuildContext context) {
+    final filters = [
+      S.of(context).restaurantFilterAll,
+      S.of(context).restaurantFilterBurger,
+      S.of(context).restaurantFilterPizza,
+    ];
+
     return Scaffold(
       backgroundColor: AppColors.background,
       body: CustomScrollView(
         slivers: [
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: VenueBookingHeader(
-              title: 'Booking Restaurant',
+              title: S.of(context).restaurantBookingHeaderTitle,
               imageAsset: AppAssets.rest,
             ),
           ),
@@ -26,16 +31,16 @@ class BookingRestaurant extends StatelessWidget {
             child: Column(
               children: [
                 const HomeSearchBar(),
-                const VenueFilterRow(filters: _filters),
+                VenueFilterRow(filters: filters),
                 NearbyPlacesSection(
                   onPlaceTap: (_) => context.push(AppRoutes.restaurant),
                 ),
                 SizedBox(height: AppSpacing.md),
                 TopRatedSection(
-                  title: 'Top Rated Places ⭐',
+                  title: S.of(context).restaurantTopRatedTitle,
                   onPlaceTap: (_) => context.push(AppRoutes.restaurant),
                 ),
-                const ComingSoonSection(title: 'Cooming Soon'),
+                ComingSoonSection(title: S.of(context).restaurantComingSoonTitle),
                 SizedBox(height: AppSpacing.xl),
               ],
             ),

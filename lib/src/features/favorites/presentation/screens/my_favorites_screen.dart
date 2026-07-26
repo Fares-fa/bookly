@@ -1,51 +1,55 @@
 import 'package:bookly/src/imports/imports.dart';
 
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/features/favorites/presentation/favorite_category.dart';
 import 'package:bookly/src/features/favorites/presentation/widgets/favorite_category_card.dart';
 
 // TODO: Replace with real counts/photos from a favorites repository/provider
 // once one exists. All image slots reuse the same placeholder for now.
-const _categories = <(FavoriteCategory, FavoriteCategoryCardData)>[
-  (
-    FavoriteCategory.hotels,
-    FavoriteCategoryCardData(
-      title: 'Hotels',
-      countLabel: '12 Hotels',
-      images: [
-        AppAssets.favouritesHotel,
-        AppAssets.favouritesHotel,
-        AppAssets.favouritesHotel,
-        AppAssets.favouritesHotel,
-      ],
-    ),
-  ),
-  (
-    FavoriteCategory.restaurants,
-    FavoriteCategoryCardData(
-      title: 'Restaurant',
-      countLabel: '12 Restaurant',
-      images: [
-        AppAssets.favouritesHotel,
-        AppAssets.favouritesHotel,
-        AppAssets.favouritesHotel,
-        AppAssets.favouritesHotel,
-      ],
-    ),
-  ),
-  (
-    FavoriteCategory.cafes,
-    FavoriteCategoryCardData(
-      title: 'Cafes',
-      countLabel: '12 Cafe',
-      images: [
-        AppAssets.favouritesHotel,
-        AppAssets.favouritesHotel,
-        AppAssets.favouritesHotel,
-        AppAssets.favouritesHotel,
-      ],
-    ),
-  ),
-];
+List<(FavoriteCategory, FavoriteCategoryCardData)> _categories(
+  BuildContext context,
+) =>
+    [
+      (
+        FavoriteCategory.hotels,
+        FavoriteCategoryCardData(
+          title: S.of(context).favoritesHotelsCategoryTitle,
+          countLabel: '12 Hotels',
+          images: [
+            AppAssets.favouritesHotel,
+            AppAssets.favouritesHotel,
+            AppAssets.favouritesHotel,
+            AppAssets.favouritesHotel,
+          ],
+        ),
+      ),
+      (
+        FavoriteCategory.restaurants,
+        FavoriteCategoryCardData(
+          title: S.of(context).favoritesRestaurantCategoryTitle,
+          countLabel: '12 Restaurant',
+          images: [
+            AppAssets.favouritesHotel,
+            AppAssets.favouritesHotel,
+            AppAssets.favouritesHotel,
+            AppAssets.favouritesHotel,
+          ],
+        ),
+      ),
+      (
+        FavoriteCategory.cafes,
+        FavoriteCategoryCardData(
+          title: S.of(context).favoritesCafesCategoryTitle,
+          countLabel: '12 Cafe',
+          images: [
+            AppAssets.favouritesHotel,
+            AppAssets.favouritesHotel,
+            AppAssets.favouritesHotel,
+            AppAssets.favouritesHotel,
+          ],
+        ),
+      ),
+    ];
 
 /// Favorites category picker — routes to the matching favorites list
 /// (hotels/restaurants/cafes) based on whichever tile the user taps.
@@ -59,6 +63,7 @@ class MyFavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = context.theme.colorScheme;
+    final categories = _categories(context);
 
     return Scaffold(
       backgroundColor: cs.surface,
@@ -69,14 +74,14 @@ class MyFavoritesScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: AppSpacing.md.w, vertical: AppSpacing.md.h),
               child: Text(
-                'My Favorite',
+                S.of(context).favoritesMyFavoriteTitle,
                 style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w600, color: cs.onSurface),
               ),
             ),
             Expanded(
               child: GridView.builder(
                 padding: EdgeInsets.all(AppSpacing.md.w),
-                itemCount: _categories.length,
+                itemCount: categories.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: AppSpacing.sm.h,
@@ -84,7 +89,7 @@ class MyFavoritesScreen extends StatelessWidget {
                   childAspectRatio: 0.8,
                 ),
                 itemBuilder: (context, index) {
-                  final (category, data) = _categories[index];
+                  final (category, data) = categories[index];
                   return FavoriteCategoryCard(
                     data: data,
                     onTap: () => _onCategoryTap(context, category),

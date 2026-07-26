@@ -39,7 +39,7 @@ class BookingCategorySelector extends StatelessWidget {
                   CommonImage(imageUrl: category.iconAsset, width: 22, height: 22),
                   SizedBox(width: AppSpacing.xs.w),
                   Text(
-                    category.label,
+                    category.label(context),
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w600,

@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 /// Horizontal strip of menu filters on the venue listing screens: a filter
@@ -24,7 +25,9 @@ class _VenueFilterRowState extends State<VenueFilterRow> {
         padding: EdgeInsets.symmetric(horizontal: AppSpacing.pagePadding),
         children: [
           _FilterIconButton(
-            onTap: () => context.showSnackBar('Filters coming soon'),
+            onTap: () => context.showSnackBar(
+              S.of(context).venueFiltersComingSoonMessage,
+            ),
           ),
           SizedBox(width: AppSpacing.sm),
           for (var i = 0; i < widget.filters.length; i++) ...[

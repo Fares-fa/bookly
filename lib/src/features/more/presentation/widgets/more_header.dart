@@ -1,4 +1,5 @@
 import 'package:bookly/src/imports/imports.dart';
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/features/auth/domain/entities/user.dart';
 
 /// Greeting row shown at the top of [MorePage]: avatar, "Hi" + name, and a
@@ -13,7 +14,7 @@ class MoreHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final cs = context.theme.colorScheme;
     final tt = context.theme.textTheme;
-    final name = (user?.name?.isNotEmpty ?? false) ? user!.name! : 'Guest';
+    final name = (user?.name?.isNotEmpty ?? false) ? user!.name! : S.of(context).moreGuestFallbackName;
     final photoUrl = user?.photoUrl;
 
     return Row(
@@ -34,7 +35,7 @@ class MoreHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Hi',
+                S.of(context).moreGreeting,
                 style: tt.bodyMedium?.copyWith(
                   color: cs.primary,
                   fontWeight: FontWeight.w600,
@@ -62,7 +63,7 @@ class _NotificationBell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.showSnackBar('No new notifications'),
+      onTap: () => context.showSnackBar(S.of(context).moreNoNewNotifications),
       child: Container(
         padding: EdgeInsets.all(AppSpacing.sm),
         decoration: const BoxDecoration(

@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/home/presentation/providers/home_providers.dart';
@@ -22,7 +23,7 @@ class AdSection extends ConsumerWidget {
           ),
         ),
         error: (error, stackTrace) => AppErrorWidget(
-          message: 'Could not load ads',
+          message: S.of(context).homeAdsLoadError,
           onRetry: () => ref.invalidate(adBannersProvider),
         ),
       ),

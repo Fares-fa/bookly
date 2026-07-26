@@ -1,5 +1,6 @@
 import 'package:bookly/src/imports/imports.dart';
 
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/features/favorites/presentation/widgets/hotel_card_data.dart';
 import 'package:bookly/src/features/favorites/presentation/widgets/hotel_gallery.dart';
 import 'package:bookly/src/features/favorites/presentation/widgets/hotel_score_badge.dart';
@@ -58,7 +59,7 @@ class HotelCard extends StatelessWidget {
               HotelScoreBadge(score: data.score, label: data.scoreLabel),
               const Spacer(),
               Text(
-                '${data.reviewCount} Review',
+                S.of(context).favoritesReviewCount(data.reviewCount.toString()),
                 style: TextStyle(fontSize: 13.sp, color: cs.onSurfaceVariant),
               ),
             ],

@@ -1,3 +1,5 @@
+import 'package:bookly/generated/l10n.dart';
+
 import '../../imports/imports.dart';
 
 import 'package:bookly/src/features/home/domain/entities/live_screening.dart';
@@ -34,7 +36,7 @@ class LiveScreeningCard extends ConsumerWidget {
               imageHeight: 100.h,
               isFavorite: isFavorite,
               onFavoriteToggle: () => ref.read(favoriteIdsProvider.notifier).toggle(screening.id),
-              topEdgeBadge: SeatsBadge(label: '${screening.seatsLeft} Seats left', color: appColors.green?? appColors.success),
+              topEdgeBadge: SeatsBadge(label: S.of(context).commonExtraSeatsLeftLabel(screening.seatsLeft.toString()), color: appColors.green?? appColors.success),
               caption:  Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -49,7 +51,7 @@ class LiveScreeningCard extends ConsumerWidget {
                       ),
                       RichText(
                         text: TextSpan(
-                          text: 'EGP ',
+                          text: S.of(context).commonExtraEgpCurrencyPrefix,
                           style: const TextStyle(
                               color: Colors.grey,
                               fontWeight: FontWeight.w400,
@@ -71,7 +73,8 @@ class LiveScreeningCard extends ConsumerWidget {
                   ),
                   SizedBox(height: AppSpacing.xxs),
                   Text(
-                    '${screening.category} • ${screening.distanceKm.toStringAsFixed(1)} km',
+                    S.of(context).commonExtraCategoryDistanceKm(
+                        screening.category, screening.distanceKm.toStringAsFixed(1)),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: tt.bodySmall?.copyWith(color: cs.onSurfaceVariant,fontWeight: FontWeight.w400,fontSize: 13),
@@ -81,7 +84,7 @@ class LiveScreeningCard extends ConsumerWidget {
             ),
             SizedBox(height: AppSpacing.sm),
             AppButton(
-              label: 'Book your seats',
+              label: S.of(context).commonExtraBookYourSeatsLabel,
               onPressed: () {},
               color: appColors.primary,
               textColor: Colors.white,

@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 /// Pinned bottom action bar on the venue detail screen: circular Menu button
@@ -8,7 +9,7 @@ class VenueBottomBar extends StatelessWidget {
     required this.menuRoute,
     required this.bookRoute,
     this.menuIcon = Icons.room_service_outlined,
-    this.label = 'Book Table',
+    this.label,
   });
 
   final String menuRoute;
@@ -16,7 +17,9 @@ class VenueBottomBar extends StatelessWidget {
 
   /// Cutlery for a restaurant, a cup for a cafe.
   final IconData menuIcon;
-  final String label;
+
+  /// Falls back to the localized "Book Table" label when not provided.
+  final String? label;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +47,7 @@ class VenueBottomBar extends StatelessWidget {
                 children: [
                   Icon(menuIcon, color: AppColors.primary, size: 24),
                   const SizedBox(height: 2),
-                  Text('Menu', style: AppTextStyle.primaryW500Size9),
+                  Text(S.of(context).venueMenuLabel, style: AppTextStyle.primaryW500Size9),
                 ],
               ),
             ),
@@ -63,7 +66,10 @@ class VenueBottomBar extends StatelessWidget {
                     borderRadius: BorderRadius.circular(33),
                   ),
                 ),
-                child: Text(label, style: AppTextStyle.whiteW500Size16),
+                child: Text(
+                  label ?? S.of(context).venueBookTableButton,
+                  style: AppTextStyle.whiteW500Size16,
+                ),
               ),
             ),
           ),

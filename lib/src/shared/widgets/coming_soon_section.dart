@@ -1,3 +1,5 @@
+import 'package:bookly/generated/l10n.dart';
+
 import '../../imports/imports.dart';
 
 class ComingSoonItem {
@@ -37,11 +39,11 @@ const double _listHeight = 142;
 class ComingSoonSection extends StatelessWidget {
   const ComingSoonSection({
     super.key,
-    this.title = 'Coming Soon',
+    this.title,
     this.items = _defaultComingSoonItems,
   });
 
-  final String title;
+  final String? title;
   final List<ComingSoonItem> items;
 
   @override
@@ -53,7 +55,7 @@ class ComingSoonSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               horizontal: AppSpacing.pagePadding, vertical: AppSpacing.sm),
           child: GradientText(
-            title,
+            title ?? S.of(context).commonExtraComingSoonTitle,
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,

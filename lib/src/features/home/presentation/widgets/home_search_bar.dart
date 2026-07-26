@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 /// The rounded search pill in [HomeHeader].
@@ -41,9 +42,9 @@ class HomeSearchBar extends StatelessWidget {
                   ),
                 ),
               ),
-              child: const AppTextField(
-                hint: 'What are you looking for ?',
-                prefixIcon: Padding(
+              child: AppTextField(
+                hint: S.of(context).homeSearchHint,
+                prefixIcon: const Padding(
                   padding: EdgeInsets.all(12),
                   child: VectorGraphic(
                     loader: AssetBytesLoader(AppAssets.search),

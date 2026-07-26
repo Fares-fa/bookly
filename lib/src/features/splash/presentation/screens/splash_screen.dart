@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bookly/src/imports/imports.dart';
+import 'package:bookly/generated/l10n.dart';
 
 /// Layout and motion constants for [SplashScreen], grouped here so the
 /// visual spec can be tweaked without hunting through the widget tree.
@@ -11,7 +12,6 @@ abstract final class _SplashSpec {
   static const Color background = Color(0xFFF0F4FA);
   static const Color subtitleColor = Color(0xFF5A6472);
 
-  static const String subtitleText = 'One App Every Booking';
   static const double subtitleTopGap = 6;
   static const double subtitleFontSize = 16;
   static const Duration typingTickInterval = Duration(milliseconds: 40);
@@ -78,7 +78,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
   void _onSubtitleTick(Timer timer) {
     setState(() => _subtitleRevealCount++);
-    if (_subtitleRevealCount >= _SplashSpec.subtitleText.length) {
+    if (_subtitleRevealCount >= S.of(context).splashSubtitle.length) {
       timer.cancel();
       _subtitleSettled = true;
       Future.delayed(_SplashSpec.poweredByStartDelay, () {
@@ -137,7 +137,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                   revealedCount: _subtitleRevealCount,
                   spans: [
                     TextSpan(
-                      text: _SplashSpec.subtitleText,
+                      text: S.of(context).splashSubtitle,
                       style: TextStyle(
                         fontSize: _SplashSpec.subtitleFontSize.sp,
                         fontWeight: FontWeight.w500,

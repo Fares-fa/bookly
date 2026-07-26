@@ -1,5 +1,6 @@
 import 'package:bookly/src/imports/imports.dart';
 
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/features/cafe/domain/cafe_spec.dart';
 import 'package:bookly/src/features/cafe/presentation/providers/cafe_booking_flow_provider.dart';
 import 'package:bookly/src/features/venue/presentation/widgets/venue_widgets.dart';
@@ -44,7 +45,10 @@ class _CafePartyDetailsScreenState
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('How Many People ?', style: AppTextStyle.blackW500Size16),
+            Text(
+              S.of(context).cafeHowManyPeopleTitle,
+              style: AppTextStyle.blackW500Size16,
+            ),
             SizedBox(height: AppSpacing.md),
             Row(
               children: [
@@ -60,7 +64,10 @@ class _CafePartyDetailsScreenState
             SizedBox(height: AppSpacing.md),
             const AppDivider(),
             SizedBox(height: AppSpacing.md),
-            Text('Select Option', style: AppTextStyle.blackW500Size16),
+            Text(
+              S.of(context).cafeSelectOptionTitle,
+              style: AppTextStyle.blackW500Size16,
+            ),
             SizedBox(height: AppSpacing.md),
             Row(
               children: [
@@ -80,7 +87,10 @@ class _CafePartyDetailsScreenState
             SizedBox(height: AppSpacing.md),
             const AppDivider(),
             SizedBox(height: AppSpacing.md),
-            Text('Add Note', style: AppTextStyle.blackW500Size16),
+            Text(
+              S.of(context).cafeAddNoteTitle,
+              style: AppTextStyle.blackW500Size16,
+            ),
             SizedBox(height: AppSpacing.md),
             _NoteField(
               controller: _noteController,
@@ -92,7 +102,7 @@ class _CafePartyDetailsScreenState
       ),
       bottomNavigationBar: BookingBottomBar(
         stepIndex: 1,
-        label: 'Continue',
+        label: S.of(context).cafeContinueButton,
         menuRoute: AppRoutes.cafeMenu,
         menuIcon: Icons.local_cafe_outlined,
         enabled: state.hasPartyDetails,
@@ -189,7 +199,7 @@ class _PersonBadge extends StatelessWidget {
             shape: BoxShape.circle,
           ),
           child: Text(
-            '$count Person',
+            S.of(context).cafePersonCount(count.toString()),
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.w400,
@@ -264,7 +274,7 @@ class _NoteField extends StatelessWidget {
         disabledBorder: InputBorder.none,
         fillColor: AppColors.white,
         border: InputBorder.none,
-        hintText: 'Ex: I want to do a birthday party',
+        hintText: S.of(context).cafeNoteHint,
         hintStyle: TextStyle(
           fontSize: 12.sp,
           color: AppColors.grey,

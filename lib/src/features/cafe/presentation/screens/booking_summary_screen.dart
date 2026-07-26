@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bookly/src/imports/imports.dart';
 
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/features/cafe/domain/cafe_spec.dart';
 import 'package:bookly/src/features/cafe/presentation/providers/cafe_booking_flow_provider.dart';
 import 'package:bookly/src/features/venue/presentation/providers/booking_flow_state.dart';
@@ -38,7 +39,7 @@ class _CafeBookingSummaryScreenState
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: const BookingAppBar(title: 'Booking summary'),
+      appBar: BookingAppBar(title: S.of(context).cafeBookingSummaryTitle),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,10 +60,10 @@ class _CafeBookingSummaryScreenState
                   SizedBox(height: AppSpacing.md),
                   _SummaryCard(state: state, remaining: cafeSpec.remaining),
                   SizedBox(height: AppSpacing.lg),
-                  _sectionTitle('Add Promo Code'),
+                  _sectionTitle(S.of(context).cafeAddPromoCodeTitle),
                   SizedBox(height: AppSpacing.xxs),
                   Text(
-                    'Use Promo Code to get more discount',
+                    S.of(context).cafePromoCodeHint,
                     style: TextStyle(
                       fontSize: 12.sp,
                       color: AppColors.grey,
@@ -72,7 +73,7 @@ class _CafeBookingSummaryScreenState
                   SizedBox(height: AppSpacing.md),
                   _PromoField(controller: _promoController),
                   SizedBox(height: AppSpacing.lg),
-                  _sectionTitle('Select Payment Method'),
+                  _sectionTitle(S.of(context).cafeSelectPaymentMethodTitle),
                   SizedBox(height: AppSpacing.md),
                   _PaymentTile(
                     leading: const ApplePayMark(),
@@ -87,12 +88,12 @@ class _CafeBookingSummaryScreenState
                       size: 28,
                       color: AppColors.textDark,
                     ),
-                    label: 'Add a new card',
+                    label: S.of(context).cafeAddNewCardLabel,
                     selected: state.paymentMethod == PaymentMethod.newCard,
                     onTap: () => notifier.selectPayment(PaymentMethod.newCard),
                   ),
                   SizedBox(height: AppSpacing.lg),
-                  _sectionTitle('Payment summary'),
+                  _sectionTitle(S.of(context).cafePaymentSummaryTitle),
                   SizedBox(height: AppSpacing.md),
                   PaymentSummary(
                     subTotal: cafeSpec.subTotal,
@@ -108,7 +109,7 @@ class _CafeBookingSummaryScreenState
       ),
       bottomNavigationBar: BookingBottomBar(
         stepIndex: 2,
-        label: 'Confirm & pay',
+        label: S.of(context).cafeConfirmAndPayButton,
         menuRoute: AppRoutes.cafeMenu,
         menuIcon: Icons.local_cafe_outlined,
         enabled: state.paymentMethod != null,
@@ -167,7 +168,7 @@ class _HoldBannerState extends State<_HoldBanner> {
       alignment: Alignment.center,
       child: Text.rich(
         TextSpan(
-          text: 'We hold Your resrvation for ',
+          text: S.of(context).cafeHoldReservationText,
           style: AppTextStyle.blackW400Size14,
           children: [
             TextSpan(
@@ -203,14 +204,17 @@ class _SummaryCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          _row('Person', '${state.partySize} Person'),
-          _row('Option', state.option?.label ?? '—'),
           _row(
-            'Note',
-            state.note.isEmpty ? 'Add a note' : state.note,
+            S.of(context).cafePersonLabel,
+            S.of(context).cafePersonCount(state.partySize.toString()),
+          ),
+          _row(S.of(context).cafeOptionLabel, state.option?.label ?? '—'),
+          _row(
+            S.of(context).cafeNoteLabel,
+            state.note.isEmpty ? S.of(context).cafeAddNotePlaceholder : state.note,
             isNote: true,
           ),
-          _row('Remaining money', remaining, emphasize: true),
+          _row(S.of(context).cafeRemainingMoneyLabel, remaining, emphasize: true),
         ],
       ),
     );
@@ -296,18 +300,19 @@ class _PromoField extends StatelessWidget {
                 disabledBorder: InputBorder.none,
                 fillColor: AppColors.white,
                 border: InputBorder.none,
-                hintText: 'Enter promo code',
+                hintText: S.of(context).cafeEnterPromoCodeHint,
                 hintStyle:
                     TextStyle(fontSize: 14.sp, color: AppColors.textGray),
               ),
             ),
           ),
           AppButton(
-            label: 'Apply',
+            label: S.of(context).cafeApplyButton,
             customHeight: 26.h,
             contentPadding: EdgeInsets.symmetric(horizontal: AppSpacing.ml),
             borderRadius: AppBorders.full,
-            onPressed: () => context.showSnackBar('Promo code applied'),
+            onPressed: () =>
+                context.showSnackBar(S.of(context).cafePromoCodeAppliedMessage),
           ),
         ],
       ),

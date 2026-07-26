@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 import 'package:bookly/src/shared/widgets/primary_button.dart';
 import 'package:bookly/src/features/complete_info/presentation/widgets/complete_info_header.dart';
@@ -23,15 +24,15 @@ class _CompleteInfoState extends State<CompleteInfo> {
 
   final Set<String> _selectedInterests = {};
 
-  static const _interests = [
-    (label: 'Food', emoji: '🍔'),
-    (label: 'Cafes', emoji: '☕'),
-    (label: 'Hotels', emoji: '🏨'),
-    (label: 'Spa & Wellness', emoji: '💆'),
-    (label: 'Bars', emoji: '🍸'),
-    (label: 'Shopping', emoji: '🛍️'),
-    (label: 'Lab Test', emoji: '🔬'),
-  ];
+  List<({String label, String emoji})> _interests(BuildContext context) => [
+        (label: S.of(context).completeInfoInterestFood, emoji: '🍔'),
+        (label: S.of(context).completeInfoInterestCafes, emoji: '☕'),
+        (label: S.of(context).completeInfoInterestHotels, emoji: '🏨'),
+        (label: S.of(context).completeInfoInterestSpaWellness, emoji: '💆'),
+        (label: S.of(context).completeInfoInterestBars, emoji: '🍸'),
+        (label: S.of(context).completeInfoInterestShopping, emoji: '🛍️'),
+        (label: S.of(context).completeInfoInterestLabTest, emoji: '🔬'),
+      ];
 
   @override
   void dispose() {
@@ -111,7 +112,7 @@ class _CompleteInfoState extends State<CompleteInfo> {
                       )
                     : InterestsStep(
                         tt: tt,
-                        interests: _interests,
+                        interests: _interests(context),
                         selectedInterests: _selectedInterests,
                         onToggleInterest: _toggleInterest,
                       ),
@@ -124,7 +125,7 @@ class _CompleteInfoState extends State<CompleteInfo> {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: PrimaryButton(
-            label: 'Continue',
+            label: S.of(context).completeInfoContinueButton,
             onPressed: _step == 0
                 ? _handleContinueFromPersonalInfo
                 : (_selectedInterests.isEmpty

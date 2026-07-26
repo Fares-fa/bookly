@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 /// Sub total / fees / total rows.
@@ -21,11 +22,11 @@ class PaymentSummary extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _row('Sub total', subTotal),
+        _row(S.of(context).venueSubTotalLabel, subTotal),
         SizedBox(height: AppSpacing.sm),
-        _row('fees', fees),
+        _row(S.of(context).venueFeesLabel, fees),
         SizedBox(height: AppSpacing.md),
-        _row('Total amount', total, emphasize: true),
+        _row(S.of(context).venueTotalAmountLabel, total, emphasize: true),
       ],
     );
   }

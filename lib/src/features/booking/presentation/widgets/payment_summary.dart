@@ -1,5 +1,6 @@
 import 'package:bookly/src/imports/imports.dart';
 
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/features/booking/presentation/widgets/booking_details_data.dart';
 import 'package:bookly/src/features/booking/presentation/widgets/summary_row.dart';
 
@@ -17,15 +18,15 @@ class PaymentSummary extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Payment summary',
+          S.of(context).bookingPaymentSummaryTitle,
           style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500, color: cs.onSurface),
         ),
         SizedBox(height: AppSpacing.sm.h),
-        SummaryRow(label: 'Sub total', value: data.subtotal),
+        SummaryRow(label: S.of(context).bookingSubtotalLabel, value: data.subtotal),
         SizedBox(height: AppSpacing.xs.h),
-        SummaryRow(label: 'fees', value: data.fees),
+        SummaryRow(label: S.of(context).bookingFeesLabel, value: data.fees),
         SizedBox(height: AppSpacing.sm.h),
-        SummaryRow(label: 'Total amount', value: data.totalAmount, emphasize: true),
+        SummaryRow(label: S.of(context).bookingTotalAmountLabel, value: data.totalAmount, emphasize: true),
       ],
     );
   }

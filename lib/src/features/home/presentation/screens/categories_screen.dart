@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/home/presentation/widgets/home_category_spec.dart';
@@ -37,7 +38,7 @@ class CategoriesScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Categories',
+                      S.of(context).homeCategoriesTitle,
                       style: tt.titleMedium?.copyWith(fontWeight: FontWeight.w600),
                     ),
                   ],

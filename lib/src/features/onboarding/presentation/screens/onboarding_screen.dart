@@ -1,4 +1,5 @@
 import 'package:bookly/src/imports/imports.dart';
+import 'package:bookly/generated/l10n.dart';
 
 import 'package:bookly/src/features/onboarding/presentation/widgets/onboarding_spec.dart';
 import 'package:bookly/src/features/onboarding/presentation/widgets/onboarding_page_content.dart';
@@ -43,7 +44,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> with SingleTickerPr
   void _onSegmentStatusChanged(AnimationStatus status) {
     if (status != AnimationStatus.completed) return;
 
-    if (_currentPage >= OnboardingSpec.pages.length - 1) {
+    if (_currentPage >= OnboardingSpec.pageCount - 1) {
       widget.onFinished();
       return;
     }
@@ -76,7 +77,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> with SingleTickerPr
 
   @override
   Widget build(BuildContext context) {
-    const pages = OnboardingSpec.pages;
+    final pages = OnboardingSpec.pages(context);
 
     return Scaffold(
       backgroundColor: OnboardingSpec.background,
@@ -113,7 +114,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> with SingleTickerPr
                     GestureDetector(
                       onTap: widget.onFinished,
                       child: Text(
-                        'Skip',
+                        S.of(context).onboardingSkip,
                         style: TextStyle(color: Colors.white, fontSize: 14.sp, fontWeight: FontWeight.w500),
                       ),
                     ),
@@ -151,7 +152,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> with SingleTickerPr
                 child: Column(
                   children: [
                     AppButton(
-                      label: 'Get Started',
+                      label: S.of(context).onboardingGetStarted,
                       onPressed: widget.onFinished,
                       color: OnboardingSpec.accent,
                       textColor: Colors.white,
@@ -163,7 +164,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> with SingleTickerPr
                     GestureDetector(
                       onTap: widget.onGuest ?? widget.onFinished,
                       child: Text(
-                        'Join as a Guest',
+                        S.of(context).onboardingJoinAsGuest,
                         style: TextStyle(color: Colors.white, fontSize: 14.sp, fontWeight: FontWeight.w500),
                       ),
                     ),

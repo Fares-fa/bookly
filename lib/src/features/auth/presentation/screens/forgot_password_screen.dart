@@ -1,3 +1,4 @@
+import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/core_imports.dart';
 import 'package:bookly/src/imports/packages_imports.dart';
 
@@ -78,12 +79,12 @@ class _ForgotPasswordView extends StatelessWidget {
               children: [
                 SizedBox(height: AppSpacing.xl.h),
                 Text(
-                  'Reset Password',
+                  S.of(context).authResetPasswordTitle,
                   style: tt.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: AppSpacing.sm.h),
                 Text(
-                  'Enter your email to receive a reset link',
+                  S.of(context).authResetPasswordSubtitle,
                   textAlign: TextAlign.center,
                   style: tt.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
                 ),
@@ -96,21 +97,21 @@ class _ForgotPasswordView extends StatelessWidget {
                         controller: emailController,
                         enabled: !isLoading,
                         keyboardType: TextInputType.emailAddress,
-                        label: 'Email',
+                        label: S.of(context).authEmailLabel,
                         prefixIcon: const Icon(Icons.email_outlined),
                         validator: (v) {
                           if (AppUtils.isBlank(v)) {
-                            return 'Email is required';
+                            return S.of(context).authEmailRequired;
                           }
                           if (!AppUtils.isValidEmail(v!)) {
-                            return 'Enter a valid email';
+                            return S.of(context).authEmailInvalid;
                           }
                           return null;
                         },
                       ),
                       SizedBox(height: AppSpacing.lg.h),
                       AppButton(
-                        label: 'Send Reset Link',
+                        label: S.of(context).authSendResetLinkButton,
                         isLoading: isLoading,
                         onPressed: isLoading ? null : onForgotPassword,
                         width: ButtonSize.large,
@@ -123,7 +124,7 @@ class _ForgotPasswordView extends StatelessWidget {
                 TextButton(
                   onPressed: () => Navigator.pop(context),
                   child: Text(
-                    'Back to Login',
+                    S.of(context).authBackToLogin,
                     style: tt.labelLarge?.copyWith(
                       color: cs.primary,
                       fontWeight: FontWeight.bold,
