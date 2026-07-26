@@ -24,4 +24,5 @@ abstract final class AppRoutes {
   static const String more = '/more';
   static const String categories = '/categories';
   static const String bookingHotels = '/booking-hotels';
+  static const String hotelSearch = '/hotel-search';
 }

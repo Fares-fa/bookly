@@ -70,15 +70,22 @@ class _HotelSearchFormState extends State<HotelSearchForm> {
         child: Column(
           spacing: 12,
           children: [
-            AppTextField(
-              fillColor: const Color(0xFFF9F9F9),
-              hint: 'Enter Your Destination',
-              hintStyle: tt.bodyMedium?.copyWith(
-                  fontWeight: FontWeight.w400, color: const Color(0xFF666666)),
-              prefixIcon: const Padding(
-                padding: EdgeInsets.all(12),
-                child: VectorGraphic(
-                  loader: AssetBytesLoader(AppAssets.search),
+            GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () => context.push(AppRoutes.hotelSearch),
+              child: AbsorbPointer(
+                child: AppTextField(
+                  fillColor: const Color(0xFFF9F9F9),
+                  hint: 'Enter Your Destination',
+                  hintStyle: tt.bodyMedium?.copyWith(
+                      fontWeight: FontWeight.w400,
+                      color: const Color(0xFF666666)),
+                  prefixIcon: const Padding(
+                    padding: EdgeInsets.all(12),
+                    child: VectorGraphic(
+                      loader: AssetBytesLoader(AppAssets.search),
+                    ),
+                  ),
                 ),
               ),
             ),

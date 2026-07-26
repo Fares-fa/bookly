@@ -1,5 +1,6 @@
 import 'package:bookly/src/features/complete_info/presentation/completeInfo.dart';
 import 'package:bookly/src/features/hotels/presentation/booking_hotels.dart';
+import 'package:bookly/src/features/hotels/presentation/hotel_search_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:bookly/src/routing/global_navigator.dart';
@@ -130,6 +131,11 @@ final GoRouter appRouter = GoRouter(
       path: AppRoutes.bookingHotels,
       name: 'booking-hotels',
       builder: (context, state) => const BookingHotels(),
+    ),
+    GoRoute(
+      path: AppRoutes.hotelSearch,
+      name: 'hotel-search',
+      builder: (context, state) => const HotelSearchScreen(),
     ),
     GoRoute(
       path: AppRoutes.notifications,
