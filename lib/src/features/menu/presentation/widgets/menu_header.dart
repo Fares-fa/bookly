@@ -59,7 +59,7 @@ class _NotificationBell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.showSnackBar('No new notifications'),
+      onTap: () => context.push(AppRoutes.notifications),
       child: Container(
         padding: EdgeInsets.all(AppSpacing.sm),
         decoration: const BoxDecoration(

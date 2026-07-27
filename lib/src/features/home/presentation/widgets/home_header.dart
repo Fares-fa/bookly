@@ -58,7 +58,7 @@ class _NotificationButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.showSnackBar(S.of(context).homeNoNotificationsMessage),
+      onTap: () => context.push(AppRoutes.notifications),
       child: const LiquidGlassLayer(
         settings: LiquidGlassSettings(
           lightAngle: 15,
