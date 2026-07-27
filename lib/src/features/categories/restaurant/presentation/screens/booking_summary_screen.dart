@@ -42,10 +42,10 @@ class _BookingSummaryScreenState extends ConsumerState<BookingSummaryScreen> {
     final state = ref.watch(bookingFlowProvider);
     final notifier = ref.read(bookingFlowProvider.notifier);
 
-    return Scaffold(
-      backgroundColor: AppColors.background,
-      appBar: BookingAppBar(title: S.of(context).restaurantBookingSummaryTitle),
-      body: SingleChildScrollView(
+    return BodyApp(
+      txtCustomAppBar:S.of(context).restaurantBookingSummaryTitle,
+      onPressedArrowBack: () => context.pop(),
+      bodyOfContent: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

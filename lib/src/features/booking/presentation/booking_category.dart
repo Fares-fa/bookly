@@ -16,8 +16,8 @@ enum BookingCategory {
       };
 
   String get iconAsset => switch (this) {
-        BookingCategory.hotels => AppAssets.bookingHotelsIcon,
-        BookingCategory.restaurants => AppAssets.bookingRestaurantsIcon,
-        BookingCategory.cafes => AppAssets.bookingCafeIcon,
+        BookingCategory.hotels => AppAssets.hotel,
+        BookingCategory.restaurants => AppAssets.restaurant,
+        BookingCategory.cafes => AppAssets.cafe,
       };
 }

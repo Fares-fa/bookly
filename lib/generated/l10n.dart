@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -19,10 +18,8 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(
-      _current != null,
-      'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.',
-    );
+    assert(_current != null,
+        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
     return _current!;
   }
 
@@ -44,10 +41,8 @@ class S {
 
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
-    assert(
-      instance != null,
-      'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?',
-    );
+    assert(instance != null,
+        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
     return instance!;
   }
 
@@ -100,7 +95,8 @@ class S {
     return Intl.message(
       'Something went wrong',
       name: 'commonErrorTitle',
-      desc: 'Default title shown on the generic error state widget when no custom title is provided',
+      desc:
+          'Default title shown on the generic error state widget when no custom title is provided',
       args: [],
     );
   }
@@ -110,7 +106,8 @@ class S {
     return Intl.message(
       'Try Again',
       name: 'commonRetryButton',
-      desc: 'Default label for the retry button on the generic error state widget',
+      desc:
+          'Default label for the retry button on the generic error state widget',
       args: [],
     );
   }
@@ -280,7 +277,8 @@ class S {
     return Intl.message(
       'Check In',
       name: 'bookingCheckInLabel',
-      desc: 'Label for the check-in date/time column on the booking details screen',
+      desc:
+          'Label for the check-in date/time column on the booking details screen',
       args: [],
     );
   }
@@ -290,7 +288,8 @@ class S {
     return Intl.message(
       'Check Out',
       name: 'bookingCheckOutLabel',
-      desc: 'Label for the check-out date/time column on the booking details screen',
+      desc:
+          'Label for the check-out date/time column on the booking details screen',
       args: [],
     );
   }
@@ -300,7 +299,8 @@ class S {
     return Intl.message(
       'Total Stay',
       name: 'bookingTotalStayLabel',
-      desc: 'Label for the total stay length column on the booking details screen',
+      desc:
+          'Label for the total stay length column on the booking details screen',
       args: [],
     );
   }
@@ -368,7 +368,12 @@ class S {
 
   /// `Email`
   String get authEmailLabel {
-    return Intl.message('Email', name: 'authEmailLabel', desc: '', args: []);
+    return Intl.message(
+      'Email',
+      name: 'authEmailLabel',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Email is required`
@@ -563,7 +568,12 @@ class S {
 
   /// `Log In`
   String get authLogIn {
-    return Intl.message('Log In', name: 'authLogIn', desc: '', args: []);
+    return Intl.message(
+      'Log In',
+      name: 'authLogIn',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Join As A Guest`
@@ -648,7 +658,12 @@ class S {
 
   /// `Verify`
   String get authVerifyButton {
-    return Intl.message('Verify', name: 'authVerifyButton', desc: '', args: []);
+    return Intl.message(
+      'Verify',
+      name: 'authVerifyButton',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Password reset link sent successfully`
@@ -863,17 +878,32 @@ class S {
 
   /// `Account`
   String get moreAccount {
-    return Intl.message('Account', name: 'moreAccount', desc: '', args: []);
+    return Intl.message(
+      'Account',
+      name: 'moreAccount',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Support`
   String get moreSupport {
-    return Intl.message('Support', name: 'moreSupport', desc: '', args: []);
+    return Intl.message(
+      'Support',
+      name: 'moreSupport',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `setting`
   String get moreSettings {
-    return Intl.message('setting', name: 'moreSettings', desc: '', args: []);
+    return Intl.message(
+      'setting',
+      name: 'moreSettings',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Promo Codes`
@@ -898,7 +928,12 @@ class S {
 
   /// `Log out`
   String get moreLogout {
-    return Intl.message('Log out', name: 'moreLogout', desc: '', args: []);
+    return Intl.message(
+      'Log out',
+      name: 'moreLogout',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Are you sure you want to log out?`
@@ -923,7 +958,12 @@ class S {
 
   /// `Hi`
   String get moreGreeting {
-    return Intl.message('Hi', name: 'moreGreeting', desc: '', args: []);
+    return Intl.message(
+      'Hi',
+      name: 'moreGreeting',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Guest`
@@ -961,7 +1001,8 @@ class S {
     return Intl.message(
       'Use device language',
       name: 'moreUseDeviceLanguage',
-      desc: 'Option in the language picker sheet that follows the device\'s system language instead of a manually chosen one',
+      desc:
+          'Option in the language picker sheet that follows the device\'s system language instead of a manually chosen one',
       args: [],
     );
   }
@@ -998,7 +1039,12 @@ class S {
 
   /// `Skip`
   String get onboardingSkip {
-    return Intl.message('Skip', name: 'onboardingSkip', desc: '', args: []);
+    return Intl.message(
+      'Skip',
+      name: 'onboardingSkip',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Get Started`
@@ -1076,7 +1122,8 @@ class S {
     return Intl.message(
       'Coming Soon',
       name: 'commonExtraComingSoonTitle',
-      desc: 'Fallback heading for the Coming Soon teaser section when no title is provided',
+      desc:
+          'Fallback heading for the Coming Soon teaser section when no title is provided',
       args: [],
     );
   }
@@ -1106,7 +1153,8 @@ class S {
     return Intl.message(
       '$category • $distance km',
       name: 'commonExtraCategoryDistanceKm',
-      desc: 'Caption combining a place/screening category with its distance in kilometers',
+      desc:
+          'Caption combining a place/screening category with its distance in kilometers',
       args: [category, distance],
     );
   }
@@ -1126,7 +1174,8 @@ class S {
     return Intl.message(
       'Closed',
       name: 'commonExtraClosedLabel',
-      desc: 'Status badge shown on a nearby place card when the place is not open',
+      desc:
+          'Status badge shown on a nearby place card when the place is not open',
       args: [],
     );
   }
@@ -1176,7 +1225,8 @@ class S {
     return Intl.message(
       'Filters coming soon',
       name: 'commonExtraFiltersComingSoonMessage',
-      desc: 'Snackbar message shown when a section\'s filter action has no handler yet',
+      desc:
+          'Snackbar message shown when a section\'s filter action has no handler yet',
       args: [],
     );
   }
@@ -1333,7 +1383,12 @@ class S {
 
   /// `Date`
   String get cafeDateLabel {
-    return Intl.message('Date', name: 'cafeDateLabel', desc: '', args: []);
+    return Intl.message(
+      'Date',
+      name: 'cafeDateLabel',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Select date`
@@ -1348,7 +1403,12 @@ class S {
 
   /// `Time`
   String get cafeTimeLabel {
-    return Intl.message('Time', name: 'cafeTimeLabel', desc: '', args: []);
+    return Intl.message(
+      'Time',
+      name: 'cafeTimeLabel',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Select time`
@@ -1383,12 +1443,22 @@ class S {
 
   /// `All`
   String get cafeFilterAll {
-    return Intl.message('All', name: 'cafeFilterAll', desc: '', args: []);
+    return Intl.message(
+      'All',
+      name: 'cafeFilterAll',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Coffee`
   String get cafeFilterCoffee {
-    return Intl.message('Coffee', name: 'cafeFilterCoffee', desc: '', args: []);
+    return Intl.message(
+      'Coffee',
+      name: 'cafeFilterCoffee',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Dessert`
@@ -1503,7 +1573,12 @@ class S {
 
   /// `Person`
   String get cafePersonLabel {
-    return Intl.message('Person', name: 'cafePersonLabel', desc: '', args: []);
+    return Intl.message(
+      'Person',
+      name: 'cafePersonLabel',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `{count} Person`
@@ -1518,12 +1593,22 @@ class S {
 
   /// `Option`
   String get cafeOptionLabel {
-    return Intl.message('Option', name: 'cafeOptionLabel', desc: '', args: []);
+    return Intl.message(
+      'Option',
+      name: 'cafeOptionLabel',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Note`
   String get cafeNoteLabel {
-    return Intl.message('Note', name: 'cafeNoteLabel', desc: '', args: []);
+    return Intl.message(
+      'Note',
+      name: 'cafeNoteLabel',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Add a note`
@@ -1558,7 +1643,12 @@ class S {
 
   /// `Apply`
   String get cafeApplyButton {
-    return Intl.message('Apply', name: 'cafeApplyButton', desc: '', args: []);
+    return Intl.message(
+      'Apply',
+      name: 'cafeApplyButton',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Promo code applied`
@@ -1573,7 +1663,12 @@ class S {
 
   /// `Menu`
   String get cafeMenuTitle {
-    return Intl.message('Menu', name: 'cafeMenuTitle', desc: '', args: []);
+    return Intl.message(
+      'Menu',
+      name: 'cafeMenuTitle',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `How Many People ?`
@@ -1752,7 +1847,8 @@ class S {
     return Intl.message(
       'Book Table',
       name: 'restaurantBookTableTitle',
-      desc: 'App bar title for the book-table step of the restaurant booking wizard',
+      desc:
+          'App bar title for the book-table step of the restaurant booking wizard',
       args: [],
     );
   }
@@ -1822,7 +1918,8 @@ class S {
     return Intl.message(
       'Continue',
       name: 'restaurantContinueLabel',
-      desc: 'Continue button label used across the restaurant booking wizard steps',
+      desc:
+          'Continue button label used across the restaurant booking wizard steps',
       args: [],
     );
   }
@@ -1883,7 +1980,8 @@ class S {
     return Intl.message(
       'Coming Soon',
       name: 'restaurantComingSoonTitle',
-      desc: 'Section title for the coming-soon section on the restaurant listing screen',
+      desc:
+          'Section title for the coming-soon section on the restaurant listing screen',
       args: [],
     );
   }
@@ -1973,7 +2071,8 @@ class S {
     return Intl.message(
       'We hold your reservation for',
       name: 'restaurantHoldReservationMessage',
-      desc: 'Prefix of the hold-countdown banner text, followed by a live mm:ss timer',
+      desc:
+          'Prefix of the hold-countdown banner text, followed by a live mm:ss timer',
       args: [],
     );
   }
@@ -2024,7 +2123,8 @@ class S {
     return Intl.message(
       'Remaining money',
       name: 'restaurantRemainingMoneyLabel',
-      desc: 'Field label for the remaining balance row in the booking summary card',
+      desc:
+          'Field label for the remaining balance row in the booking summary card',
       args: [],
     );
   }
@@ -2084,7 +2184,8 @@ class S {
     return Intl.message(
       'Select Option',
       name: 'restaurantSelectOptionTitle',
-      desc: 'Section title for the seating option picker on the party details step',
+      desc:
+          'Section title for the seating option picker on the party details step',
       args: [],
     );
   }
@@ -2134,7 +2235,8 @@ class S {
     return Intl.message(
       'Menu',
       name: 'venueMenuLabel',
-      desc: 'Label under the circular shortcut button that opens the venue\'s menu',
+      desc:
+          'Label under the circular shortcut button that opens the venue\'s menu',
       args: [],
     );
   }
@@ -2174,7 +2276,8 @@ class S {
     return Intl.message(
       'Payment summary',
       name: 'venuePaymentSummaryTitle',
-      desc: 'Heading above the payment summary rows on the booking-confirmed screen',
+      desc:
+          'Heading above the payment summary rows on the booking-confirmed screen',
       args: [],
     );
   }
@@ -2184,7 +2287,8 @@ class S {
     return Intl.message(
       'View Booking Details',
       name: 'venueViewBookingDetailsButton',
-      desc: 'Button on the booking-confirmed screen that opens the booking details',
+      desc:
+          'Button on the booking-confirmed screen that opens the booking details',
       args: [],
     );
   }
@@ -2194,7 +2298,8 @@ class S {
     return Intl.message(
       'Back to home',
       name: 'venueBackToHomeButton',
-      desc: 'Button on the booking-confirmed screen that returns to the home screen',
+      desc:
+          'Button on the booking-confirmed screen that returns to the home screen',
       args: [],
     );
   }
@@ -2204,7 +2309,8 @@ class S {
     return Intl.message(
       'Booking ID',
       name: 'venueBookingIdLabel',
-      desc: 'Row label for the booking reference on the booking-confirmed details card',
+      desc:
+          'Row label for the booking reference on the booking-confirmed details card',
       args: [],
     );
   }
@@ -2214,7 +2320,8 @@ class S {
     return Intl.message(
       'Date',
       name: 'venueDateLabel',
-      desc: 'Row label for the booking date on the booking-confirmed details card',
+      desc:
+          'Row label for the booking date on the booking-confirmed details card',
       args: [],
     );
   }
@@ -2224,7 +2331,8 @@ class S {
     return Intl.message(
       'Payment method',
       name: 'venuePaymentMethodLabel',
-      desc: 'Row label for the payment method on the booking-confirmed details card',
+      desc:
+          'Row label for the payment method on the booking-confirmed details card',
       args: [],
     );
   }
@@ -2294,7 +2402,8 @@ class S {
     return Intl.message(
       'From Your location',
       name: 'venueFromYourLocationLabel',
-      desc: 'Label preceding the distance-from-user value in the Location section',
+      desc:
+          'Label preceding the distance-from-user value in the Location section',
       args: [],
     );
   }
@@ -2384,7 +2493,8 @@ class S {
     return Intl.message(
       'Call $phone',
       name: 'venueCallPhoneLabel',
-      desc: 'Call-to-action text with the venue\'s phone number in the Policy section',
+      desc:
+          'Call-to-action text with the venue\'s phone number in the Policy section',
       args: [phone],
     );
   }
@@ -2424,7 +2534,8 @@ class S {
     return Intl.message(
       'AM',
       name: 'venueAmLabel',
-      desc: 'AM segment label on the reservation calendar sheet\'s meridiem toggle',
+      desc:
+          'AM segment label on the reservation calendar sheet\'s meridiem toggle',
       args: [],
     );
   }
@@ -2434,7 +2545,8 @@ class S {
     return Intl.message(
       'PM',
       name: 'venuePmLabel',
-      desc: 'PM segment label on the reservation calendar sheet\'s meridiem toggle',
+      desc:
+          'PM segment label on the reservation calendar sheet\'s meridiem toggle',
       args: [],
     );
   }
@@ -2524,7 +2636,8 @@ class S {
     return Intl.message(
       'Filters coming soon',
       name: 'venueFiltersComingSoonMessage',
-      desc: 'Snackbar shown when tapping the (not-yet-implemented) filters icon on the venue filter row',
+      desc:
+          'Snackbar shown when tapping the (not-yet-implemented) filters icon on the venue filter row',
       args: [],
     );
   }

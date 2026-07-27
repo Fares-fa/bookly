@@ -23,3 +23,5 @@ export '../features/booking/presentation/screens/my_booking_screen.dart';
 export '../features/favorites/presentation/screens/favorites_page.dart';
 export '../features/onboarding/presentation/screens/onboarding_screen.dart';
 export '../features/splash/presentation/screens/splash_screen.dart';
+export 'package:bookly/src/shared/body_apps/body_app.dart';
+export 'package:bookly/generated/l10n.dart';

@@ -39,7 +39,9 @@ class _BookingConfirmedScreenState
   /// Clears the finished booking, then leaves for [route].
   void _leaveFor(String route) {
     ref.read(bookingFlowProvider.notifier).reset();
-    context.go(route);
+    context.go(route,extra: {
+      'isReservation': true,
+    },);
   }
 
   @override
@@ -51,7 +53,7 @@ class _BookingConfirmedScreenState
       subTotal: restaurantSpec.subTotal,
       fees: restaurantSpec.fees,
       total: restaurantSpec.total,
-      onViewBooking: () => _leaveFor(AppRoutes.myBooking),
+      onViewBooking: () => _leaveFor(AppRoutes.myBooking,),
       onBackToHome: () => _leaveFor(AppRoutes.home),
     );
   }

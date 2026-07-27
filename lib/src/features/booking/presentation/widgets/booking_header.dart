@@ -1,7 +1,5 @@
 import 'package:bookly/src/imports/imports.dart';
 
-import 'package:bookly/generated/l10n.dart';
-
 /// Title + subtitle header for [MyBookingScreen].
 class BookingHeader extends StatelessWidget {
   const BookingHeader({super.key});

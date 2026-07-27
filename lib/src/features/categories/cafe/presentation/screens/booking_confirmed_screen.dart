@@ -37,7 +37,9 @@ class _CafeBookingConfirmedScreenState
   /// Clears the finished booking, then leaves for [route].
   void _leaveFor(String route) {
     ref.read(cafeBookingFlowProvider.notifier).reset();
-    context.go(route);
+    context.go(route,extra: {
+      'isReservation': true,
+    },);
   }
 
   @override

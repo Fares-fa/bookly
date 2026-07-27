@@ -1,4 +1,3 @@
-import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/categories/venue/presentation/widgets/venue_widgets.dart';
@@ -37,10 +36,10 @@ class _PartyDetailsScreenState extends ConsumerState<PartyDetailsScreen> {
     final state = ref.watch(bookingFlowProvider);
     final notifier = ref.read(bookingFlowProvider.notifier);
 
-    return Scaffold(
-      backgroundColor: AppColors.background,
-      appBar: const BookingAppBar(),
-      body: SingleChildScrollView(
+    return BodyApp(
+      txtCustomAppBar:'',
+      onPressedArrowBack: () => context.pop(),
+      bodyOfContent: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: AppSpacing.ml),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

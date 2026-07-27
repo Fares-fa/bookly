@@ -113,12 +113,13 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
         path: AppRoutes.bookingSummary,
         name: 'bookingSummary',
-        builder: (context, state) {
-          final data = state.extra! as Map<String, dynamic>;
-          return BookingSummaryScreen(
-            hotelData: (data['hotelData'] as BookingDetailsData?),
-          );
-        }),
+      builder: (context, state) {
+        final data = state.extra as Map<String, dynamic>?;
+
+        return BookingSummaryScreen(
+          hotelData: data?['hotelData'] as BookingDetailsData?,
+        );
+      }),
     GoRoute(
       path: AppRoutes.bookingConfirmed,
       name: 'bookingConfirmed',
@@ -187,7 +188,13 @@ final GoRouter appRouter = GoRouter(
             GoRoute(
               path: AppRoutes.myBooking,
               name: 'myBooking',
-              builder: (context, state) => const MyBookingScreen(),
+              builder: (context, state) {
+                final data = state.extra as Map<String, dynamic>?;
+
+                return MyBookingScreen(
+                  isReservation: data?['isReservation'] as bool?,
+                );
+              },
             ),
           ],
         ),
