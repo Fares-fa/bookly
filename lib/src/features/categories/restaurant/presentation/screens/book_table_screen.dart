@@ -33,10 +33,10 @@ class BookTableScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(bookingFlowProvider);
 
-    return Scaffold(
-      backgroundColor: AppColors.background,
-      appBar: BookingAppBar(title: S.of(context).restaurantBookTableTitle),
-      body: Padding(
+    return BodyApp(
+      txtCustomAppBar:S.of(context).restaurantBookTableTitle,
+      onPressedArrowBack: () => context.pop(),
+      bodyOfContent: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSpacing.ml),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
