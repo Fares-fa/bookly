@@ -38,7 +38,7 @@ class PrimaryButton extends StatelessWidget {
       variant: variant,
       color: cs.primary,
       textColor: textColor ?? cs.onPrimary,
-      height: ButtonSize.small,
+      height: height,
       width: width != null ? ButtonSize.large : null,
       isLoading: isLoading,
       isFullWidth: isFullWidth,

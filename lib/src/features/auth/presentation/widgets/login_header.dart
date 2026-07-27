@@ -19,8 +19,9 @@ class LoginHeader extends StatelessWidget {
           bottomLeft: Radius.circular(40.r),
         ),
       ),
-      height: MediaQuery.of(context).size.height * 0.25,
+      height: MediaQuery.of(context).size.height * 0.22,
       child: Column(
+        spacing: 10,
         children: [
           Padding(
             padding: const EdgeInsets.all(4),
