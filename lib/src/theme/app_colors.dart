@@ -25,6 +25,7 @@ class AppColors {
   static const semiGrey = Color(0xFFEAEAEA); // #666666
   static const card = Color(0xFFFCFCFC); // #666666
   static const greyConfirm = Color(0xFF767575); // #666666
+  static const dividerMenu = Color(0xFFECECEC); // #666666
 
 
   static const black = Colors.black;

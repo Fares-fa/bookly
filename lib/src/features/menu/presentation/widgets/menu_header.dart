@@ -35,14 +35,11 @@ class MenuHeader extends StatelessWidget {
             children: [
               Text(
                 'Hi',
-                style: tt.bodyMedium?.copyWith(
-                  color: cs.primary,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: AppTextStyle.blackW400Size16.copyWith(fontWeight: FontWeight.w600,color: AppColors.primary)
               ),
               Text(
                 name,
-                style: tt.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+                style: AppTextStyle.blackW500Size18.copyWith(fontWeight: FontWeight.w600),
                 overflow: TextOverflow.ellipsis,
               ),
             ],
@@ -71,8 +68,8 @@ class _NotificationBell extends StatelessWidget {
         ),
         child: VectorGraphic(
           loader: const AssetBytesLoader(AppAssets.notification),
-          width: 18,
-          height: 18,
+          width: 22,
+          height: 22,
           colorFilter: ColorFilter.mode(cs.primary, BlendMode.srcIn),
         ),
       ),

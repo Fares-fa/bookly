@@ -19,9 +19,7 @@ class MenuTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cs = context.theme.colorScheme;
-    final tt = context.theme.textTheme;
-    final appColors = context.appColors;
+
     return InkWell(
       onTap: onTap,
       splashColor: Colors.white.withValues(alpha: 0.3),
@@ -47,16 +45,12 @@ class MenuTile extends StatelessWidget {
             Expanded(
               child: Text(
                 label,
-                style: tt.bodyLarge?.copyWith(
-                    color: appColors.blackText,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 14
-                ),
+                style:AppTextStyle.blackW400Size14,
               ),
             ),
             Icon(
               Icons.chevron_right_rounded,
-              color: cs.onSurfaceVariant,
+              color: AppColors.grey,
               size: 22.r,
             ),
           ],

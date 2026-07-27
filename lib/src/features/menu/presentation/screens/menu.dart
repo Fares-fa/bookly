@@ -38,13 +38,13 @@ class Menu extends ConsumerWidget {
                       label: 'Account',
                       onTap: () {},
                     ),
-                    AppDivider(indent: AppSpacing.md, endIndent: AppSpacing.md),
+                    AppDivider(indent: AppSpacing.md, endIndent: AppSpacing.md,color:AppColors.dividerMenu),
                     MenuTile(
                       icon: AppAssets.support,
                       label: 'Support',
                       onTap: () {},
                     ),
-                    AppDivider(indent: AppSpacing.md, endIndent: AppSpacing.md),
+                    AppDivider(indent: AppSpacing.md, endIndent: AppSpacing.md,color:AppColors.dividerMenu),
                     MenuTile(
                       icon: AppAssets.settings,
                       label: 'setting',
@@ -64,7 +64,7 @@ class Menu extends ConsumerWidget {
                       label: 'Promo Codes',
                       onTap: () {},
                     ),
-                    AppDivider(indent: AppSpacing.md, endIndent: AppSpacing.md),
+                    AppDivider(indent: AppSpacing.md, endIndent: AppSpacing.md,color:AppColors.dividerMenu),
                     MenuTile(
                       icon: AppAssets.invite,
                       label: 'Invite Friend',
