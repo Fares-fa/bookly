@@ -92,7 +92,7 @@ class _RoomCardState extends State<RoomCard> {
                             child: Container(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 6.w, vertical: 2.h),
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: AppColors.scrimStrong,
                                 borderRadius: AppBorders.sm,
                               ),

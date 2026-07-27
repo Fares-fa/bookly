@@ -14,7 +14,7 @@ class LoginHeader extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFF0042D3),
+        color: const Color(0xFF0042D3),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(40.r),
         ),
@@ -23,7 +23,7 @@ class LoginHeader extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(4.0),
+            padding: const EdgeInsets.all(4),
             child: SafeArea(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,

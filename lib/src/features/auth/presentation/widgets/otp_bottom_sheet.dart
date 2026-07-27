@@ -16,7 +16,7 @@ Future<String?> showOtpBottomSheet(
   return showModalBottomSheet<String>(
     context: context,
     isScrollControlled: true,
-    backgroundColor: Color(0xFFF0F8FF),
+    backgroundColor: const Color(0xFFF0F8FF),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(32.r)),
     ),

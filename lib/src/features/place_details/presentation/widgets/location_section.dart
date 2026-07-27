@@ -1,4 +1,3 @@
-import 'package:bookly/src/imports/core_imports.dart';
 
 import '../../../../imports/imports.dart';
 

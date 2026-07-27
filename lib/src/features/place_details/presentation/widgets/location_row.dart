@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:bookly/src/imports/core_imports.dart';
 import 'package:bookly/src/imports/packages_imports.dart';
-import 'package:bookly/src/theme/app_text_style.dart';
 
 
 /// Location line with a pin icon under the title.

@@ -14,7 +14,6 @@ class HomeCategoryTile extends StatelessWidget {
     final tt = context.theme.textTheme;
 
     void handleTap() {
-      print('test ${data.label(context)}');
       if (data.route != null) {
         context.push(data.route!);
       } else {
@@ -27,7 +26,7 @@ class HomeCategoryTile extends StatelessWidget {
       behavior: HitTestBehavior.opaque,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: AppSpacing.sm, vertical: AppSpacing.ms),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color:  Colors.white,
           borderRadius: AppBorders.card,
           boxShadow: AppShadows.subtle,

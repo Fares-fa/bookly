@@ -15,7 +15,7 @@ class DestinationCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        image: DecorationImage(
+        image: const DecorationImage(
           image: AssetImage(AppAssets.bookHotelBackground),
           fit: BoxFit.cover,
         ),

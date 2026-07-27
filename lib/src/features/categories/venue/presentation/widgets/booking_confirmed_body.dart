@@ -94,7 +94,7 @@ class BookingConfirmedBody extends StatelessWidget {
                             date: date,
                             paymentMethod: paymentMethod,
                           ),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: AppSpacing.pagePadding),
@@ -105,7 +105,7 @@ class BookingConfirmedBody extends StatelessWidget {
                                   S.of(context).venuePaymentSummaryTitle,
                                   style: AppTextStyle.blackW500Size16,
                                 ),
-                                SizedBox(height:16),
+                                const SizedBox(height:16),
                                 PaymentSummary(
                                   subTotal: subTotal,
                                   fees: fees,
@@ -294,7 +294,7 @@ class _DetailsCard extends StatelessWidget {
 
   Widget _row(String label, Widget value) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
         children: [
           Text(

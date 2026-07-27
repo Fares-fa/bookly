@@ -1,9 +1,7 @@
-import 'package:bookly/src/features/hotels/presentation/widgets/hotel_header.dart';
 import 'package:bookly/src/features/hotels/presentation/widgets/hotel_search_form.dart';
 import 'package:bookly/src/features/hotels/presentation/widgets/popular_destinations.dart';
 import 'package:bookly/src/imports/imports.dart';
 
-import '../../../../generated/l10n.dart';
 import '../../categories/venue/presentation/widgets/booking_header.dart';
 
 class BookingHotels extends StatelessWidget {
@@ -22,9 +20,9 @@ class BookingHotels extends StatelessWidget {
             ),
           ),
           CustomScrollView(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             slivers: [
-               SliverToBoxAdapter(child:  VenueBookingHeader(
+               const SliverToBoxAdapter(child:  VenueBookingHeader(
                 title: 'Booking Hotels',
               ),),
               SliverToBoxAdapter(

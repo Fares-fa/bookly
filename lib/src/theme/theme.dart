@@ -287,8 +287,9 @@ ThemeData _buildTheme(
         return colorScheme.outline;
       }),
       trackColor: WidgetStateProperty.resolveWith((states) {
-        if (states.contains(WidgetState.selected))
+        if (states.contains(WidgetState.selected)) {
           return colorScheme.primaryContainer;
+        }
         return colorScheme.surfaceContainerHighest;
       }),
     ),
@@ -369,9 +370,9 @@ ThemeData buildLightTheme({required String primaryColorHex}) {
       _colorFromHex(primaryColorHex.isNotEmpty ? primaryColorHex : '#0042D3');
   final colorScheme = ColorScheme.fromSeed(
       seedColor: seed,
-      primary: Color(0xFF0042D3),
-      secondary: Color(0xFFF97316),
-      surface: Color(0xFFF0F8FF));
+      primary: const Color(0xFF0042D3),
+      secondary: const Color(0xFFF97316),
+      surface: const Color(0xFFF0F8FF));
   return _buildTheme(colorScheme, AppPalettes.light);
 }
 

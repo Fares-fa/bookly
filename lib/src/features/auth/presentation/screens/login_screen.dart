@@ -77,11 +77,11 @@ class _LoginView extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Center(
         child: SingleChildScrollView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           child: Stack(
             children: [
-              Container(
-                decoration: BoxDecoration(
+              DecoratedBox(
+                decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
                       Colors.white,

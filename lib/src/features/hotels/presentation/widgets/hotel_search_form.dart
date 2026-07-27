@@ -146,7 +146,7 @@ class _HotelSearchFormState extends State<HotelSearchForm> {
               ],
             ),
             CounterField(
-              icon: Icon(Icons.bed_rounded),
+              icon: const Icon(Icons.bed_rounded),
               label: 'Rooms',
               value: _rooms,
               minValue: 1,

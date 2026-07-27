@@ -29,13 +29,13 @@ class HotelHeader extends StatelessWidget {
               Row(
                 spacing: 10,
                 children: [
-                  _BackButton(),
+                  const _BackButton(),
                   Text('Booking Hotels',
                       style: tt.titleMedium?.copyWith(
                           fontWeight: FontWeight.w700,
                           color: Colors.white,
                           fontSize: 20)),
-                  Spacer(),
+                  const Spacer(),
                   SvgPicture.asset(AppAssets.smallBooklyIconTop)
                 ],
               ),

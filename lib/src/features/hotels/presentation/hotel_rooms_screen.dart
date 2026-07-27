@@ -57,7 +57,7 @@ class _HotelRoomsScreenState extends State<HotelRoomsScreen> {
                 ),
               ),
             ),
-            StepIndicator(currentStep: 2, totalSteps: 3),
+            const StepIndicator(currentStep: 2, totalSteps: 3),
             BottomBar(
               secondaryWidget: PriceNightsBox(
                 price: _selectedPackage?.price,

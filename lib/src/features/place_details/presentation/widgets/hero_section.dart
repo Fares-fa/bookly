@@ -1,10 +1,8 @@
 import 'package:bookly/src/features/place_details/presentation/widgets/widgets.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:bookly/src/features/place_details/presentation/providers/place_details_ui_provider.dart';
 
-import 'package:bookly/src/theme/app_colors.dart';
 import 'package:bookly/src/imports/core_imports.dart';
 import 'package:go_router/go_router.dart';
 

@@ -28,7 +28,7 @@ class HotelFiltersRow extends StatelessWidget {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10.r),
               ),
-              child: Icon(Icons.tune_rounded)),
+              child: const Icon(Icons.tune_rounded)),
         ),
         SizedBox(width: AppSpacing.sm.w),
         Expanded(

@@ -1,7 +1,6 @@
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/generated/l10n.dart';
-import 'package:bookly/src/features/home/presentation/widgets/home_search_bar.dart';
 import 'package:bookly/src/features/categories/venue/presentation/widgets/venue_widgets.dart';
 
 import '../../../venue/presentation/widgets/search_bar.dart';

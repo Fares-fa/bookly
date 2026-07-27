@@ -16,7 +16,7 @@ import '../providers/booking_flow_provider.dart';
 /// pick a payment method and confirm. "Confirm & pay" unlocks once a payment
 /// method is selected.
 class BookingSummaryScreen extends ConsumerStatefulWidget {
-  BookingSummaryScreen({super.key, this.hotelData});
+  const BookingSummaryScreen({super.key, this.hotelData});
   final BookingDetailsData? hotelData;
 
   @override

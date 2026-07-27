@@ -1,7 +1,4 @@
 import 'package:bookly/src/imports/imports.dart';
-import 'package:flutter/material.dart';
-import 'package:bookly/src/theme/app_colors.dart';
-import 'package:bookly/src/imports/packages_imports.dart';
 
 class CircleButton extends StatelessWidget {
   final String name;
@@ -27,7 +24,7 @@ class CircleButton extends StatelessWidget {
         // decoration: BoxDecoration(
         //   shape: BoxShape.circle,
         // ),
-        child: isPng == true
+        child: isPng ?? false
             ? Image.asset(name)
             : VectorGraphic(
                 loader: AssetBytesLoader(name),

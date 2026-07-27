@@ -36,7 +36,7 @@ class LoginPhoneForm extends StatelessWidget {
                 ),
                 child: CountryCodePicker(
                   flagWidth: 24.w,
-                  flagDecoration: BoxDecoration(shape: BoxShape.circle),
+                  flagDecoration: const BoxDecoration(shape: BoxShape.circle),
                   onChanged: (country) =>
                       onCountryChanged(country.dialCode ?? '+20'),
                   initialSelection: 'EG',
@@ -56,9 +56,9 @@ class LoginPhoneForm extends StatelessWidget {
                   style: tt.bodyLarge,
                   decoration: InputDecoration(
                     hintText: S.of(context).authMobileNumberHint,
-                    hintStyle: TextStyle(fontSize: 14),
+                    hintStyle: const TextStyle(fontSize: 14),
                     fillColor: Colors.transparent,
-                    contentPadding: EdgeInsets.all(20),
+                    contentPadding: const EdgeInsets.all(20),
                   ),
                   controller: phoneController,
                   keyboardType: TextInputType.phone,

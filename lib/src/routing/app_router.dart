@@ -1,4 +1,4 @@
-import 'package:bookly/src/features/complete_info/presentation/completeInfo.dart';
+import 'package:bookly/src/features/complete_info/presentation/complete_info.dart';
 import 'package:bookly/src/features/hotels/presentation/booking_hotels.dart';
 import 'package:bookly/src/features/hotels/presentation/hotel_search_screen.dart';
 import 'package:bookly/src/features/hotels/presentation/hotel_results_screen.dart';
