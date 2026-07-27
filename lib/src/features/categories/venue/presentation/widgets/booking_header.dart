@@ -25,8 +25,8 @@ class VenueBookingHeader extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () => context.pop(),
-                  child: VectorGraphic(
-                    loader: const AssetBytesLoader(AppAssets.back),
+                  child: const VectorGraphic(
+                    loader: AssetBytesLoader(AppAssets.back),
 
                   ),
                 ),
@@ -40,7 +40,7 @@ class VenueBookingHeader extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                SvgPicture.asset(AppAssets.smallBooklyIconTop, height: 22.h),
+                VectorGraphic(loader: const AssetBytesLoader(AppAssets.smallBooklyIconTop), height: 22.h),
               ],
             ),
           ),

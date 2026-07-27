@@ -56,7 +56,7 @@ class VenueLocationSection extends StatelessWidget {
             Row(
               spacing: 6,
               children: [
-                SvgPicture.asset(AppAssets.location),
+                const VectorGraphic(loader: AssetBytesLoader(AppAssets.location)),
                 Text(S.of(context).venueFromYourLocationLabel,
                     style: AppTextStyle.grey400Size14),
               ],

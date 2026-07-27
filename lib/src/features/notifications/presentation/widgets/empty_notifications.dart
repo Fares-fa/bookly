@@ -15,7 +15,7 @@ class EmptyNotifications extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SvgPicture.asset(AppAssets.notificationIcon),
+            const VectorGraphic(loader: AssetBytesLoader(AppAssets.notificationIcon)),
             SizedBox(height: AppSpacing.lg.h),
             Text(
               S.of(context).notificationsEmptyTitle,

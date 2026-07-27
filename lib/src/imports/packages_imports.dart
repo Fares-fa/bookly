@@ -7,7 +7,6 @@ export 'package:flutter_riverpod/legacy.dart';
 export 'package:go_router/go_router.dart';
 export 'package:dio/dio.dart';
 export 'package:cached_network_image/cached_network_image.dart';
-export 'package:flutter_svg/flutter_svg.dart';
 export 'package:lottie/lottie.dart';
 export 'package:skeletonizer/skeletonizer.dart';
 export 'package:flutter_animate/flutter_animate.dart' hide ShimmerEffect;

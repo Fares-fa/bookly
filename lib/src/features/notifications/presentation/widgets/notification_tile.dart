@@ -13,7 +13,7 @@ class NotificationTile extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SvgPicture.asset(AppAssets.notificationIcon, width: 18.w),
+        VectorGraphic(loader: const AssetBytesLoader(AppAssets.notificationIcon), width: 18.w),
         SizedBox(width: AppSpacing.sm.w),
         Expanded(
           child: Text(

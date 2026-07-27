@@ -128,9 +128,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> with SingleTickerPr
                   OnboardingSpec.horizontalPadding.w,
                   0,
                 ),
-                child: Align(
+                child: const Align(
                   alignment: Alignment.centerLeft,
-                  child: SvgPicture.asset(AppAssets.smallBooklyIconTop),
+                  child: VectorGraphic(loader: AssetBytesLoader(AppAssets.smallBooklyIconTop)),
                 ),
               ),
               Expanded(

@@ -20,7 +20,7 @@ class OrbitIllustration extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Lottie.asset(AppAssets.onboardingOrbitLottie, repeat: true, fit: BoxFit.contain),
-            SvgPicture.asset(AppAssets.middleBooklyIcon),
+            const VectorGraphic(loader: AssetBytesLoader(AppAssets.middleBooklyIcon)),
           ],
         ),
       ),
