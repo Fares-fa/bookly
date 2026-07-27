@@ -101,7 +101,7 @@ class _LoginView extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  LoginHeader(onJoinAsGuest: () {}),
+                  LoginHeader(onJoinAsGuest: () {context.push(AppRoutes.home);}),
                   Container(
                     height: MediaQuery.of(context).size.height * 0.75,
                     padding: EdgeInsets.symmetric(

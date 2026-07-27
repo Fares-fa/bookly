@@ -50,12 +50,13 @@ class FavoriteCategoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.theme.colorScheme.surface,
-      body: SafeArea(
+    return BodyApp(
+      txtCustomAppBar:category.screenTitle(context),
+      onPressedArrowBack: () => context.pop(),
+      bodyOfContent: SafeArea(
         child: Column(
           children: [
-            _FavoriteCategoryHeader(title: category.screenTitle(context)),
+
             Expanded(
               child: ListView.separated(
                 padding: EdgeInsets.all(AppSpacing.md.w),
@@ -74,48 +75,3 @@ class FavoriteCategoryScreen extends StatelessWidget {
   }
 }
 
-class _FavoriteCategoryHeader extends StatelessWidget {
-  const _FavoriteCategoryHeader({required this.title});
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    final cs = context.theme.colorScheme;
-
-    return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: AppSpacing.md.w, vertical: AppSpacing.sm.h),
-      child: SizedBox(
-        height: 40.w,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w600,
-                  color: cs.onSurface),
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: GestureDetector(
-                onTap: () {
-                  if (context.canPop()) context.pop();
-                },
-                child: Container(
-                  width: 40.w,
-                  height: 40.w,
-                  decoration:
-                      BoxDecoration(color: cs.primary, shape: BoxShape.circle),
-                  child: const Icon(Icons.chevron_left, color: Colors.white),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}

@@ -17,7 +17,7 @@ class CategoryGridTile extends StatelessWidget {
     void handleTap() {
       if (data.comingSoon) return;
       if (data.route != null) {
-        context.go(data.route!);
+        context.push(data.route!);
       } else {
         context.showSnackBar(S.of(context).homeCategoryComingSoonMessage(data.label(context)));
       }

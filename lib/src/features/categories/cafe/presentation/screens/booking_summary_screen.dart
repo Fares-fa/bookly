@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:bookly/src/imports/imports.dart';
 
-import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/features/categories/cafe/domain/cafe_spec.dart';
 import 'package:bookly/src/features/categories/cafe/presentation/providers/cafe_booking_flow_provider.dart';
 import 'package:bookly/src/features/categories/venue/presentation/providers/booking_flow_state.dart';
@@ -36,11 +35,10 @@ class _CafeBookingSummaryScreenState
   Widget build(BuildContext context) {
     final state = ref.watch(cafeBookingFlowProvider);
     final notifier = ref.read(cafeBookingFlowProvider.notifier);
-
-    return Scaffold(
-      backgroundColor: AppColors.background,
-      appBar: BookingAppBar(title: S.of(context).cafeBookingSummaryTitle),
-      body: SingleChildScrollView(
+    return BodyApp(
+      txtCustomAppBar:S.of(context).cafeBookingSummaryTitle,
+      onPressedArrowBack: () => context.pop(),
+      bodyOfContent: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

@@ -1,7 +1,6 @@
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/booking/presentation/widgets/booking_details_data.dart';
-import 'package:bookly/src/features/booking/presentation/widgets/booking_details_header.dart';
 import 'package:bookly/src/features/booking/presentation/widgets/hotel_stay_card.dart';
 import 'package:bookly/src/features/booking/presentation/widgets/room_details_card.dart';
 import 'package:bookly/src/features/booking/presentation/widgets/payment_summary.dart';
@@ -22,12 +21,12 @@ class BookingDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF0F4FA),
-      body: SafeArea(
+    return BodyApp(
+      txtCustomAppBar:S.of(context).bookingDetailsTitle,
+      onPressedArrowBack: () => context.pop(),
+      bodyOfContent: SafeArea(
         child: Column(
           children: [
-            const BookingDetailsHeader(),
             Expanded(
               child: ListView(
                 padding: EdgeInsets.all(AppSpacing.md.w),

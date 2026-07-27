@@ -77,9 +77,10 @@ class AppBarBodyApp extends StatelessWidget implements PreferredSizeWidget {
           padding: EdgeInsets.only(left: AppSpacing.pagePadding),
           child: GestureDetector(
             onTap: onPressedArrowBack,
-            child:VectorGraphic(
-              loader: const AssetBytesLoader(AppAssets.backApp),
-
+            child:const VectorGraphic(
+              width: 32,
+              height: 32,
+              loader: AssetBytesLoader(AppAssets.backApp,),
             ),
           ),
         ),

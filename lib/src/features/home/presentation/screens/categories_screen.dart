@@ -10,40 +10,16 @@ class CategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tt = context.theme.textTheme;
 
-    return Scaffold(
-      backgroundColor: const Color(0xFFEDF3FE),
-      body: SafeArea(
+    return BodyApp(
+      txtCustomAppBar:S.of(context).homeCategoriesTitle,
+      onPressedArrowBack: () => context.pop(),
+      bodyOfContent: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: AppSpacing.pagePadding, vertical: AppSpacing.md),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(
-                height: 40,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: GestureDetector(
-                        onTap: () => context.pop(),
-                        child: Container(
-                          width: 36,
-                          height: 36,
-                          decoration: const BoxDecoration(color: Color(0xFF0042D3), shape: BoxShape.circle),
-                          child: const Icon(Icons.chevron_left_rounded, color: Colors.white),
-                        ),
-                      ),
-                    ),
-                    Text(
-                      S.of(context).homeCategoriesTitle,
-                      style: tt.titleMedium?.copyWith(fontWeight: FontWeight.w600),
-                    ),
-                  ],
-                ),
-              ),
               SizedBox(height: AppSpacing.lg),
               Expanded(
                 child: GridView.builder(

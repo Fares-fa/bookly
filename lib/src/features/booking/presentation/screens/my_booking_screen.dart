@@ -21,8 +21,12 @@ const _placeholderBookings = <BookingCardData>[
 ];
 
 class MyBookingScreen extends StatefulWidget {
-  const MyBookingScreen({super.key});
+  final bool? isReservation;
 
+  const MyBookingScreen({
+    super.key,
+    this.isReservation,
+  });
   @override
   State<MyBookingScreen> createState() => _MyBookingScreenState();
 }
@@ -33,9 +37,10 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF0F4FA),
-      body: SafeArea(
+    return BodyApp(
+      txtCustomAppBar:S.of(context).bookingDetailsTitle,
+      onPressedArrowBack: () => widget.isReservation ?? false? context.go(AppRoutes.home):context.pop(),
+      bodyOfContent:  SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
