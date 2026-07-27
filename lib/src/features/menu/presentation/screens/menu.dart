@@ -47,7 +47,7 @@ class Menu extends ConsumerWidget {
                     AppDivider(indent: AppSpacing.md, endIndent: AppSpacing.md,color:AppColors.dividerMenu),
                     MenuTile(
                       icon: AppAssets.settings,
-                      label: 'setting',
+                      label: 'Settings',
                       onTap: () {},
                     ),
                   ],
