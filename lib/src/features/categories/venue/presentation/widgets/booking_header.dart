@@ -25,18 +25,9 @@ class VenueBookingHeader extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () => context.pop(),
-                  child: Container(
-                    width: 28.w,
-                    height: 28.h,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(
-                      Icons.chevron_left_rounded,
-                      color: Colors.black,
-                      size: 24.w,
-                    ),
+                  child: VectorGraphic(
+                    loader: const AssetBytesLoader(AppAssets.back),
+
                   ),
                 ),
                 SizedBox(width: AppSpacing.ms),
@@ -49,7 +40,7 @@ class VenueBookingHeader extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                SvgPicture.asset(AppAssets.smallBooklyIconTop, height: 28.h),
+                SvgPicture.asset(AppAssets.smallBooklyIconTop, height: 22.h),
               ],
             ),
           ),
