@@ -66,11 +66,12 @@ class AppAssets {
 
 
 
-  static const String back = '$_iconsPath/back.png';
+  static const String back = '$_svgsPath/back.svg';
   static const String backPrimary = '$_svgsPath/back_primary.svg';
 
   static const String heart = '$_svgsPath/heart.svg';
   static const String location = '$_svgsPath/location.svg';
+  static const String backApp = '$_svgsPath/back_app.svg';
 
 //
   static const String favouritesHotel = '$_imagesPath/favourites_hotel.jpg';

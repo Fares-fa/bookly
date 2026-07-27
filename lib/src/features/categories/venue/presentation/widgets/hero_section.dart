@@ -66,7 +66,7 @@ class VenueHeroSection extends ConsumerWidget {
             right: 16,
             child: Row(
               children: [
-                CircleButtonPng(
+                CircleButton(
                   name: AppAssets.back,
                   onTap: () => context.pop(),
                 ),

@@ -17,29 +17,10 @@ class CircleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: SvgPicture.asset(name),
+      child:   VectorGraphic(
+          loader:  AssetBytesLoader(name)),
     );
   }
 }
 
-/// [CircleButton] for assets that ship as PNG rather than SVG.
-class CircleButtonPng extends StatelessWidget {
-  const CircleButtonPng({
-    super.key,
-    required this.name,
-    required this.onTap,
-    this.iconColor = AppColors.white,
-  });
 
-  final String name;
-  final Color iconColor;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Image.asset(name),
-    );
-  }
-}

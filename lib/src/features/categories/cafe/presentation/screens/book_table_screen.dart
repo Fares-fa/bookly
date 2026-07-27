@@ -6,6 +6,8 @@ import 'package:bookly/src/features/categories/cafe/presentation/providers/cafe_
 import 'package:bookly/src/features/categories/venue/presentation/providers/booking_flow_state.dart';
 import 'package:bookly/src/features/categories/venue/presentation/widgets/venue_widgets.dart';
 
+import '../../../../../shared/body_apps/body_app.dart';
+
 /// Step 1 of the cafe booking wizard: pick the reservation date and time.
 class CafeBookTableScreen extends ConsumerWidget {
   const CafeBookTableScreen({super.key});
@@ -28,10 +30,10 @@ class CafeBookTableScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(cafeBookingFlowProvider);
 
-    return Scaffold(
-      backgroundColor: AppColors.background,
-      appBar: BookingAppBar(title: S.of(context).cafeBookTableTitle),
-      body: Padding(
+    return BodyApp(
+      txtCustomAppBar:S.of(context).cafeBookTableTitle,
+      onPressedArrowBack: () => context.pop(),
+      bodyOfContent: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSpacing.ml),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
