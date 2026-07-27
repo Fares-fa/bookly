@@ -5,6 +5,7 @@ import 'package:bookly/src/features/hotels/presentation/hotel_results_screen.dar
 import 'package:bookly/src/features/hotels/presentation/hotel_details_screen.dart';
 import 'package:bookly/src/features/hotels/presentation/hotel_rooms_screen.dart';
 import 'package:bookly/src/features/favorites/presentation/widgets/hotel_card_data.dart';
+import 'package:bookly/src/features/menu/presentation/screens/menu.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:bookly/src/routing/global_navigator.dart';
@@ -196,6 +197,15 @@ final GoRouter appRouter = GoRouter(
               path: AppRoutes.favorites,
               name: 'favorites',
               builder: (context, state) => const MyFavoritesScreen(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: AppRoutes.menu,
+              name: 'menu',
+              builder: (context, state) => const Menu(),
             ),
           ],
         ),

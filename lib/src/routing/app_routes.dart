@@ -37,6 +37,8 @@ abstract final class AppRoutes {
   // Bottom-nav shell branches (see `AppShell`).
   static const String favorites = '/favorites';
   static const String categories = '/categories';
+  static const String menu = '/menu';
+
   static const String bookingHotels = '/booking-hotels';
   static const String hotelSearch = '/hotel-search';
   static const String hotelResults = '/hotel-results';
