@@ -12,7 +12,6 @@ class MenuHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = context.theme.colorScheme;
-    final tt = context.theme.textTheme;
     final name = (user?.name?.isNotEmpty ?? false) ? user!.name! : 'Guest';
     final photoUrl = user?.photoUrl;
 
@@ -59,7 +58,7 @@ class _NotificationBell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.showSnackBar('No new notifications'),
+      onTap: () => context.push(AppRoutes.notifications),
       child: Container(
         padding: EdgeInsets.all(AppSpacing.sm),
         decoration: const BoxDecoration(
