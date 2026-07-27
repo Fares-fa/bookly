@@ -36,7 +36,7 @@ class HotelHeader extends StatelessWidget {
                           color: Colors.white,
                           fontSize: 20)),
                   const Spacer(),
-                  SvgPicture.asset(AppAssets.smallBooklyIconTop)
+                  const VectorGraphic(loader: AssetBytesLoader(AppAssets.smallBooklyIconTop))
                 ],
               ),
             ],

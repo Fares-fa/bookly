@@ -164,8 +164,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                   ),
                 );
               },
-              child: SvgPicture.asset(
-                AppAssets.poweredByZeds,
+              child: VectorGraphic(loader: const AssetBytesLoader(AppAssets.poweredByZeds,),
                 width: _SplashSpec.poweredByLogoWidth.w,
               ),
             ),

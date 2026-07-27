@@ -12,7 +12,6 @@ class MenuHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = context.theme.colorScheme;
-    final tt = context.theme.textTheme;
     final name = (user?.name?.isNotEmpty ?? false) ? user!.name! : 'Guest';
     final photoUrl = user?.photoUrl;
 

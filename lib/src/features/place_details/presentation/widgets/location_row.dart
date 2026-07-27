@@ -1,7 +1,6 @@
 import 'package:bookly/src/imports/core_imports.dart';
 import 'package:bookly/src/imports/packages_imports.dart';
 
-
 /// Location line with a pin icon under the title.
 class LocationRow extends StatelessWidget {
   const LocationRow({super.key, required this.location});
@@ -12,9 +11,7 @@ class LocationRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SvgPicture.asset(
-          AppAssets.location,
-        ),
+        const VectorGraphic(loader: AssetBytesLoader(AppAssets.location)),
         const SizedBox(width: 6),
         Text(location, style: AppTextStyle.grey400Size14),
       ],

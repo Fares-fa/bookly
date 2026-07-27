@@ -10,7 +10,7 @@ class VenueLocationRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SvgPicture.asset(AppAssets.location),
+        const VectorGraphic(loader:AssetBytesLoader(AppAssets.location)),
         const SizedBox(width: 6),
         Text(location, style: AppTextStyle.grey400Size14),
       ],

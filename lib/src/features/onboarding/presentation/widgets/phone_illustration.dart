@@ -7,6 +7,6 @@ class PhoneIllustration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(AppAssets.firstOnboardingImage);
+    return const VectorGraphic(loader: AssetBytesLoader(AppAssets.firstOnboardingImage));
   }
 }

@@ -1,4 +1,3 @@
-
 import '../../../../imports/imports.dart';
 
 /// "Location" tab: a map preview with a "See Location on map" action.
@@ -47,24 +46,22 @@ class LocationSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 14),
-
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               spacing: 6,
               children: [
-                SvgPicture.asset(
+                const VectorGraphic(
+                    loader: AssetBytesLoader(
                   AppAssets.location,
-                ),
+                )),
                 Text('From Your location', style: AppTextStyle.grey400Size14),
               ],
             ),
             Text('0.5 KM', style: AppTextStyle.grey400Size14),
-
           ],
         ),
-
       ],
     );
   }
