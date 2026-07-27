@@ -130,7 +130,7 @@ class _CompleteInfoState extends State<CompleteInfo> {
                 ? _handleContinueFromPersonalInfo
                 : (_selectedInterests.isEmpty
                     ? null
-                    : () => GoRouter.of(context).go(AppRoutes.bookingHotels)),
+                    : () => GoRouter.of(context).go(AppRoutes.home)),
             isFullWidth: true,
           ),
         ),

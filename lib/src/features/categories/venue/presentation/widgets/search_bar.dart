@@ -1,8 +1,8 @@
 import 'package:bookly/generated/l10n.dart';
 import 'package:bookly/src/imports/imports.dart';
 
-class HomeSearchBar extends StatelessWidget {
-  const HomeSearchBar({super.key});
+class SearchBarBooking extends StatelessWidget {
+  const SearchBarBooking({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,15 +50,23 @@ class HomeSearchBar extends StatelessWidget {
             ),
           ),
           SizedBox(width: AppSpacing.sm),
-          Container(
-            width: 53,
-            height: 53,
-            decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-            child: const Center(
-              child: VectorGraphic(
-                loader: AssetBytesLoader(AppAssets.gemini),
-                width: 23,
-                height: 28,
+          DecoratedBox(
+
+            decoration: const BoxDecoration(image:DecorationImage(image:  AssetImage(AppAssets.map)), shape: BoxShape.circle,),
+            child: Container(
+
+              padding: const EdgeInsets.all(8),
+              decoration: const BoxDecoration(color: AppColors.scrim, shape: BoxShape.circle,),
+              child: Column(
+                children: [
+                  const VectorGraphic(
+                    loader: AssetBytesLoader(AppAssets.location),
+                    width: 23,
+                    height: 28,
+                    colorFilter: ColorFilter.mode(AppColors.white, BlendMode.srcIn),
+                  ),
+                  Text('Explore',style: AppTextStyle.whiteW400Size14.copyWith(fontSize: 11.sp),)
+                ],
               ),
             ),
           ),

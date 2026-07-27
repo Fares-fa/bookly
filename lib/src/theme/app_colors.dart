@@ -23,6 +23,9 @@ class AppColors {
   static const greyPerson = Color(0xFFB6B6B6);
   static const grey = Color(0xFF666666); // #666666
   static const semiGrey = Color(0xFFEAEAEA); // #666666
+  static const card = Color(0xFFFCFCFC); // #666666
+  static const greyConfirm = Color(0xFF767575); // #666666
+
 
   static const black = Colors.black;
   static const white = Colors.white;

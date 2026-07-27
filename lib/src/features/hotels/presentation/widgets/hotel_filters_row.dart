@@ -17,7 +17,6 @@ class HotelFiltersRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cs = context.theme.colorScheme;
 
     return Row(
       children: [

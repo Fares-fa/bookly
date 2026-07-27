@@ -20,9 +20,11 @@ class AppAssets {
   static const String carRental = '$_iconsPath/car_rental.png';
   static const String flight = '$_iconsPath/flight.png';
   static const String laboratory = '$_iconsPath/laboratory.png';
-  static const String rest = '$_imagesPath/rest.png';
+  static const String rest = '$_imagesPath/mt3m.png';
   static const String hilton = '$_imagesPath/hilton.png';
   static const String cafeImage = '$_imagesPath/cafe_img.png';
+  static const String cafeCover = '$_imagesPath/cafe.png';
+
   static const String ad = '$_imagesPath/ad.png';
   static const String soonOne = '$_imagesPath/soon_one.png';
   static const String soonTwo = '$_imagesPath/soon_two.png';

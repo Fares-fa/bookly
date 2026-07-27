@@ -16,23 +16,15 @@ import 'package:bookly/src/features/auth/presentation/screens/signup_screen.dart
 import 'package:bookly/src/features/auth/presentation/screens/forgot_password_screen.dart';
 import 'package:bookly/src/features/auth/presentation/providers/session_provider.dart';
 
-import 'package:bookly/src/features/restaurant/presentation/screens/restaurant_screen.dart';
-import 'package:bookly/src/features/restaurant/presentation/screens/booking_restaurant.dart';
-import 'package:bookly/src/features/restaurant/presentation/screens/book_table_screen.dart';
-import 'package:bookly/src/features/restaurant/presentation/screens/party_details_screen.dart';
-import 'package:bookly/src/features/restaurant/presentation/screens/booking_summary_screen.dart';
-import 'package:bookly/src/features/cafe/presentation/screens/cafe_screen.dart';
-import 'package:bookly/src/features/cafe/presentation/screens/booking_cafe.dart';
-import 'package:bookly/src/features/cafe/presentation/screens/book_table_screen.dart';
-import 'package:bookly/src/features/cafe/presentation/screens/party_details_screen.dart';
-import 'package:bookly/src/features/cafe/presentation/screens/booking_summary_screen.dart';
-import 'package:bookly/src/features/restaurant/presentation/screens/menu_screen.dart';
-import 'package:bookly/src/features/cafe/presentation/screens/menu_screen.dart';
-import 'package:bookly/src/features/restaurant/presentation/screens/booking_confirmed_screen.dart';
-import 'package:bookly/src/features/cafe/presentation/screens/booking_confirmed_screen.dart';
+import 'package:bookly/src/features/categories/cafe/presentation/screens/cafe_screen.dart';
+import 'package:bookly/src/features/categories/cafe/presentation/screens/booking_cafe.dart';
+import 'package:bookly/src/features/categories/cafe/presentation/screens/book_table_screen.dart';
+import 'package:bookly/src/features/categories/cafe/presentation/screens/party_details_screen.dart';
+import 'package:bookly/src/features/categories/cafe/presentation/screens/booking_summary_screen.dart';
+import 'package:bookly/src/features/categories/cafe/presentation/screens/menu_screen.dart';
+import 'package:bookly/src/features/categories/cafe/presentation/screens/booking_confirmed_screen.dart';
 import 'package:bookly/src/features/home/presentation/screens/home_page.dart';
 import 'package:bookly/src/features/home/presentation/screens/categories_screen.dart';
-import 'package:bookly/src/features/more/presentation/screens/more_page.dart';
 import 'package:bookly/src/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:bookly/src/features/splash/presentation/screens/splash_screen.dart';
 import 'package:bookly/src/features/notifications/presentation/screens/notifications_screen.dart';
@@ -41,6 +33,14 @@ import 'package:bookly/src/features/favorites/presentation/screens/favorite_cate
 import 'package:bookly/src/features/favorites/presentation/screens/my_favorites_screen.dart';
 import 'package:bookly/src/features/booking/presentation/screens/my_booking_screen.dart';
 import 'package:bookly/src/features/booking/presentation/screens/booking_details_screen.dart';
+
+import '../features/categories/restaurant/presentation/screens/book_table_screen.dart';
+import '../features/categories/restaurant/presentation/screens/booking_confirmed_screen.dart';
+import '../features/categories/restaurant/presentation/screens/booking_restaurant.dart';
+import '../features/categories/restaurant/presentation/screens/booking_summary_screen.dart';
+import '../features/categories/restaurant/presentation/screens/menu_screen.dart';
+import '../features/categories/restaurant/presentation/screens/party_details_screen.dart';
+import '../features/categories/restaurant/presentation/screens/restaurant_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   navigatorKey: rootNavigatorKey,
@@ -199,15 +199,7 @@ final GoRouter appRouter = GoRouter(
             ),
           ],
         ),
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              path: AppRoutes.more,
-              name: 'more',
-              builder: (context, state) => const MorePage(),
-            ),
-          ],
-        ),
+
       ],
     ),
     GoRoute(
