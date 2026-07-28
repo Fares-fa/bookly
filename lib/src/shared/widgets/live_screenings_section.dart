@@ -26,7 +26,7 @@ class LiveScreeningsSection extends StatelessWidget {
       cardWidth: 150,
       // Tall enough for image + 2-line caption + the "Book your seats" button;
       // 180 clipped the button by a few pixels.
-      listHeight: 178,
+      listHeight: 183,
       itemBuilder: (context, screening, width) => LiveScreeningCard(screening: screening, width: width),
     );
   }

@@ -29,71 +29,81 @@ class LiveScreeningCard extends ConsumerWidget {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(4,4,4,8),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            MediaCardShell(
-              imageAsset: screening.imageAsset,
-              width: width,
-              imageHeight: 100.h,
-              isFavorite: isFavorite,
-              onFavoriteToggle: () => ref.read(favoriteIdsProvider.notifier).toggle(screening.id),
-              topEdgeBadge: SeatsBadge(label: S.of(context).commonExtraSeatsLeftLabel(screening.seatsLeft.toString()), color: appColors.green?? appColors.success),
-              caption:  Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        screening.title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: tt.titleSmall?.copyWith(fontWeight: FontWeight.w500,fontSize: 14, color: cs.onSurface),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          text: S.of(context).commonExtraEgpCurrencyPrefix,
-                          style: const TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 10
+            SizedBox(
+              child: MediaCardShell(
+                imageAsset: screening.imageAsset,
+                width: width,
+                imageHeight: 97.h,
+                isFavorite: isFavorite,
+                onFavoriteToggle: () => ref.read(favoriteIdsProvider.notifier).toggle(screening.id),
+                topEdgeBadge: SeatsBadge(label: S.of(context).commonExtraSeatsLeftLabel(screening.seatsLeft.toString()), color: appColors.green?? appColors.success),
+                caption:  Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            screening.title,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: tt.titleSmall?.copyWith(fontWeight: FontWeight.w500,fontSize: 14, color: cs.onSurface),
                           ),
-                          children: [
-                            TextSpan(
-                              text: '${screening.price}  ',
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16
-                              ),
-                            ),
-                          ],
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: AppSpacing.xxs),
-                  Text(
-                    S.of(context).commonExtraCategoryDistanceKm(
-                        screening.category, screening.distanceKm.toStringAsFixed(1)),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: tt.bodySmall?.copyWith(color: cs.onSurfaceVariant,fontWeight: FontWeight.w400,fontSize: 13),
-                  ),
-                ],
+                        Expanded(
+                          child: RichText(
+                            maxLines: 1,
+                            text: TextSpan(
+                              text: S.of(context).commonExtraEgpCurrencyPrefix,
+                              style: const TextStyle(
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 10
+                              ),
+                              children: [
+                                TextSpan(
+                                  text: '${screening.price}  ',
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: AppSpacing.xxs),
+                    Text(
+                      S.of(context).commonExtraCategoryDistanceKm(
+                          screening.category, screening.distanceKm.toStringAsFixed(1)),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: tt.bodySmall?.copyWith(color: cs.onSurfaceVariant,fontWeight: FontWeight.w400,fontSize: 13),
+                    ),
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: AppSpacing.sm),
-            AppButton(
-              label: S.of(context).commonExtraBookYourSeatsLabel,
-              onPressed: () {},
-              color: appColors.primary,
-              textColor: Colors.white,
-              height: ButtonSize.small,
-              customHeight: 36,
-              isFullWidth: true,
-              labelFontWeight: FontWeight.w400,
-              borderRadius: BorderRadius.circular(28),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+
+            SizedBox(
+              child: AppButton(
+                label: S.of(context).commonExtraBookYourSeatsLabel,
+                onPressed: () {},
+                color: appColors.primary,
+                textColor: Colors.white,
+                height: ButtonSize.small,
+                customHeight: 36,
+                isFullWidth: true,
+                labelFontWeight: FontWeight.w400,
+                borderRadius: BorderRadius.circular(28),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+              ),
             ),
           ],
         ),

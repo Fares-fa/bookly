@@ -63,7 +63,7 @@ class AdBannerCard extends StatelessWidget {
                       textColor: Colors.white,
                       height: ButtonSize.small,
                       customWidth: 110,
-                      customHeight: 26,
+                      customHeight: 24,
                       labelFontWeight: FontWeight.w400,
                       borderRadius: BorderRadius.circular(28),
                       contentPadding: const EdgeInsets.symmetric(horizontal: 10),
