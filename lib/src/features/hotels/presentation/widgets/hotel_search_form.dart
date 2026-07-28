@@ -64,7 +64,6 @@ class _HotelSearchFormState extends State<HotelSearchForm> {
 
   @override
   Widget build(BuildContext context) {
-    final tt = context.textTheme;
     return Container(
         padding: const EdgeInsets.all(4),
         decoration: BoxDecoration(

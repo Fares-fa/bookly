@@ -1,4 +1,3 @@
-import 'package:bookly/src/features/favorites/presentation/widgets/hotel_gallery.dart';
 import 'package:bookly/src/features/hotels/presentation/widgets/room_gallery_viewer.dart';
 import 'package:bookly/src/imports/imports.dart';
 
@@ -15,7 +14,6 @@ class RoomDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = context.theme.colorScheme;
-    final successColor = context.theme.extension<AppColorsExtension>()!.success;
 
     return BodyApp(
       txtCustomAppBar: S.of(context).roomDetailsTitle,

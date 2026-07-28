@@ -1,5 +1,4 @@
 import 'package:bookly/src/features/booking/presentation/screens/booking_details_screen.dart';
-import 'package:bookly/src/features/hotels/presentation/widgets/simple_header.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 import 'package:bookly/src/features/hotels/presentation/widgets/room_card.dart';
