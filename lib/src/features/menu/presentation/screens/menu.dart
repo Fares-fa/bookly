@@ -1,11 +1,10 @@
+import 'package:bookly/src/features/menu/presentation/widgets/balance_more_widget.dart';
 import 'package:bookly/src/imports/imports.dart';
 import 'package:bookly/src/features/auth/presentation/providers/session_provider.dart';
-
 
 import '../widgets/logout_sheet.dart';
 import '../widgets/menu_header.dart';
 import '../widgets/menu_title.dart';
-
 
 class Menu extends ConsumerWidget {
   const Menu({super.key});
@@ -27,7 +26,8 @@ class Menu extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               MenuHeader(user: user),
-              SizedBox(height: AppSpacing.xl),
+              SizedBox(height: AppSpacing.md),
+              const BalanceMoreWidget(),
               AppCard(
                 showShadow: false,
                 padding: EdgeInsets.zero,
@@ -38,13 +38,19 @@ class Menu extends ConsumerWidget {
                       label: 'Account',
                       onTap: () {},
                     ),
-                    AppDivider(indent: AppSpacing.md, endIndent: AppSpacing.md,color:AppColors.dividerMenu),
+                    AppDivider(
+                        indent: AppSpacing.md,
+                        endIndent: AppSpacing.md,
+                        color: AppColors.dividerMenu),
                     MenuTile(
                       icon: AppAssets.support,
                       label: 'Support',
                       onTap: () {},
                     ),
-                    AppDivider(indent: AppSpacing.md, endIndent: AppSpacing.md,color:AppColors.dividerMenu),
+                    AppDivider(
+                        indent: AppSpacing.md,
+                        endIndent: AppSpacing.md,
+                        color: AppColors.dividerMenu),
                     MenuTile(
                       icon: AppAssets.settings,
                       label: 'Settings',
@@ -64,7 +70,10 @@ class Menu extends ConsumerWidget {
                       label: 'Promo Codes',
                       onTap: () {},
                     ),
-                    AppDivider(indent: AppSpacing.md, endIndent: AppSpacing.md,color:AppColors.dividerMenu),
+                    AppDivider(
+                        indent: AppSpacing.md,
+                        endIndent: AppSpacing.md,
+                        color: AppColors.dividerMenu),
                     MenuTile(
                       icon: AppAssets.invite,
                       label: 'Invite Friend',
@@ -103,3 +112,4 @@ class Menu extends ConsumerWidget {
     );
   }
 }
+

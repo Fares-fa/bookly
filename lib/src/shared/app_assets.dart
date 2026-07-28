@@ -42,6 +42,7 @@ class AppAssets {
   static const String invite = '$_svgsPath/invite.svg';
   static const String promo = '$_svgsPath/promo.svg';
   static const String logout = '$_svgsPath/logout.svg';
+  static const String balance = '$_svgsPath/the_bookly_balance_icon.svg';
   // SVGs
   static const String googleIcon = '$_iconsPath/google.svg';
   static const String facebookIcon = '$_iconsPath/facebook.svg';
