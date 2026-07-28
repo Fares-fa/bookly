@@ -24,6 +24,7 @@
   "bookingStatusCompleted": "مكتملة",
   "bookingStatusCancelled": "ملغاة",
   "bookingDetailsTitle": "تفاصيل الحجز",
+  "roomDetailsTitle": "تفاصيل الغرفة",
   "bookingCheckInLabel": "تسجيل الوصول",
   "bookingCheckOutLabel": "تسجيل المغادرة",
   "bookingTotalStayLabel": "إجمالي مدة الإقامة",

@@ -43,7 +43,7 @@ class _BookingSummaryScreenState extends ConsumerState<BookingSummaryScreen> {
     final notifier = ref.read(bookingFlowProvider.notifier);
 
     return BodyApp(
-      txtCustomAppBar:S.of(context).restaurantBookingSummaryTitle,
+      txtCustomAppBar: S.of(context).restaurantBookingSummaryTitle,
       onPressedArrowBack: () => context.pop(),
       bodyOfContent: SingleChildScrollView(
         child: Column(
@@ -89,7 +89,8 @@ class _BookingSummaryScreenState extends ConsumerState<BookingSummaryScreen> {
                   SizedBox(height: AppSpacing.md),
                   _PromoField(controller: _promoController),
                   SizedBox(height: AppSpacing.lg),
-                  _sectionTitle(S.of(context).restaurantSelectPaymentMethodTitle),
+                  _sectionTitle(
+                      S.of(context).restaurantSelectPaymentMethodTitle),
                   SizedBox(height: AppSpacing.md),
                   _PaymentTile(
                     leading: const ApplePayMark(),
@@ -124,6 +125,7 @@ class _BookingSummaryScreenState extends ConsumerState<BookingSummaryScreen> {
         ),
       ),
       bottomNavigationBar: BookingBottomBar(
+        hideMenuButton: widget.hotelData != null,
         stepIndex: 2,
         label: S.of(context).restaurantConfirmAndPayLabel,
         menuRoute: AppRoutes.restaurantMenu,
@@ -226,10 +228,13 @@ class _SummaryCard extends StatelessWidget {
           _row(S.of(context).restaurantOptionLabel, state.option?.label ?? '—'),
           _row(
             S.of(context).restaurantNoteLabel,
-            state.note.isEmpty ? S.of(context).restaurantAddNoteText : state.note,
+            state.note.isEmpty
+                ? S.of(context).restaurantAddNoteText
+                : state.note,
             isNote: true,
           ),
-          _row(S.of(context).restaurantRemainingMoneyLabel, remaining, emphasize: true),
+          _row(S.of(context).restaurantRemainingMoneyLabel, remaining,
+              emphasize: true),
         ],
       ),
     );
@@ -326,7 +331,8 @@ class _PromoField extends StatelessWidget {
             customHeight: 26.h,
             contentPadding: EdgeInsets.symmetric(horizontal: AppSpacing.ml),
             borderRadius: AppBorders.full,
-            onPressed: () => context.showSnackBar(S.of(context).restaurantPromoCodeAppliedMessage),
+            onPressed: () => context
+                .showSnackBar(S.of(context).restaurantPromoCodeAppliedMessage),
           ),
         ],
       ),

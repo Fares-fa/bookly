@@ -1,3 +1,5 @@
+import 'package:bookly/src/features/categories/venue/presentation/widgets/search_bar.dart'
+    show SearchBarBooking;
 import 'package:bookly/src/features/hotels/presentation/widgets/counter_field.dart';
 import 'package:bookly/src/features/hotels/presentation/widgets/date_field.dart';
 import 'package:bookly/src/imports/imports.dart';
@@ -31,22 +33,9 @@ class _HotelSearchFormState extends State<HotelSearchForm> {
   }
 
   Future<void> _pickDateRange() async {
-    final now = DateTime.now();
-    final firstDate = now;
-    final lastDate = now.add(const Duration(days: 365 * 2));
-    final initialRange = _checkIn != null
-        ? DateTimeRange(
-            start: _checkIn!,
-            end: (_checkOut != null && _checkOut!.isAfter(_checkIn!))
-                ? _checkOut!
-                : _checkIn!.add(const Duration(days: 1)),
-          )
-        : null;
-    final picked = await showDateRangePicker(
-      context: context,
-      initialDateRange: initialRange,
-      firstDate: firstDate,
-      lastDate: lastDate,
+    final picked = await context.push<DateTimeRange>(
+      AppRoutes.hotelDateRange,
+      extra: {'checkIn': _checkIn, 'checkOut': _checkOut},
     );
     if (picked == null) return;
     setState(() {
@@ -77,7 +66,7 @@ class _HotelSearchFormState extends State<HotelSearchForm> {
   Widget build(BuildContext context) {
     final tt = context.textTheme;
     return Container(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(4),
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(18)),
         child: Column(
@@ -87,20 +76,7 @@ class _HotelSearchFormState extends State<HotelSearchForm> {
               behavior: HitTestBehavior.opaque,
               onTap: _pickDestination,
               child: AbsorbPointer(
-                child: AppTextField(
-                  controller: _destinationController,
-                  fillColor: const Color(0xFFF9F9F9),
-                  hint: 'Enter Your Destination',
-                  hintStyle: tt.bodyMedium?.copyWith(
-                      fontWeight: FontWeight.w400,
-                      color: const Color(0xFF666666)),
-                  prefixIcon: const Padding(
-                    padding: EdgeInsets.all(12),
-                    child: VectorGraphic(
-                      loader: AssetBytesLoader(AppAssets.search),
-                    ),
-                  ),
-                ),
+                child: const SearchBarBooking(),
               ),
             ),
             Row(

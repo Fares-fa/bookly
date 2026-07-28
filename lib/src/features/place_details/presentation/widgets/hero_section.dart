@@ -75,7 +75,7 @@ class HeroSection extends ConsumerWidget {
               children: [
                 CircleButton(
                   iconColor: Colors.white,
-                  isPng: true,
+                  // isPng: true,
                   name: AppAssets.back,
                   onTap: () {
                     GoRouter.of(context).pop();

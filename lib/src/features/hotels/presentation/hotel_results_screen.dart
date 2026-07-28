@@ -22,12 +22,13 @@ class _HotelResultsScreenState extends State<HotelResultsScreen> {
   Widget build(BuildContext context) {
     final tt = context.textTheme;
 
-    return Scaffold(
-      backgroundColor: context.theme.colorScheme.surface,
-      body: SafeArea(
+    return BodyApp(
+      onPressedArrowBack: () => GoRouter.of(context).pop(),
+      txtCustomAppBar: widget.city,
+      bodyOfContent: SafeArea(
         child: Column(
           children: [
-            SimpleHeader(title: widget.city),
+            // SimpleHeader(title: widget.city),
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: AppSpacing.ms.w,

@@ -16,6 +16,7 @@ class RoomDetailsCard extends StatelessWidget {
 
     return AppCard(
       showShadow: true,
+      onTap: () => context.push(AppRoutes.roomDetails, extra: data),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
