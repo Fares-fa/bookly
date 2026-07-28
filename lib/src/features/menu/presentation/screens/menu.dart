@@ -1,4 +1,5 @@
 import 'package:bookly/src/features/menu/presentation/widgets/balance_more_widget.dart';
+import 'package:bookly/src/features/menu/presentation/widgets/logout_sheet.dart';
 import 'package:bookly/src/imports/imports.dart';
 import 'package:bookly/src/features/auth/presentation/providers/session_provider.dart';
 
@@ -30,7 +31,9 @@ class _MenuState extends ConsumerState<Menu> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              MenuHeader(user: user),
+              MenuHeader(user: user,onLogout: () {
+                showLogoutSheet(context, ref);
+              },),
               SizedBox(height: AppSpacing.md),
               const BalanceMoreWidget(),
               SizedBox(height: AppSpacing.md),
