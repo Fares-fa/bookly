@@ -1,7 +1,6 @@
 import 'package:bookly/src/features/favorites/presentation/screens/favorite_category_screen.dart';
 import 'package:bookly/src/features/favorites/presentation/widgets/hotel_card.dart';
 import 'package:bookly/src/features/hotels/presentation/widgets/hotel_filters_row.dart';
-import 'package:bookly/src/features/hotels/presentation/widgets/simple_header.dart';
 import 'package:bookly/src/imports/imports.dart';
 
 class HotelResultsScreen extends StatefulWidget {

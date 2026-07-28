@@ -37,10 +37,8 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BodyApp(
-      txtCustomAppBar:S.of(context).bookingDetailsTitle,
-      onPressedArrowBack: () => widget.isReservation ?? false? context.go(AppRoutes.home):context.pop(),
-      bodyOfContent:  SafeArea(
+    return Scaffold(
+      body:  SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
