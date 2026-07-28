@@ -38,12 +38,13 @@ class _HotelRoomsScreenState extends State<HotelRoomsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.theme.colorScheme.surface,
-      body: SafeArea(
+    return BodyApp(
+      txtCustomAppBar: widget.hotelName,
+      onPressedArrowBack: () => GoRouter.of(context).pop(),
+      bodyOfContent: SafeArea(
         child: Column(
           children: [
-            SimpleHeader(title: widget.hotelName),
+            // SimpleHeader(title: widget.hotelName),
             Expanded(
               child: ListView.separated(
                 padding: EdgeInsets.all(AppSpacing.ms.w),

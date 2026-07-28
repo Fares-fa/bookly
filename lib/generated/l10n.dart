@@ -18,8 +18,10 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    assert(
+      _current != null,
+      'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.',
+    );
     return _current!;
   }
 
@@ -41,8 +43,10 @@ class S {
 
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
-    assert(instance != null,
-        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -272,6 +276,16 @@ class S {
     );
   }
 
+  /// `Room Details`
+  String get roomDetailsTitle {
+    return Intl.message(
+      'Room Details',
+      name: 'roomDetailsTitle',
+      desc: 'Title of the Room Details screen',
+      args: [],
+    );
+  }
+
   /// `Check In`
   String get bookingCheckInLabel {
     return Intl.message(
@@ -368,12 +382,7 @@ class S {
 
   /// `Email`
   String get authEmailLabel {
-    return Intl.message(
-      'Email',
-      name: 'authEmailLabel',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Email', name: 'authEmailLabel', desc: '', args: []);
   }
 
   /// `Email is required`
@@ -568,12 +577,7 @@ class S {
 
   /// `Log In`
   String get authLogIn {
-    return Intl.message(
-      'Log In',
-      name: 'authLogIn',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Log In', name: 'authLogIn', desc: '', args: []);
   }
 
   /// `Join As A Guest`
@@ -658,12 +662,7 @@ class S {
 
   /// `Verify`
   String get authVerifyButton {
-    return Intl.message(
-      'Verify',
-      name: 'authVerifyButton',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Verify', name: 'authVerifyButton', desc: '', args: []);
   }
 
   /// `Password reset link sent successfully`
@@ -878,32 +877,17 @@ class S {
 
   /// `Account`
   String get moreAccount {
-    return Intl.message(
-      'Account',
-      name: 'moreAccount',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Account', name: 'moreAccount', desc: '', args: []);
   }
 
   /// `Support`
   String get moreSupport {
-    return Intl.message(
-      'Support',
-      name: 'moreSupport',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Support', name: 'moreSupport', desc: '', args: []);
   }
 
   /// `setting`
   String get moreSettings {
-    return Intl.message(
-      'setting',
-      name: 'moreSettings',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('setting', name: 'moreSettings', desc: '', args: []);
   }
 
   /// `Promo Codes`
@@ -928,12 +912,7 @@ class S {
 
   /// `Log out`
   String get moreLogout {
-    return Intl.message(
-      'Log out',
-      name: 'moreLogout',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Log out', name: 'moreLogout', desc: '', args: []);
   }
 
   /// `Are you sure you want to log out?`
@@ -958,12 +937,7 @@ class S {
 
   /// `Hi`
   String get moreGreeting {
-    return Intl.message(
-      'Hi',
-      name: 'moreGreeting',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Hi', name: 'moreGreeting', desc: '', args: []);
   }
 
   /// `Guest`
@@ -1039,12 +1013,7 @@ class S {
 
   /// `Skip`
   String get onboardingSkip {
-    return Intl.message(
-      'Skip',
-      name: 'onboardingSkip',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Skip', name: 'onboardingSkip', desc: '', args: []);
   }
 
   /// `Get Started`
@@ -1383,12 +1352,7 @@ class S {
 
   /// `Date`
   String get cafeDateLabel {
-    return Intl.message(
-      'Date',
-      name: 'cafeDateLabel',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Date', name: 'cafeDateLabel', desc: '', args: []);
   }
 
   /// `Select date`
@@ -1403,12 +1367,7 @@ class S {
 
   /// `Time`
   String get cafeTimeLabel {
-    return Intl.message(
-      'Time',
-      name: 'cafeTimeLabel',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Time', name: 'cafeTimeLabel', desc: '', args: []);
   }
 
   /// `Select time`
@@ -1443,22 +1402,12 @@ class S {
 
   /// `All`
   String get cafeFilterAll {
-    return Intl.message(
-      'All',
-      name: 'cafeFilterAll',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('All', name: 'cafeFilterAll', desc: '', args: []);
   }
 
   /// `Coffee`
   String get cafeFilterCoffee {
-    return Intl.message(
-      'Coffee',
-      name: 'cafeFilterCoffee',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Coffee', name: 'cafeFilterCoffee', desc: '', args: []);
   }
 
   /// `Dessert`
@@ -1573,12 +1522,7 @@ class S {
 
   /// `Person`
   String get cafePersonLabel {
-    return Intl.message(
-      'Person',
-      name: 'cafePersonLabel',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Person', name: 'cafePersonLabel', desc: '', args: []);
   }
 
   /// `{count} Person`
@@ -1593,22 +1537,12 @@ class S {
 
   /// `Option`
   String get cafeOptionLabel {
-    return Intl.message(
-      'Option',
-      name: 'cafeOptionLabel',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Option', name: 'cafeOptionLabel', desc: '', args: []);
   }
 
   /// `Note`
   String get cafeNoteLabel {
-    return Intl.message(
-      'Note',
-      name: 'cafeNoteLabel',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Note', name: 'cafeNoteLabel', desc: '', args: []);
   }
 
   /// `Add a note`
@@ -1643,12 +1577,7 @@ class S {
 
   /// `Apply`
   String get cafeApplyButton {
-    return Intl.message(
-      'Apply',
-      name: 'cafeApplyButton',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Apply', name: 'cafeApplyButton', desc: '', args: []);
   }
 
   /// `Promo code applied`
@@ -1663,12 +1592,7 @@ class S {
 
   /// `Menu`
   String get cafeMenuTitle {
-    return Intl.message(
-      'Menu',
-      name: 'cafeMenuTitle',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Menu', name: 'cafeMenuTitle', desc: '', args: []);
   }
 
   /// `How Many People ?`

@@ -111,6 +111,34 @@ class _RoomCardState extends State<RoomCard> {
                               ),
                             ),
                           ),
+                        Positioned(
+                          right: 0,
+                          top: 0,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10.w, vertical: 2.h),
+                            decoration: const BoxDecoration(
+                              color: AppColors.scrimStrong,
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(10),
+                                bottomLeft: Radius.circular(60),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(Icons.star,
+                                    size: 12.sp, color: AppColors.star),
+                                SizedBox(width: 2.w),
+                                Text(
+                                  '4.5',
+                                  style: AppTextStyle.whiteW400Size14
+                                      .copyWith(fontSize: 11.sp),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -188,6 +216,7 @@ class _RoomCardState extends State<RoomCard> {
               SizedBox(
                 width: 135,
                 child: PrimaryButton(
+                  height: ButtonSize.small,
                   label: _selected != null ? 'Deselect' : 'Select',
                   suffixIcon: _selected != null
                       ? null

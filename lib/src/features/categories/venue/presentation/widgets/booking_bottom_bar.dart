@@ -13,11 +13,13 @@ class BookingBottomBar extends StatelessWidget {
     required this.label,
     required this.onContinue,
     required this.menuRoute,
+    this.hideMenuButton,
     this.menuIcon = Icons.room_service_outlined,
     this.totalSteps = 3,
     this.enabled = true,
   });
 
+  final bool? hideMenuButton;
   final int stepIndex;
   final int totalSteps;
   final String label;
@@ -53,8 +55,10 @@ class BookingBottomBar extends StatelessWidget {
           SizedBox(height: AppSpacing.md),
           Row(
             children: [
-              _MenuButton(icon: menuIcon, route: menuRoute),
-              SizedBox(width: AppSpacing.md),
+              if (hideMenuButton == false) ...[
+                _MenuButton(icon: menuIcon, route: menuRoute),
+                SizedBox(width: AppSpacing.md),
+              ],
               Expanded(
                 child: AppButton(
                   label: label,
@@ -95,7 +99,8 @@ class _MenuButton extends StatelessWidget {
           children: [
             Icon(icon, color: AppColors.primary, size: 22),
             SizedBox(height: 2.h),
-            Text(S.of(context).venueMenuLabel, style: AppTextStyle.primaryW500Size9),
+            Text(S.of(context).venueMenuLabel,
+                style: AppTextStyle.primaryW500Size9),
           ],
         ),
       ),

@@ -90,6 +90,10 @@
   "@bookingDetailsTitle": {
     "description": "Title of the Booking Details screen"
   },
+  "roomDetailsTitle": "Room Details",
+  "@roomDetailsTitle": {
+    "description": "Title of the Room Details screen"
+  },
   "bookingCheckInLabel": "Check In",
   "@bookingCheckInLabel": {
     "description": "Label for the check-in date/time column on the booking details screen"

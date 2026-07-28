@@ -4,6 +4,7 @@ import 'package:bookly/src/features/hotels/presentation/hotel_search_screen.dart
 import 'package:bookly/src/features/hotels/presentation/hotel_results_screen.dart';
 import 'package:bookly/src/features/hotels/presentation/hotel_details_screen.dart';
 import 'package:bookly/src/features/hotels/presentation/hotel_rooms_screen.dart';
+import 'package:bookly/src/features/hotels/presentation/hotel_date_range_screen.dart';
 import 'package:bookly/src/features/favorites/presentation/widgets/hotel_card_data.dart';
 import 'package:bookly/src/features/menu/presentation/screens/menu.dart';
 import 'package:go_router/go_router.dart';
@@ -34,6 +35,7 @@ import 'package:bookly/src/features/favorites/presentation/screens/favorite_cate
 import 'package:bookly/src/features/favorites/presentation/screens/my_favorites_screen.dart';
 import 'package:bookly/src/features/booking/presentation/screens/my_booking_screen.dart';
 import 'package:bookly/src/features/booking/presentation/screens/booking_details_screen.dart';
+import 'package:bookly/src/features/booking/presentation/screens/room_details_screen.dart';
 
 import '../features/categories/restaurant/presentation/screens/book_table_screen.dart';
 import '../features/categories/restaurant/presentation/screens/booking_confirmed_screen.dart';
@@ -256,6 +258,17 @@ final GoRouter appRouter = GoRouter(
       ),
     ),
     GoRoute(
+      path: AppRoutes.hotelDateRange,
+      name: 'hotel-date-range',
+      builder: (context, state) {
+        final data = state.extra as Map<String, dynamic>?;
+        return HotelDateRangeScreen(
+          initialCheckIn: data?['checkIn'] as DateTime?,
+          initialCheckOut: data?['checkOut'] as DateTime?,
+        );
+      },
+    ),
+    GoRoute(
       path: AppRoutes.notifications,
       name: 'notifications',
       builder: (context, state) => const NotificationsScreen(),
@@ -276,6 +289,14 @@ final GoRouter appRouter = GoRouter(
       path: AppRoutes.bookingDetails,
       name: 'booking-details',
       builder: (context, state) => BookingDetailsScreen(
+        data:
+            (state.extra as BookingDetailsData?) ?? kPlaceholderBookingDetails,
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.roomDetails,
+      name: 'room-details',
+      builder: (context, state) => RoomDetailsScreen(
         data:
             (state.extra as BookingDetailsData?) ?? kPlaceholderBookingDetails,
       ),

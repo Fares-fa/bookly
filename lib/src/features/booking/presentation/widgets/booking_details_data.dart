@@ -28,6 +28,7 @@ class BookingDetailsData {
     required this.subtotal,
     required this.fees,
     required this.totalAmount,
+    this.roomImages,
   });
 
   final String hotelLogo;
@@ -35,7 +36,7 @@ class BookingDetailsData {
   final String hotelName;
   final int starRating;
   final double reviewScore;
-
+  final List<String>? roomImages;
   final String checkInDate;
   final String checkInTime;
   final String checkOutDate;
@@ -70,6 +71,12 @@ const kPlaceholderBookingDetails = BookingDetailsData(
     BookingAmenity(icon: Icons.wifi, label: 'Wifi'),
     BookingAmenity(icon: Icons.ac_unit_outlined, label: 'Air Conditioner'),
     BookingAmenity(icon: Icons.tv_outlined, label: 'Tv'),
+  ],
+  roomImages: [
+    AppAssets.favouritesHotel,
+    AppAssets.rest1,
+    AppAssets.rest2,
+    AppAssets.rest3,
   ],
   inclusions: ['All Inclusive', 'Free Cancellation Until 25 Dec'],
   subtotal: 'EGP 96,415.00',

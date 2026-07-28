@@ -15,7 +15,7 @@ class AmenityChip extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: AppSpacing.ms.w, vertical: 2.h),
       decoration: BoxDecoration(
-        border: Border.all(color: cs.outlineVariant),
+        border: Border.all(color: Colors.black),
         borderRadius: AppBorders.sm,
       ),
       child: Row(
@@ -23,7 +23,8 @@ class AmenityChip extends StatelessWidget {
         children: [
           Icon(amenity.icon, size: 14.sp, color: cs.onSurfaceVariant),
           SizedBox(width: 4.w),
-          Text(amenity.label, style: TextStyle(fontSize: 12.sp, color: cs.onSurfaceVariant)),
+          Text(amenity.label,
+              style: TextStyle(fontSize: 12.sp, color: cs.onSurfaceVariant)),
         ],
       ),
     );

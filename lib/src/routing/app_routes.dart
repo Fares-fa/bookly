@@ -33,6 +33,7 @@ abstract final class AppRoutes {
   static const String myFavorites = '/my-favorites';
   static const String myBooking = '/my-booking';
   static const String bookingDetails = '/booking-details';
+  static const String roomDetails = '/room-details';
 
   // Bottom-nav shell branches (see `AppShell`).
   static const String favorites = '/favorites';
@@ -44,4 +45,5 @@ abstract final class AppRoutes {
   static const String hotelResults = '/hotel-results';
   static const String hotelDetails = '/hotel-details';
   static const String hotelRooms = '/hotel-rooms';
+  static const String hotelDateRange = '/hotel-date-range';
 }
