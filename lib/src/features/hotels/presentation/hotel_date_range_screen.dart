@@ -35,15 +35,18 @@ class _HotelDateRangeScreenState extends State<HotelDateRangeScreen> {
   ];
 
   late DateTime _month;
+  late DateTime _today; // date-only, for disabling past days
   DateTime? _checkIn;
   DateTime? _checkOut;
 
   @override
   void initState() {
     super.initState();
+    final now = DateTime.now();
+    _today = DateTime(now.year, now.month, now.day);
     _checkIn = widget.initialCheckIn;
     _checkOut = widget.initialCheckOut;
-    final base = widget.initialCheckIn ?? DateTime.now();
+    final base = widget.initialCheckIn ?? now;
     _month = DateTime(base.year, base.month);
   }
 
@@ -112,6 +115,8 @@ class _HotelDateRangeScreenState extends State<HotelDateRangeScreen> {
   }
 
   Widget _header() {
+    final canGoToPreviousMonth = _month.isAfter(DateTime(_today.year, _today.month));
+
     return Row(
       children: [
         Text(
@@ -121,14 +126,14 @@ class _HotelDateRangeScreenState extends State<HotelDateRangeScreen> {
           ),
         ),
         const Spacer(),
-        _chevron(Icons.chevron_left, () => _shiftMonth(-1)),
+        _chevron(Icons.chevron_left, canGoToPreviousMonth ? () => _shiftMonth(-1) : null),
         SizedBox(width: AppSpacing.sm.w),
         _chevron(Icons.chevron_right, () => _shiftMonth(1)),
       ],
     );
   }
 
-  Widget _chevron(IconData icon, VoidCallback onTap) {
+  Widget _chevron(IconData icon, VoidCallback? onTap) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -138,7 +143,11 @@ class _HotelDateRangeScreenState extends State<HotelDateRangeScreen> {
           color: AppColors.background,
           borderRadius: AppBorders.sm,
         ),
-        child: Icon(icon, size: 20, color: AppColors.textDark),
+        child: Icon(
+          icon,
+          size: 20,
+          color: onTap != null ? AppColors.textDark : AppColors.textGray.withValues(alpha: 0.4),
+        ),
       ),
     );
   }
@@ -192,6 +201,7 @@ class _HotelDateRangeScreenState extends State<HotelDateRangeScreen> {
     final isCheckOut = _checkOut != null && _isSameDay(day, _checkOut!);
     final isEndpoint = isCheckIn || isCheckOut;
     final inRange = _isInRange(day);
+    final isPast = day.isBefore(_today);
 
     final Color bg;
     final Color fg;
@@ -203,13 +213,15 @@ class _HotelDateRangeScreenState extends State<HotelDateRangeScreen> {
       fg = AppColors.textDark;
     } else {
       bg = Colors.transparent;
-      fg = inMonth
-          ? AppColors.textDark
-          : AppColors.textGray.withValues(alpha: 0.5);
+      fg = isPast
+          ? AppColors.textGray.withValues(alpha: 0.3)
+          : inMonth
+              ? AppColors.textDark
+              : AppColors.textGray.withValues(alpha: 0.5);
     }
 
     return GestureDetector(
-      onTap: () => _selectDay(day),
+      onTap: isPast ? null : () => _selectDay(day),
       behavior: HitTestBehavior.opaque,
       child: Center(
         child: Container(
