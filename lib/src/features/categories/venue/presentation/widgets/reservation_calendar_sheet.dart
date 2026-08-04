@@ -58,6 +58,7 @@ class _ReservationCalendarSheetState extends State<ReservationCalendarSheet> {
 
   late DateTime _month; // first day of the displayed month
   late DateTime _selected; // the chosen day (date only)
+  late DateTime _today; // date-only, for disabling past days
   late int _hour; // 1..12
   late int _minute;
   late bool _isAm;
@@ -66,6 +67,7 @@ class _ReservationCalendarSheetState extends State<ReservationCalendarSheet> {
   void initState() {
     super.initState();
     final now = DateTime.now();
+    _today = DateTime(now.year, now.month, now.day);
     final initialDate = widget.initialDate ?? now;
     _selected = DateTime(initialDate.year, initialDate.month, initialDate.day);
     _month = DateTime(initialDate.year, initialDate.month);
@@ -156,6 +158,8 @@ class _ReservationCalendarSheetState extends State<ReservationCalendarSheet> {
   }
 
   Widget _header() {
+    final canGoToPreviousMonth = _month.isAfter(DateTime(_today.year, _today.month));
+
     return Row(
       children: [
         Text(
@@ -167,14 +171,14 @@ class _ReservationCalendarSheetState extends State<ReservationCalendarSheet> {
         SizedBox(width: AppSpacing.sm),
         const Icon(Icons.chevron_right, color: AppColors.primary, size: 22),
         const Spacer(),
-        _chevron(Icons.chevron_left, () => _shiftMonth(-1)),
+        _chevron(Icons.chevron_left, canGoToPreviousMonth ? () => _shiftMonth(-1) : null),
         SizedBox(width: AppSpacing.sm),
         _chevron(Icons.chevron_right, () => _shiftMonth(1)),
       ],
     );
   }
 
-  Widget _chevron(IconData icon, VoidCallback onTap) {
+  Widget _chevron(IconData icon, VoidCallback? onTap) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -184,7 +188,11 @@ class _ReservationCalendarSheetState extends State<ReservationCalendarSheet> {
           color: AppColors.background,
           borderRadius: AppBorders.sm,
         ),
-        child: Icon(icon, size: 20, color: AppColors.textDark),
+        child: Icon(
+          icon,
+          size: 20,
+          color: onTap != null ? AppColors.textDark : AppColors.textGray.withValues(alpha: 0.4),
+        ),
       ),
     );
   }
@@ -214,7 +222,6 @@ class _ReservationCalendarSheetState extends State<ReservationCalendarSheet> {
     // Sunday-first grid: weekday%7 gives Sun=0 … Sat=6.
     final leading = firstOfMonth.weekday % 7;
     final gridStart = firstOfMonth.subtract(Duration(days: leading));
-    final today = DateTime.now();
 
     return Column(
       children: [
@@ -225,10 +232,7 @@ class _ReservationCalendarSheetState extends State<ReservationCalendarSheet> {
               children: [
                 for (var d = 0; d < 7; d++)
                   Expanded(
-                    child: _dayCell(
-                      gridStart.add(Duration(days: week * 7 + d)),
-                      today,
-                    ),
+                    child: _dayCell(gridStart.add(Duration(days: week * 7 + d))),
                   ),
               ],
             ),
@@ -237,10 +241,11 @@ class _ReservationCalendarSheetState extends State<ReservationCalendarSheet> {
     );
   }
 
-  Widget _dayCell(DateTime day, DateTime today) {
+  Widget _dayCell(DateTime day) {
     final inMonth = day.month == _month.month;
     final isSelected = _isSameDay(day, _selected);
-    final isToday = _isSameDay(day, today);
+    final isToday = _isSameDay(day, _today);
+    final isPast = day.isBefore(_today);
 
     final Color bg;
     final Color fg;
@@ -252,13 +257,15 @@ class _ReservationCalendarSheetState extends State<ReservationCalendarSheet> {
       fg = AppColors.textDark;
     } else {
       bg = Colors.transparent;
-      fg = inMonth
-          ? AppColors.textDark
-          : AppColors.textGray.withValues(alpha: 0.5);
+      fg = isPast
+          ? AppColors.textGray.withValues(alpha: 0.3)
+          : inMonth
+              ? AppColors.textDark
+              : AppColors.textGray.withValues(alpha: 0.5);
     }
 
     return GestureDetector(
-      onTap: () => _selectDay(day),
+      onTap: isPast ? null : () => _selectDay(day),
       behavior: HitTestBehavior.opaque,
       child: Center(
         child: Container(

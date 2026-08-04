@@ -59,6 +59,7 @@ class LoginPhoneForm extends StatelessWidget {
                     hintStyle: const TextStyle(fontSize: 14),
                     fillColor: Colors.transparent,
                     contentPadding: const EdgeInsets.all(20),
+                    errorMaxLines: 3,
                   ),
                   controller: phoneController,
                   keyboardType: TextInputType.phone,
